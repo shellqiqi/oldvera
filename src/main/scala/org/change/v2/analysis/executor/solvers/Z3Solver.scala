@@ -3,7 +3,7 @@ package org.change.v2.analysis.executor.solvers
 import z3.scala.Z3Context
 import org.change.v2.analysis.executor.translators.Z3Translator
 import org.change.v2.analysis.executor.translators.Z3Translator
-import z3.scala.Z3Config
+
 import org.change.v2.analysis.executor.translators.Z3Translator
 import org.change.v2.analysis.memory.MemorySpace
 import org.change.v2.analysis.constraint.GT
@@ -45,7 +45,7 @@ class Z3Solver extends AbstractSolver[z3.scala.Z3Solver] {
   
   protected def createContext() : Z3Context = {
     this.getClass.synchronized({
-      val z3 = new Z3Context(new Z3Config("MODEL" -> true))
+      val z3 = new Z3Context("MODEL" -> true)
       z3
     })
   }
@@ -73,7 +73,7 @@ class Z3SolverEnhanced extends Z3Solver {
           System.out.println("Create " + 
               Thread.currentThread().getName + 
               " #" + Thread.currentThread().getId)
-          val z3 = new Z3Context(new Z3Config("MODEL" -> true))
+          val z3 = new Z3Context("MODEL" -> true)
           z3
         })
     }

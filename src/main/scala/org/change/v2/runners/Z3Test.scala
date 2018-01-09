@@ -20,8 +20,7 @@ object Z3Test {
 
         val totSecs = 200
 
-        val cfg = new Z3Config("MODEL" -> true) // required if you plan to query models of satisfiable constraints
-        val z3 = new Z3Context(cfg)
+        val z3 = new Z3Context("MODEL" -> true)
 
         // prepares the integer sort and three constants (the "unknowns")
         val i = z3.mkIntSort
@@ -48,7 +47,7 @@ object Z3Test {
         val cs4 = z3.mkAnd(z3.mkGE(s, z), z3.mkLT(s, sx))
 
         // pushes the constraints to the Z3 context
-        z3.assertCnstr(z3.mkAnd(cs1, cs2, cs3, cs4))
+        /*z3.assertCnstr(z3.mkAnd(cs1, cs2, cs3, cs4))
 
         // attempting to solve the constraints, and reading the result
         z3.checkAndGetModel match {
@@ -62,7 +61,7 @@ object Z3Test {
           }
         }
 
-        z3.delete
+        z3.delete*/
       }
 
 }

@@ -1,6 +1,6 @@
 package org.change.v2.analysis.z3
 
-import z3.scala.{Z3Sort, Z3Context, Z3Config}
+import z3.scala.{Z3Sort, Z3Context}
 
 /**
  * Author: Radu Stoenescu
@@ -11,12 +11,12 @@ object Z3Util {
   
   private var threadLocalContext = new ThreadLocal[Z3Context]() {
     override def initialValue() : Z3Context = {
-      new Z3Context(new Z3Config("MODEL" -> true))
+      new Z3Context("MODEL" -> true)
     }
   }
   
   def refreshCache {
-    threadLocalContext.set(new Z3Context(new Z3Config("MODEL" -> true)))
+    threadLocalContext.set(new Z3Context("MODEL" -> true))
   }
   
 	def z3Context = threadLocalContext.get

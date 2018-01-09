@@ -25,11 +25,13 @@ object RepresentationConversion {
   
   def numberToIp(ip : Long) = {
     var startStr = ""
-    val start = unpack(ip.asInstanceOf[Int])
+    /*val start = unpack(ip.asInstanceOf[Int])
     for (b <- start) {
       startStr += ((b & 0xFF).asInstanceOf[Int]).toString + "."
     }
-    startStr = startStr.substring(0, startStr.length() - 1)
+    startStr = startStr.substring(0, startStr.length() - 1)*/
+
+    startStr  += ((ip>>> 24) & 0xff).toString + "." + ((ip>>> 16) & 0xff).toString + "." + ((ip>>> 8) & 0xff).toString + "." + ((ip & 0xff).toString)
     startStr
   }
   
@@ -38,6 +40,7 @@ object RepresentationConversion {
   }
 
   def macToNumber(mac: String): Long = {
+    mac.toLowerCase.split(":").map(Integer.parseInt(_, 16)).foldLeft(0L)((a:Long, g:Int)=> a * 256 + g)
     mac.toLowerCase.split(":").map(Integer.parseInt(_, 16)).foldLeft(0L)((a:Long, g:Int)=> a * 256 + g)
   }
 

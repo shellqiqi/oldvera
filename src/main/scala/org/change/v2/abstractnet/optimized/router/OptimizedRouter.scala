@@ -159,6 +159,40 @@ object OptimizedRouter {
     }
   }
 
+
+  def makeOptimizedRouter_Costin(f: File, prefix: String): OptimizedRouter = {
+    val table = getRoutingEntries(f)
+    val name = f.getName.trim.stripSuffix(".rt")
+
+    new OptimizedRouter(prefix,"Router", Nil, Nil, Nil) {
+      override def instructions: Map[LocationId, Instruction] = Map(s"${prefix}0" ->
+        Fork(table.map(i => {
+          val ((l,u), port) = i
+          (port, AND(List(GTE_E(ConstantValue(l)), LTE_E(ConstantValue(u))) ++
+            {
+              val conflicts = table.takeWhile(i =>  u-l > i._1._2 - i._1._1)filter( other => {
+                val ((otherL, otherU), otherPort) = other
+                port != otherPort &&
+                  l <= otherL &&
+                  u >= otherU
+              })
+
+              if (conflicts.nonEmpty)
+                Seq(NOT(OR((conflicts.map( conflictual => {
+                  AND(List(GTE_E(ConstantValue(conflictual._1._1)), LTE_E(ConstantValue(conflictual._1._2))))
+                }).toList))))
+              else Nil
+            }))
+        }).groupBy(_._1).map( kv =>
+          InstructionBlock(
+            Assert(IPDst, OR(kv._2.map(_._2).toList)),
+            Forward(prefix+kv._1))
+        ))) ++
+        table.map(i => prefix+i._2 -> Forward(prefix+i._2+"_EXIT").asInstanceOf[Instruction]).toMap ++
+        table.map(i => prefix+i._2+"_EXIT" -> NoOp.asInstanceOf[Instruction]).toMap
+    }
+  }
+
   def makeTrivialRouter(f: File): OptimizedRouter = {
     val table = getTrivialRoutingEntries(f)
     val name = f.getName.trim.stripSuffix(".router")
@@ -197,7 +231,7 @@ object OptimizedRouter {
     }
   }
 
-  def makeNaiveRouter(f: File): OptimizedRouter = {
+  def makeNaiveRouter(f: File, prefix: String = ""): OptimizedRouter = {
     val table = getRoutingEntries(f)
 
     var conflictCount = 0L
@@ -226,14 +260,18 @@ object OptimizedRouter {
           else Nil
         }))
     }).groupBy(_._1).foldRight(Fail("No route"): Instruction)( (kv, a) =>
-      If(ConstrainRaw(IPDst, OR(kv._2.map(_._2).toList)), Forward(kv._1), a)
+      If(ConstrainRaw(IPDst, OR(kv._2.map(_._2).toList)), Forward(prefix+kv._1), a)
     )
 
     println("Routing table size " + table.length)
     println("Conflict count " + conflictCount)
 
-    new OptimizedRouter(f.getName,"Router", Nil, Nil, Nil) {
-      override def instructions: Map[LocationId, Instruction] = Map("0" -> i)
+    new OptimizedRouter("NAIVE","Router", Nil, Nil, Nil) {
+      override def instructions: Map[LocationId, Instruction] = {
+        table.map(i => prefix+i._2 -> Forward(prefix+i._2+"_EXIT").asInstanceOf[Instruction]).toMap ++
+        table.map(i => prefix+i._2+"_EXIT" -> NoOp.asInstanceOf[Instruction]).toMap +
+        (prefix+"0" -> i)
+      }
     }
   }
 
