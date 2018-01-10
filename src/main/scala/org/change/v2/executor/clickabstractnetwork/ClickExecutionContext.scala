@@ -23,19 +23,19 @@ import org.change.v2.analysis.executor.SpeculativeExecutor
  * A port is a String id, that maps to an instruction.
  */
 case class ClickExecutionContext(
-                           instructions: Map[LocationId, Instruction],
-                           links: Map[LocationId, LocationId],
-                           okStates: List[State],
-                           failedStates: List[State] = Nil,
-                           stuckStates: List[State] = Nil,
-                           checkInstructions: Map[LocationId, Instruction] = Map.empty,
-                           logger: ExecutionLogger = NoLogging, 
-                           executor : InstructionExecutor = InstructionExecutor()
-) {
+                                  instructions: Map[LocationId, Instruction],
+                                  links: Map[LocationId, LocationId],
+                                  okStates: List[State],
+                                  failedStates: List[State] = Nil,
+                                  stuckStates: List[State] = Nil,
+                                  checkInstructions: Map[LocationId, Instruction] = Map.empty,
+                                  logger: ExecutionLogger = NoLogging,
+                                  executor: InstructionExecutor = InstructionExecutor()
+                                ) {
   def setLogger(newLogger: ExecutionLogger): ClickExecutionContext = copy(logger = newLogger)
 
-  def setExecutor(instructionExecutor : InstructionExecutor) = copy(executor = instructionExecutor)
-  
+  def setExecutor(instructionExecutor: InstructionExecutor) = copy(executor = instructionExecutor)
+
   /**
    * Merges two execution contexts.
    * @param that
@@ -57,35 +57,36 @@ case class ClickExecutionContext(
   def isDone: Boolean = okStates.isEmpty
 
   /**
-   * Calls execute until nothing can be explored further more. (The result is a done Execution Context)
-   * @param verbose
-   * @return
-   */
+    * Calls execute until nothing can be explored further more. (The result is a done Execution Context)
+    *
+    * @param verbose
+    * @return
+    */
   def untilDone(verbose: Boolean): ClickExecutionContext = if (isDone) this else this.execute(verbose).untilDone(verbose)
 
   def execute(verbose: Boolean = false): ClickExecutionContext = {
     val (ok, fail, stuck) = (for {
       sPrime <- okStates
       s = if (links contains sPrime.location)
-          sPrime.forwardTo(links(sPrime.location))
-        else
-          sPrime
+        sPrime.forwardTo(links(sPrime.location))
+      else
+        sPrime
       stateLocation = s.location
     } yield {
-        if (instructions contains stateLocation) {
-          val r1 = instructions(stateLocation)(s, verbose)
-          val (toCheck, r2) = r1._1.partition(s => checkInstructions.contains(s.location))
-          val r3 = toCheck.map(s => checkInstructions(s.location)(s,verbose)).unzip
-          (r2 ++ r3._1.flatten, r1._2 ++ r3._2.flatten, Nil)
-        } else
-          (Nil, Nil, List(s))
-      }).unzip3
+      if (instructions contains stateLocation) {
+        val r1 = instructions(stateLocation)(s, verbose)
+        val (toCheck, r2) = r1._1.partition(s => checkInstructions.contains(s.location))
+        val r3 = toCheck.map(s => checkInstructions(s.location)(s, verbose)).unzip
+        (r2 ++ r3._1.flatten, r1._2 ++ r3._2.flatten, Nil)
+      } else
+        (Nil, Nil, List(s))
+    }).unzip3
 
-      useAndReturn(copy(
-        okStates = ok.flatten,
-        failedStates = failedStates ++ fail.flatten,
-        stuckStates = stuckStates ++ stuck.flatten
-      ), {ctx: ClickExecutionContext => logger.log(ctx)})
+    useAndReturn(copy(
+      okStates = ok.flatten,
+      failedStates = failedStates ++ fail.flatten,
+      stuckStates = stuckStates ++ stuck.flatten
+    ), { ctx: ClickExecutionContext => logger.log(ctx) })
   }
 
   def executeDFS(verbose: Boolean = false): ClickExecutionContext = {
@@ -99,26 +100,26 @@ case class ClickExecutionContext(
       val stateLocation = s.location
 
       if (instructions contains stateLocation) {
-          //          Apply instructions
-          val i = instructions(stateLocation)
-          val r1 = i(s, verbose)
-          //          Apply check instructions on output ports
-          //          val (toCheck, r2) = r1._1.partition(s => checkInstructions.contains(s.location))
-          //          val r3 = toCheck.map(s => checkInstructions(s.location)(s,verbose)).unzip
+        //          Apply instructions
+        val i = instructions(stateLocation)
+        val r1 = i(s, verbose)
+        //          Apply check instructions on output ports
+        //          val (toCheck, r2) = r1._1.partition(s => checkInstructions.contains(s.location))
+        //          val r3 = toCheck.map(s => checkInstructions(s.location)(s,verbose)).unzip
 
-          for {
-            s <- r1._2
-          } s.memory.buildSolver.decRef()
+        for {
+          s <- r1._2
+        } s.memory.buildSolver.decRef()
 
-          (r1._1, r1._2, Nil)
-        } else (Nil, Nil, List(s))
+        (r1._1, r1._2, Nil)
+      } else (Nil, Nil, List(s))
     }
 
     useAndReturn(copy(
       okStates = ok ++ okStates.tail,
       stuckStates = stuck ++ stuckStates,
       failedStates = fail ++ failedStates
-    ), {ctx: ClickExecutionContext => logger.log(ctx)})
+    ), { ctx: ClickExecutionContext => logger.log(ctx) })
   }
 
   def executeDumpingFailed(verbose: Boolean = false): ClickExecutionContext = {
@@ -130,20 +131,20 @@ case class ClickExecutionContext(
         sPrime
       stateLocation = s.location
     } yield {
-        if (instructions contains stateLocation) {
-          //          Apply instructions
-          val r1 = instructions(stateLocation)(s, verbose)
-          //          Apply check instructions on output ports
-          val (toCheck, r2) = r1._1.partition(s => checkInstructions.contains(s.location))
-          val r3 = toCheck.map(s => checkInstructions(s.location)(s,verbose)).unzip
-          (r2 ++ r3._1.flatten, r1._2 ++ r3._2.flatten, Nil)
-        } else
-          (Nil, Nil, List(s))
-      }).unzip3
+      if (instructions contains stateLocation) {
+        //          Apply instructions
+        val r1 = instructions(stateLocation)(s, verbose)
+        //          Apply check instructions on output ports
+        val (toCheck, r2) = r1._1.partition(s => checkInstructions.contains(s.location))
+        val r3 = toCheck.map(s => checkInstructions(s.location)(s, verbose)).unzip
+        (r2 ++ r3._1.flatten, r1._2 ++ r3._2.flatten, Nil)
+      } else
+        (Nil, Nil, List(s))
+    }).unzip3
 
     useAndReturn(copy(
       okStates = ok.flatten
-    ), {ctx: ClickExecutionContext => logger.log(ctx)})
+    ), { ctx: ClickExecutionContext => logger.log(ctx) })
   }
 
   // TODO: Move to a logger

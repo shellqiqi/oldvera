@@ -1,4 +1,4 @@
-// Generated from /0/projects/internal/symnet-stuff/Symnetic/src/main/resources/p4_grammar/P4Grammar.g4 by ANTLR 4.6
+// Generated from /home/dragos/GitHub/symnet-neutron/src/main/resources/p4_grammar/P4Grammar.g4 by ANTLR 4.7
 package generated.parse.p4;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -52,85 +52,37 @@ public class P4GrammarBaseListener implements P4GrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUnsigned_value(P4GrammarParser.Unsigned_valueContext ctx) { }
+	@Override public void enterBinaryUValue(P4GrammarParser.BinaryUValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUnsigned_value(P4GrammarParser.Unsigned_valueContext ctx) { }
+	@Override public void exitBinaryUValue(P4GrammarParser.BinaryUValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBinary_value(P4GrammarParser.Binary_valueContext ctx) { }
+	@Override public void enterDecimalUValue(P4GrammarParser.DecimalUValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBinary_value(P4GrammarParser.Binary_valueContext ctx) { }
+	@Override public void exitDecimalUValue(P4GrammarParser.DecimalUValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDecimal_value(P4GrammarParser.Decimal_valueContext ctx) { }
+	@Override public void enterHexadecimalUValue(P4GrammarParser.HexadecimalUValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDecimal_value(P4GrammarParser.Decimal_valueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterHexadecimal_value(P4GrammarParser.Hexadecimal_valueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitHexadecimal_value(P4GrammarParser.Hexadecimal_valueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBinary_digit(P4GrammarParser.Binary_digitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBinary_digit(P4GrammarParser.Binary_digitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDecimal_digit(P4GrammarParser.Decimal_digitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDecimal_digit(P4GrammarParser.Decimal_digitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterHexadecimal_digit(P4GrammarParser.Hexadecimal_digitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitHexadecimal_digit(P4GrammarParser.Hexadecimal_digitContext ctx) { }
+	@Override public void exitHexadecimalUValue(P4GrammarParser.HexadecimalUValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -268,25 +220,49 @@ public class P4GrammarBaseListener implements P4GrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInstance_declaration(P4GrammarParser.Instance_declarationContext ctx) { }
+	@Override public void enterHeaderInstance(P4GrammarParser.HeaderInstanceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInstance_declaration(P4GrammarParser.Instance_declarationContext ctx) { }
+	@Override public void exitHeaderInstance(P4GrammarParser.HeaderInstanceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHeader_instance(P4GrammarParser.Header_instanceContext ctx) { }
+	@Override public void enterMetadataInstance(P4GrammarParser.MetadataInstanceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHeader_instance(P4GrammarParser.Header_instanceContext ctx) { }
+	@Override public void exitMetadataInstance(P4GrammarParser.MetadataInstanceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterScalarInstance(P4GrammarParser.ScalarInstanceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScalarInstance(P4GrammarParser.ScalarInstanceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArrayInstance(P4GrammarParser.ArrayInstanceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArrayInstance(P4GrammarParser.ArrayInstanceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1288,13 +1264,25 @@ public class P4GrammarBaseListener implements P4GrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCase_list(P4GrammarParser.Case_listContext ctx) { }
+	@Override public void enterCase_list_action(P4GrammarParser.Case_list_actionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCase_list(P4GrammarParser.Case_listContext ctx) { }
+	@Override public void exitCase_list_action(P4GrammarParser.Case_list_actionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCase_list_hitmiss(P4GrammarParser.Case_list_hitmissContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCase_list_hitmiss(P4GrammarParser.Case_list_hitmissContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1372,25 +1360,133 @@ public class P4GrammarBaseListener implements P4GrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBool_expr(P4GrammarParser.Bool_exprContext ctx) { }
+	@Override public void enterValid_bool_expr(P4GrammarParser.Valid_bool_exprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBool_expr(P4GrammarParser.Bool_exprContext ctx) { }
+	@Override public void exitValid_bool_expr(P4GrammarParser.Valid_bool_exprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExp(P4GrammarParser.ExpContext ctx) { }
+	@Override public void enterCompound_bool_expr(P4GrammarParser.Compound_bool_exprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExp(P4GrammarParser.ExpContext ctx) { }
+	@Override public void exitCompound_bool_expr(P4GrammarParser.Compound_bool_exprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPar_bool_expr(P4GrammarParser.Par_bool_exprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPar_bool_expr(P4GrammarParser.Par_bool_exprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRelop_bool_expr(P4GrammarParser.Relop_bool_exprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRelop_bool_expr(P4GrammarParser.Relop_bool_exprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNegated_bool_expr(P4GrammarParser.Negated_bool_exprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNegated_bool_expr(P4GrammarParser.Negated_bool_exprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConst_bool(P4GrammarParser.Const_boolContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConst_bool(P4GrammarParser.Const_boolContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCompound_exp(P4GrammarParser.Compound_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCompound_exp(P4GrammarParser.Compound_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterField_red_exp(P4GrammarParser.Field_red_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitField_red_exp(P4GrammarParser.Field_red_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPar_exp(P4GrammarParser.Par_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPar_exp(P4GrammarParser.Par_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValue_exp(P4GrammarParser.Value_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValue_exp(P4GrammarParser.Value_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterUnary_exp(P4GrammarParser.Unary_expContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitUnary_exp(P4GrammarParser.Unary_expContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -41,14 +41,23 @@ case class If(testInstr: Instruction, thenWhat: Instruction, elseWhat:Instructio
           elseWhat(s, v)
         }
       }
-      case None => elseWhat(s,v)
+      case None => elseWhat(s, v)
+    }
+    case i @ InstructionBlock(instrs) => {
+      if (instrs.forall(x => x.isInstanceOf[ConstrainRaw] || x.isInstanceOf[ConstrainNamedSymbol])) {
+        instrs.foldRight(thenWhat)((x, acc) => {
+          If (x, acc, elseWhat)
+        })(s,v)
+      } else {
+        throw new UnsupportedOperationException("Can't do it. All instructions in conditional instruction block MUST be Constrain")
+      }
     }
     case _ => stateToError(s.addInstructionToHistory(this), "Bad test instruction")
   }
-  
+
   def branch(s: State): List[Instruction] = testInstr match {
     // This is quite inappropriate
-    case i @ ConstrainNamedSymbol(what, withWhat, _) => {
+    case i@ConstrainNamedSymbol(what, withWhat, _) => {
       withWhat instantiate s match {
         case Left(c) if s.memory.symbolIsAssigned(what) => {
           val ifok = InstructionBlock(ConstrainNamedSymbol(what, withWhat, Some(c)), thenWhat)
@@ -58,7 +67,7 @@ case class If(testInstr: Instruction, thenWhat: Instruction, elseWhat:Instructio
         case _ => List[Instruction](elseWhat)
       }
     }
-    case rawi @ ConstrainRaw(what, withWhat, _) => what(s) match {
+    case rawi@ConstrainRaw(what, withWhat, _) => what(s) match {
       case Some(i) => withWhat instantiate s match {
         case Left(c) if s.memory.canRead(i) => {
           val ifok = InstructionBlock(ConstrainRaw(what, withWhat, Some(c)), thenWhat)
@@ -71,13 +80,10 @@ case class If(testInstr: Instruction, thenWhat: Instruction, elseWhat:Instructio
     }
     case _ => List[Instruction](Fail("Some wrong stuff"))
   }
-  
-  
-  
+
+
   override def toString = {
     "If(" + testInstr + ") {\n" + thenWhat.toString() + "\n}\nelse {\n" + elseWhat + "\n}\n"
   }
-  
+
 }
-
-

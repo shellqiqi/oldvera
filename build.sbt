@@ -1,8 +1,8 @@
-organization  := "org.change"
+ organization := "org.change"
 
-version       := "0.2-SNAPSHOT"
+version       := "0.2.1-SNAPSHOT"
 
-scalaVersion  := "2.11.1"
+scalaVersion := "2.11.1"
 
 name := "symnet"
 
@@ -14,7 +14,7 @@ libraryDependencies ++= {
   Seq(
     "org.antlr" % "antlr4" % "4.7",
     "org.scalatest" % "scalatest_2.11" % "2.2.4" % "test",
-    "io.spray" %%  "spray-json" % "1.3.2",
+    "io.spray" %% "spray-json" % "1.3.2",
     "org.apache.commons" % "commons-lang3" % "3.5",
     "com.fasterxml.jackson.core" % "jackson-databind" % "2.8.3",
     "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.8.3",
@@ -29,10 +29,23 @@ exportJars := true
 
 unmanagedResourceDirectories in Compile += baseDirectory.value / "lib"
 
-includeFilter in (Compile, unmanagedResourceDirectories):= ".dll,.so"
+includeFilter in(Compile, unmanagedResourceDirectories) := ".dll,.so"
 
 
 test in assembly := {}
+
+lazy val p4control = taskKey[Unit]("P4 control function to SEFL")
+
+
+//fullRunTask(p4control, Compile, "org.change.v2.runners.experiments.P4ControlRunner")
+p4control := {
+  val file = Option(System.getProperty("file")).getOrElse("/Users/localadmin/poli/symnet/symPatru/src/main/resources/p4_test_files/control.p4")
+  val r = (runner in Compile).value
+  //val cp: Seq[File] = (dependencyClasspath in Compile).value.files
+  val cp = (fullClasspath in Compile).value.files
+  toError(r.run("org.change.v2.runners.experiments.P4ControlRunner", cp, Seq(file), streams.value.log))
+}
+
 
 lazy val sample = taskKey[Unit]("Interpreting")
 
@@ -49,6 +62,10 @@ fullRunTask(symb, Compile, "org.change.v2.runners.experiments.TemplateRunnerWith
 lazy val mc = taskKey[Unit]("Running multiple VMs")
 
 fullRunTask(mc, Compile, "org.change.v2.runners.experiments.MultipleVms")
+
+lazy val fuck= taskKey[Unit]("Running multiple VMs")
+
+fullRunTask(fuck, Compile, "org.change.v2.executor.clickabstractnetwork.AggregatedBuilder")
 
 lazy val neutron = taskKey[Unit]("Neutron")
 
@@ -91,9 +108,11 @@ lazy val matei_int_test = taskKey[Unit]("Verification tests")
 
 fullRunTask(matei_int_test, Compile, "org.change.v2.verification.Tester")
 
+lazy val p4 = taskKey[Unit]("p4")
+fullRunTask(p4, Compile, "org.change.v2.verification.P4Tester")
+
+ lazy val printer = taskKey[Unit]("printer")
+ fullRunTask(printer, Compile, "org.change.v2.verification.Printer")
 
 
-seq(Revolver.settings: _*)
-
-
-
+ seq(Revolver.settings: _*)
