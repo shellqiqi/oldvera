@@ -314,4 +314,5 @@ class P4Bugs extends FunSuite {
     }
     assert(thrown.getMessage.toLowerCase().contains("no such action") || thrown.getMessage.toLowerCase().contains("no such table"))
   }
+
 }
