@@ -243,7 +243,8 @@ class P4Bugs extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       execute(InstructionBlock(
-        res.allParserStatesInstruction()
+        res.allParserStatesInstruction(),
+        Assign("Truncate",ConstantValue(0))
       ), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "soso")

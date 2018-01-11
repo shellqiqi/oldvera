@@ -7,8 +7,9 @@ import org.change.utils.prettifier.JsonUtil
 import org.change.v2.analysis.executor.OVSExecutor
 import org.change.v2.analysis.executor.loopdetection.BVLoopDetectingExecutor
 import org.change.v2.analysis.executor.solvers.Z3BVSolver
+import org.change.v2.analysis.expression.concrete.ConstantValue
 import org.change.v2.analysis.memory.State
-import org.change.v2.analysis.processingmodels.instructions.{Forward, InstructionBlock}
+import org.change.v2.analysis.processingmodels.instructions.{Assign, Forward, InstructionBlock}
 import org.scalatest.FunSuite
 
 class P4LoopDetectorTests extends FunSuite {
@@ -51,7 +52,8 @@ class P4LoopDetectorTests extends FunSuite {
     val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1", 3 -> "cpu"), "router")
     val ib = InstructionBlock(
       res.allParserStatesInline(),
-      Forward("router.input.1")
+      Forward("router.input.1"),
+      Assign("Truncate", ConstantValue(0))
     )
     val bvExec = new BVLoopDetectingExecutor(Set("router.parser"), res.instructions())
 
