@@ -44,4 +44,34 @@ class P4LoopDetectorTests extends FunSuite {
     printResults(dir, 0, clickExecutionContext.stuckStates,  clickExecutionContext.failedStates, "nasty")
   }
 
+  test("resubmit with loop detector") {
+    val dir = "inputs/resubmit/"
+    val p4 = s"$dir/resubmit.p4"
+    val dataplane = s"$dir/commands.txt"
+    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1", 3 -> "cpu"), "router")
+    val ib = InstructionBlock(
+      res.allParserStatesInline(),
+      Forward("router.input.1")
+    )
+    val bvExec = new BVLoopDetectingExecutor(Set("router.parser"), res.instructions())
+
+    var clickExecutionContext = P4ExecutionContext(
+      res.instructions(), res.links(), bvExec.execute(ib, State.clean, true)._1, bvExec
+    )
+
+    var init = System.currentTimeMillis()
+    var runs  = 0
+    while (!clickExecutionContext.isDone && runs < 10000) {
+      clickExecutionContext = clickExecutionContext.execute(true)
+      runs = runs + 1
+    }
+    println(s"Failed # ${clickExecutionContext.failedStates.size}, Ok # ${clickExecutionContext.stuckStates.size}")
+    println(s"Time is ${System.currentTimeMillis() - init}ms")
+
+    val psok = new BufferedOutputStream(new FileOutputStream(s"$dir/click-exec-ok-port0.json"))
+    JsonUtil.toJson(clickExecutionContext.stuckStates, psok)
+    psok.close()
+    val relevant = clickExecutionContext.failedStates
+    printResults(dir, 0, clickExecutionContext.stuckStates,  clickExecutionContext.failedStates, "nasty")
+  }
 }
