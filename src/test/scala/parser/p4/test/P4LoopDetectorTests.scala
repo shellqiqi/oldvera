@@ -2,6 +2,7 @@ package parser.p4.test
 
 import java.io.{BufferedOutputStream, FileOutputStream, PrintStream}
 
+import org.change.parser.p4.tables.SymbolicSwitchInstance
 import org.change.parser.p4.{ControlFlowInterpreter, P4ExecutionContext}
 import org.change.utils.prettifier.JsonUtil
 import org.change.v2.analysis.executor.OVSExecutor
@@ -10,6 +11,7 @@ import org.change.v2.analysis.executor.solvers.Z3BVSolver
 import org.change.v2.analysis.expression.concrete.ConstantValue
 import org.change.v2.analysis.memory.State
 import org.change.v2.analysis.processingmodels.instructions.{Assign, Forward, InstructionBlock}
+import org.change.v2.p4.model.Switch
 import org.scalatest.FunSuite
 
 class P4LoopDetectorTests extends FunSuite {
@@ -48,8 +50,14 @@ class P4LoopDetectorTests extends FunSuite {
   test("resubmit with loop detector") {
     val dir = "inputs/resubmit/"
     val p4 = s"$dir/resubmit.p4"
-    val dataplane = s"$dir/commands.txt"
-    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1", 3 -> "cpu"), "router")
+    val dataplane = s"$dir/commands-star.txt"
+
+    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("router", Map[Int, String](1 -> "veth0", 2 -> "veth1", 3 -> "cpu"),
+      Map[Int, Int](), Switch.fromFile(p4), dataplane)
+    val res = new ControlFlowInterpreter(switchInstance, switchInstance.switch)
+
+
+    //    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1", 3 -> "cpu"), "router")
     val ib = InstructionBlock(
       res.allParserStatesInline(),
       Forward("router.input.1"),
