@@ -252,6 +252,26 @@ class P4Bugs extends FunSuite {
     printResults(dir, port, ok, failed, "soso")
   }
 
+  test("INTEGRATION - encap test") {
+    val dir = "inputs/encap/"
+    val p4 = s"$dir/encap.p4"
+    val dataplane = s"$dir/commands.txt"
+    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1", 11 -> "cpu"), "router")
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      execute(InstructionBlock(
+        res.allParserStatesInstruction(),
+        Assign("Truncate",ConstantValue(0))
+      ), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    printResults(dir, port, ok, failed, "soso")
+  }
+
+
   test("p4xos/acceptor-ppc.p4") {
     val thrown = intercept[Exception] {
       val dir = "inputs/p4xos"
