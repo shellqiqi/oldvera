@@ -125,7 +125,6 @@ control ingress {
         apply(ipv4_lpm);
     }
 }
-
 control egress {
     apply(encap);
 }

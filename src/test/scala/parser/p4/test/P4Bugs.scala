@@ -159,6 +159,32 @@ class P4Bugs extends FunSuite {
     printResults(dir, port, ok, relevant, "bad")
   }
 
+  test("INTEGRATION - mplb") {
+    val dir = "inputs/mplb-router/"
+    val p4 = s"$dir/mplb_router-ppc.p4"
+    val dataplane = s"$dir/commands.txt"
+
+    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("router", Map[Int, String](1 -> "veth0", 2 -> "veth1"),
+      Map[Int, Int](), Switch.fromFile(p4), dataplane)
+    val res = new ControlFlowInterpreter(switchInstance, switchInstance.switch)
+
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+
+    //res.allParserStatesInstruction(),
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, fld) = codeAwareInstructionExecutor.
+      execute(InstructionBlock(
+        CreateTag("START", 0),
+        Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
+      ), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    val relevant = failed
+    printResults(dir, port, ok, relevant, "bad")
+  }
+
   test("INTEGRATION - copy-to-cpu star entries") {
     val dir = "inputs/copy-to-cpu/"
     val p4 = s"$dir/copy_to_cpu-ppc.p4"
