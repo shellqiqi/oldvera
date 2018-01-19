@@ -172,8 +172,6 @@ class P4Bugs extends FunSuite {
     val ib = InstructionBlock(
       Forward(s"router.input.$port")
     )
-
-    //res.allParserStatesInstruction(),
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, fld) = codeAwareInstructionExecutor.
       execute(InstructionBlock(
@@ -211,9 +209,7 @@ class P4Bugs extends FunSuite {
     val dir = "inputs/ndp-router-reg-access/"
     val p4 = s"$dir/ndp_router-ppc.p4"
     val dataplane = s"$dir/commands.txt"
-    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1"), "router", optAdditionalInitCode = Some((x, y) => {
-      new SymbolicRegistersInitFactory(x).initCode()
-    }))
+    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1"), "router")
     val port = 1
     val ib = InstructionBlock(
       Forward(s"router.input.$port")

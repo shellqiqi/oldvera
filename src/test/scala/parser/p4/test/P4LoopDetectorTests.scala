@@ -54,23 +54,25 @@ class P4LoopDetectorTests extends FunSuite {
 
     val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("router", Map[Int, String](1 -> "veth0", 2 -> "veth1", 3 -> "cpu"),
       Map[Int, Int](), Switch.fromFile(p4), dataplane)
-    val res = new ControlFlowInterpreter(switchInstance, switchInstance.switch)
 
-
-    //    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1", 3 -> "cpu"), "router")
+    val res = ControlFlowInterpreter.buildSymbolicInterpreter(switchInstance, switchInstance.switch)
     val ib = InstructionBlock(
-      res.allParserStatesInline(),
+      res.allParserStatesInstruction(),
+      res.initFactory(switchInstance),
       Forward("router.input.1"),
       Assign("Truncate", ConstantValue(0))
     )
-    val bvExec = new BVLoopDetectingExecutor(Set("router.parser"), res.instructions())
+
+    // val res = new ControlFlowInterpreter(switchInstance, switchInstance.switch)
+
+    val bvExec = new BVLoopDetectingExecutor(Set("router.control.ingress"), res.instructions())
 
     var clickExecutionContext = P4ExecutionContext(
       res.instructions(), res.links(), bvExec.execute(ib, State.clean, true)._1, bvExec
     )
 
     var init = System.currentTimeMillis()
-    var runs  = 0
+    var runs = 0
     while (!clickExecutionContext.isDone && runs < 10000) {
       clickExecutionContext = clickExecutionContext.execute(true)
       runs = runs + 1
@@ -82,6 +84,6 @@ class P4LoopDetectorTests extends FunSuite {
     JsonUtil.toJson(clickExecutionContext.stuckStates, psok)
     psok.close()
     val relevant = clickExecutionContext.failedStates
-    printResults(dir, 0, clickExecutionContext.stuckStates,  clickExecutionContext.failedStates, "nasty")
+    printResults(dir, 0, clickExecutionContext.stuckStates, clickExecutionContext.failedStates, "nasty")
   }
 }
