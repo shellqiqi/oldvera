@@ -197,13 +197,15 @@ class P4Bugs extends FunSuite {
       Forward(s"router.input.$port")
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
-    val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    val (initial, fld) = codeAwareInstructionExecutor.
+      execute(InstructionBlock(
+        CreateTag("START", 0),
+        Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
+      ), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "good")
+    val relevant = failed
+    printResults(dir, port, ok, relevant, "bad")
   }
-
-
 
   test("INTEGRATION - ndp_router reg access test") {
     val dir = "inputs/ndp-router-reg-access/"
