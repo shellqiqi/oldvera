@@ -1,5 +1,7 @@
 package org.change.v3.parsers
 
+import java.io.File
+
 import org.change.utils.RepresentationConversion
 
 import scala.io.Source
@@ -10,8 +12,10 @@ object OpenFlowRuleParser {
   type ValueParser = String => MatchValue
 
   def getParser(fieldName: String): ValueParser = fieldName match {
-    case _ if fieldName.startsWith("tp") || fieldName.equalsIgnoreCase("nw_proto") =>
-      {v => SingleValue(Integer.parseInt(v))}
+    case _ if fieldName.startsWith("tp") ||
+      fieldName.equalsIgnoreCase("nw_proto") ||
+      fieldName.endsWith("_port") =>
+        {v => SingleValue(Integer.parseInt(v))}
     case _ if fieldName.startsWith("nw") && ! fieldName.equalsIgnoreCase("nw_proto") => {
       v: String => {
         val splitted = v.split("/")
@@ -52,6 +56,7 @@ case class ValueRange(min: Long, max: Long) extends MatchValue
 object ParserRunner {
   def main(args: Array[String]): Unit = {
     for {
+      openFlowRuleSet <- new File("src/main/resources/openflow_rules").list()
       rule <- OpenFlowRuleParser.parse("src/main/resources/openflow_rules/of-classbench-1.of")
     } println(rule)
   }
