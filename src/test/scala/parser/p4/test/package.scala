@@ -11,11 +11,15 @@ import org.change.v2.analysis.executor.{CodeAwareInstructionExecutor, CodeAwareI
 import org.change.v2.analysis.executor.solvers.Z3BVSolver
 import org.change.v2.analysis.memory.State
 import org.change.v2.analysis.processingmodels.Instruction
-import org.change.v2.analysis.processingmodels.instructions.{Call, CreateTag, Forward, InstructionBlock}
+import org.change.v2.analysis.processingmodels.instructions._
 import org.change.v2.p4.model.{ISwitchInstance, Switch}
 import org.change.v2.analysis.memory.TagExp.IntImprovements
 
 package object test {
+
+  val PRINTER_OUTPUT_TO_FILE = false
+
+
  def executeAndPrintStats(ib: Instruction, initial: List[State], codeAwareInstructionExecutor : CodeAwareInstructionExecutor): (List[State], List[State]) = {
     val init = System.currentTimeMillis()
     println("Ok now " + codeAwareInstructionExecutor.program.size)
@@ -34,19 +38,6 @@ package object test {
     val dataplane = s"$dir/commands-rev.txt"
     val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1", 11 -> "cpu"), withName)
     CodeAwareInstructionExecutor.flattenProgram(res.instructions(), res.links())
-  }
-
-
-  def anonymizeAndForward(port : String): Instruction = {
-    InstructionBlock(
-      Instruction(anonymize),
-      Forward(port)
-    )
-  }
-
-  def anonymize(state: State): (List[State], List[State]) = {
-    (state.copy(memory = state.memory.copy(symbols = state.memory.symbols.map(r => s"${r._1}_anon${UUID.randomUUID().toString}" -> r._2))) :: Nil,
-      Nil : List[State])
   }
 
   def postParserInject(parserout : Instruction, program : Map[String, Instruction], name : String = "router"): Map[String, Instruction] = {
@@ -86,7 +77,11 @@ package object test {
     pskopretty.close()
   }
 
-
+  def runAndLog[T](function0: Function0[T]): (T, Long) = {
+    val init = System.currentTimeMillis()
+    val funres = function0()
+    (funres, System.currentTimeMillis() - init)
+  }
   def createConsumer(dir: String): (PrintStream, PrintStream, State => Unit) = {
     val failIndex = new PrintStream(s"$dir/index-fail.html")
     val successIndex = new PrintStream(s"$dir/index-success.html")
@@ -97,23 +92,25 @@ package object test {
     if (!outDir.exists())
       outDir.mkdir()
     val printer = (s: State) => {
-      val tmp = UUID.randomUUID().toString
-      if (s.errorCause.isEmpty) {
-        val ps = new PrintStream(s"$dir/outputs/success-$tmp.json")
-        ps.println(s)
-        ps.close()
-        successIndex.println(s"""<li><a href=\"file://$file/outputs/success-$tmp.json\">${s.history.head}</a></li>""")
-        successIndex.flush()
-      } else {
-        if (s.location.startsWith("switch.parser") && (s.errorCause.get.startsWith("Cannot resolve") ||
-          s.errorCause.get.startsWith("Wrong choice"))) {
-          // nothing here
-        } else {
-          val ps = new PrintStream(s"$dir/outputs/fail-$tmp.json")
+      if (PRINTER_OUTPUT_TO_FILE) {
+        val tmp = UUID.randomUUID().toString
+        if (s.errorCause.isEmpty) {
+          val ps = new PrintStream(s"$dir/outputs/success-$tmp.json")
           ps.println(s)
           ps.close()
-          failIndex.println(s"""<li><a href=\"file://$file/outputs/fail-$tmp.json\">${s.errorCause.get} - ${s.history.head}</a></li>""")
-          failIndex.flush()
+          successIndex.println(s"""<li><a href=\"file://$file/outputs/success-$tmp.json\">${s.history.head}</a></li>""")
+          successIndex.flush()
+        } else {
+          if (s.location.startsWith("switch.parser") && (s.errorCause.get.startsWith("Cannot resolve") ||
+            s.errorCause.get.startsWith("Wrong choice"))) {
+            // nothing here
+          } else {
+            val ps = new PrintStream(s"$dir/outputs/fail-$tmp.json")
+            ps.println(s)
+            ps.close()
+            failIndex.println(s"""<li><a href=\"file://$file/outputs/fail-$tmp.json\">${s.errorCause.get} - ${s.history.head}</a></li>""")
+            failIndex.flush()
+          }
         }
       }
     }
@@ -125,22 +122,28 @@ package object test {
               ifaces: Map[Int, String],
               outputDir: String,
               packetLayout : String,
-              port: Int, genFactory: (Switch, ISwitchInstance) => ParserGenerator): Unit = {
+              port: Int, genFactory: (Switch, ISwitchInstance) => ParserGenerator,
+              useSyms : Boolean  = false,
+              forceSyms : Boolean = false): Unit = {
+    assert(!forceSyms || useSyms)
     val sw = Switch.fromFile(p4)
     val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("switch",
       ifaces,
       Map.empty,
       sw,
-      dataplane)
-
-
+      dataplane, forceSymbolic = forceSyms && useSyms)
     val parserGenerator: ParserGenerator = genFactory(sw, switchInstance)
     //-i 0@veth0 -i 1@veth2 -i 2@veth4 -i 3@veth6 -i 4@veth8 -i 5@veth10 -i 6@veth12 -i 7@veth14 -i 8@veth16 -i 64@veth250
-    val res = new ControlFlowInterpreter(switchInstance, switch = sw,
-      optParserGenerator = Some(
-        parserGenerator
+    val res = if (!useSyms)
+      new ControlFlowInterpreter(switchInstance, switch = sw,
+        optParserGenerator = Some(
+          parserGenerator
+        )
       )
-    )
+    else
+      ControlFlowInterpreter.buildSymbolicInterpreter(switchInstance, sw, optParserGenerator = Some(
+        parserGenerator
+      ))
     val ib = Forward(s"${switchInstance.getName}.input.$port")
     val (failIndex, successIndex, printer) = createConsumer(outputDir)
 
@@ -156,7 +159,11 @@ package object test {
     val (initial, _) = codeAwareInstructionExecutor.
       execute(InstructionBlock(
         CreateTag("START", 0),
-        Call(switchInstance.getName + ".generator." + packetLayout)
+        Call(switchInstance.getName + ".generator." + packetLayout),
+        if (useSyms)
+          res.initializeGlobally()
+        else
+          NoOp
       ), State.clean, verbose = true)
 
     println(s"initial states gathered ${initial.size}")

@@ -2,13 +2,15 @@ package org.change.v2.abstractnet.mat.tree
 
 import org.change.v2.abstractnet.mat.condition._
 import org.change.v2.abstractnet.mat.tree.Node.Forest
+import org.change.v2.analysis.executor.CodeAwareInstructionExecutor
+import org.change.v2.analysis.processingmodels.instructions.Forward
 
 import scala.collection.LinearSeq
 
 /**
   * A small gift from radu to symnetic.
   */
-case class Node[T <: Condition](
+case class  Node[T <: Condition](
    condition: T,
    children: Forest[T],
    lateral: Forest[T],
@@ -28,7 +30,7 @@ object Node {
     id
   }
 
-  type Forest[T <: Condition] = LinearSeq[Node[T]]
+  type Forest[T <: Condition] = List[Node[T]]
 
   def forestSize[T <: Condition](forest: Forest[T]): Int = forest.map(_.size).sum
   def forestHeight[T <: Condition](forest: Forest[T]): Int = if (forest.nonEmpty) forest.map(_.height).max else 0
@@ -37,11 +39,22 @@ object Node {
 
   def makeForest[T <: Condition](conditions: Seq[T]): Forest[T] = {
     // TODO: Assert it is sorted properly
-    conditions.foldLeft(Nil:Forest[T])(addIgnoringNewNode)
+    conditions.zipWithIndex.foldLeft(Nil:Forest[T])((acc, ci) => addIgnoringNewNode(acc, ci._1, ci._2))
   }
 
-  def addIgnoringNewNode[T <: Condition](forest: Forest[T], condition: T): Forest[T] =
-    add(forest, condition)._1
+  def addIgnoringNewNode[T <: Condition](forest: Forest[T], condition: T, which: Int): Forest[T] = {
+    if (which % 10000 == 0) {
+      import org.scalameter._
+      val timeToExecute = measure {
+       add(forest, condition)._1
+      }
+      println(s"Time to execute $which: $timeToExecute")
+      add(forest, condition)._1
+    } else {
+      add(forest, condition)._1
+    }
+  }
+
 
   /**
     * Create a new node corresponding to a given condition.
@@ -72,7 +85,9 @@ object Node {
     /**
       * If there is a node in Sub relation, then the condition gets propagated.
       */
-    if (grouped contains Super) {
+    var which = 0
+
+    val r = if (grouped contains Super) {
 
       // Propagate the new node in the oldest (most general) of the super nodes in order to avoid links between
       // trees that are not situated at the root.
@@ -82,10 +97,12 @@ object Node {
       val nodeAfterPropagation = superNode.copy(children = modifiedChildren)
 
       // Rebuild the forest
-      val result = grouped(Super).tail ++ (grouped.getOrElse(Intersect, Nil) :+ nodeAfterPropagation) ++ rest
+      val result = nodeAfterPropagation :: ((grouped(Super).tail ++ grouped.getOrElse(Intersect, Nil)) ++ rest)
 
       // The forest should be the same size
-      assert(result.length == forest.length)
+//      assert(result.length == forest.length)
+
+      which = 1
 
       (result, newNode)
     } else if (grouped contains Intersect) {
@@ -97,10 +114,12 @@ object Node {
         lateralNode.copy(lateral = lateralNode.lateral.+:(newNode))
       )
 
-      val result = lateral.+:(newNode) ++ rest
+      val result = (newNode :: lateral) ++ rest
 
       // One node should have been created at this step.
-      assert(result.length == forest.length + 1)
+//      assert(result.length == forest.length + 1)
+
+      which = 2
 
       (result, newNode)
     } else if (grouped contains Same) {
@@ -109,12 +128,22 @@ object Node {
       // Never should two Same nodes be detected
       assert(sameNode.length == 1)
 
+      which = 3
+
       (forest, sameNode.head)
     } else {
       // Construct a leaf node, with no links
       val newNode = Node(condition, Nil, Nil)
-      (newNode +: rest, newNode)
+
+      which = 4
+
+      (newNode :: rest, newNode)
     }
+
+//    if (Node.forestSize(r._1) != Node.forestSize(forest) + 1)
+//      throw new Exception(s"Node was not added to forest: $condition, case is $which.")
+
+    r
   }
 
   def partitionByCondition[T <: Condition](p: T => Boolean, forest: Forest[T]): (Forest[T],Forest[T]) =

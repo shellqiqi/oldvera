@@ -22,7 +22,7 @@ import org.change.parser.p4.tables._
 import org.change.parser.p4
 import org.change.parser.p4.factories.FullTableFactory
 
-class HeaderDefinitionParsingTest extends FunSuite {
+class P4Tests extends FunSuite {
 
   test("vlan_t example is parsed correctly") {
     val p4 = "src/main/resources/p4s/tests/vlan_t.p4"

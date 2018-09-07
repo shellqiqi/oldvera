@@ -28,16 +28,6 @@ trait Constraint extends FloatingConstraint {
   override def instantiate(s: State): Either[Constraint, String] = Left(this)
 }
 
-object Constraint {
-  def applyConstraint(s: ValueSet, c: Constraint,
-                      t: NumericType = LongType): ValueSet =
-    intersect(List(s, c.asSet(t)))
-
-  def applyConstraints(s: ValueSet, cts: List[Constraint],
-                       t: NumericType = LongType): ValueSet =
-    intersect(s :: cts.map(_.asSet()))
-}
-
 object No extends Constraint {
   override def asSet(valueType: NumericType): List[(Long, Long)] = {
     List((valueType.min, valueType.max))

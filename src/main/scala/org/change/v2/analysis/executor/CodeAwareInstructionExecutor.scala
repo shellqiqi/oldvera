@@ -2,7 +2,7 @@ package org.change.v2.analysis.executor
 
 import java.util.UUID
 
-import org.change.v2.analysis.executor.solvers.Solver
+import org.change.v2.analysis.executor.solvers.{Solver, Z3Solver}
 import org.change.v2.analysis.expression.abst.FloatingExpression
 import org.change.v2.analysis.expression.concrete.nonprimitive._
 import org.change.v2.analysis.expression.concrete.{ConstantStringValue, ConstantValue, SymbolicValue}
@@ -122,10 +122,13 @@ class CodeAwareInstructionExecutor(val program : Map[String, Instruction],
             x
           )
         })), s, v)
-      //        handleSuperFork(sf, s, v)
-      //        this.executeFork(Fork(sf.instructions), s, v)
+      case destroy : DestroyPacket =>
+        val stopHere = Tag("LAST_HEADER")(s).getOrElse(Int.MaxValue)
+        (List[State](s.copy(memory =
+          s.memory.copy(rawObjects = s.memory.rawObjects.filter(r => {
+            r._1 > stopHere
+          })).UnTag("LAST_HEADER").get)), Nil)
       case _ => super.executeExoticInstruction(instruction, s, v)
-//        instruction(s, v)
     }
   }
 
@@ -378,12 +381,19 @@ object RewriteLogic {
 }
 
 object CodeAwareInstructionExecutor {
+  val NULL_PORT = ""
 
   def flattenProgram(program: Map[String, Instruction], links : Map[String, String]): Map[String, Instruction] =
     program ++ links.map(x => x._1 -> Forward(x._2))
+
   def apply(program: Map[String, Instruction],
-            solver: Solver): CodeAwareInstructionExecutor = new CodeAwareInstructionExecutor(RewriteLogic(program), solver)
+            solver: Solver = new Z3Solver()): CodeAwareInstructionExecutor =
+    new CodeAwareInstructionExecutor(RewriteLogic(program), solver)
+
   def apply(program: Map[String, Instruction], links : Map[String, String],
             solver: Solver): CodeAwareInstructionExecutor =
     new CodeAwareInstructionExecutor(RewriteLogic(flattenProgram(program, links)), solver)
+
+  def singleInstructionExecutor(instruction: Instruction): CodeAwareInstructionExecutor =
+    new CodeAwareInstructionExecutor(Map(NULL_PORT -> instruction), new Z3Solver())
 }
