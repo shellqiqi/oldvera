@@ -385,11 +385,15 @@ object CodeAwareInstructionExecutor {
 
   def flattenProgram(program: Map[String, Instruction], links : Map[String, String]): Map[String, Instruction] =
     program ++ links.map(x => x._1 -> Forward(x._2))
+
   def apply(program: Map[String, Instruction],
-            solver: Solver): CodeAwareInstructionExecutor = new CodeAwareInstructionExecutor(RewriteLogic(program), solver)
+            solver: Solver = new Z3Solver()): CodeAwareInstructionExecutor =
+    new CodeAwareInstructionExecutor(RewriteLogic(program), solver)
+
   def apply(program: Map[String, Instruction], links : Map[String, String],
             solver: Solver): CodeAwareInstructionExecutor =
     new CodeAwareInstructionExecutor(RewriteLogic(flattenProgram(program, links)), solver)
+
   def singleInstructionExecutor(instruction: Instruction): CodeAwareInstructionExecutor =
     new CodeAwareInstructionExecutor(Map(NULL_PORT -> instruction), new Z3Solver())
 }
