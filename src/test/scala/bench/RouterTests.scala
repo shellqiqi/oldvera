@@ -156,4 +156,10 @@ class RouterTests extends FunSuite {
     println(result)
     // analyze result
   }
+
+  test("Can parse Cisco fibs") {
+    import org.change.v2.runners.experiments.routerexperiments._
+    val r  = ciscoFibsToSEFL(new File("/home/radu/ip_cef"))
+    println(r._1.size)
+  }
 }

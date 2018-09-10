@@ -153,13 +153,15 @@ package object routerexperiments {
   private def rangeToConstraint(r: CRange): Constraint =
     AND(List(GTE_E(ConstantValue(r.lower)), LTE_E(ConstantValue(r.upper))))
 
-  def fibFolderToSEFL(fibs: File): Map[String, Instruction] = {
+  def fibFolderToSEFL(fibs: File,
+                      fibParser: (File, Boolean) => Seq[((Long, Long), String)],
+                      extension: String): Map[String, Instruction] = {
     {
       for {
         fib <- fibs.listFiles(new FileFilter {
-          override def accept(file: File): Boolean = file.getName.endsWith(".fib")
-        })
-        entries = getRoutingEntriesBatfish(fib, prependFileName = true)
+          override def accept(file: File): Boolean = file.getName.endsWith("." + extension)
+        }).take(10)
+        entries = fibParser(fib, true)
       } yield fib.getName.split("\\.")(0) + "-in" -> buildBasicForkModel(entries)
     }.toMap
   }
@@ -204,8 +206,17 @@ package object routerexperiments {
                        linksFile: File
                        ): (Map[String, Instruction], Map[String, String]) =
   (
-    fibFolderToSEFL(fibFolder),
+    fibFolderToSEFL(fibFolder, getRoutingEntriesBatfish, "fib"),
     getBatfishLinks(linksFile)
   )
+
+  def ciscoFibsToSEFL(
+                       fibFolder: File
+//                       ,linksFile: File
+  ): (Map[String, Instruction], Map[String, String]) =
+    (
+      fibFolderToSEFL(fibFolder, OptimizedRouter.getRoutingEntries, "out"),
+      Map.empty
+    )
 
 }

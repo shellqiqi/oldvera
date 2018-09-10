@@ -60,12 +60,12 @@ object OptimizedRouter {
   def getBuilder: OptimizedRouterElementBuilder =
     getBuilder(s"$genericElementName-$unnamedCount")
 
-  def getRoutingEntries(file: File): Seq[((Long, Long), String)] = {
+  def getRoutingEntries(file: File, prependFileName: Boolean = false): Seq[((Long, Long), String)] = {
     (for {
       line <- scala.io.Source.fromFile(file).getLines()
+      if  line.matches("[0-9].*")
       tokens = line.split("\\s+")
       if tokens.length >= 3
-      if tokens(0) != ""
       hopType = tokens(1)
       if hopType != "receive" && hopType != "connected"
       matchPattern = tokens(0)
@@ -80,7 +80,8 @@ object OptimizedRouter {
             (l,u)
           }
         },
-        forwardingPort
+        if (!prependFileName) forwardingPort
+        else file.getName.split("\\.")(0) + "-" + forwardingPort
         )).toSeq.sortBy(i => i._1._2 - i._1._1)
   }
 
