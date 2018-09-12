@@ -59,10 +59,9 @@ class SkipParserAndDeparser(switch : Switch, switchInstance: ISwitchInstance,
           ConstantStringValue(h._1.substring(s"${switchInstance.getName}.generator.".length))),
         h._2
       )) ++ extraCodeInternal.filter(_._1.startsWith(s"${switchInstance.getName}.parser.")).map(h => {
-        h._1 -> If (Constrain("parser_fixpoint",
+        h._1 -> InstructionBlock (Constrain("parser_fixpoint",
             :==:(ConstantStringValue(h._1.substring(s"${switchInstance.getName}.parser.".length)))),
-          h._2,
-          Fail(s"Wrong choice ${h._1}")
+          h._2
         )
       })
 }
