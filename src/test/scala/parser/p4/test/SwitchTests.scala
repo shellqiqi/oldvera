@@ -354,7 +354,7 @@ class SwitchTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       execute(InstructionBlock(
         CreateTag("START", 0),
-        Call("switch.generator.parse_ethernet.parse_vlan.parse_ipv4.parse_tcp")
+        Call("switch.generator.parse_ethernet.parse_ipv4.parse_tcp")
       ), State.clean, verbose = true)
     println(s"initial states gathered ${initial.size}")
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)

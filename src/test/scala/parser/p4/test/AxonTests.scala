@@ -25,21 +25,24 @@ class AxonTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
 
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(res.allParserStatesInstruction(), State.clean, verbose = true)
+      execute(InstructionBlock(
+        CreateTag("START", 0),
+         Call("router.generator."),
+        Allocate(0,64),
+        Assign(0,ConstantValue(1))
+      ), State.clean, verbose = true)
+
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, postParserInjectCaie(
-      InstructionBlock(
-        Constrain("axon_fwdHop[0].IsValid", :==:(ConstantValue(0))),
-        Constrain("axon_head.IsValid", :==:(ConstantValue(1)))
-      ),
+        /*InstructionBlock(
+          Exists("axon_head.isValid"),
+          Constrain("axon_head.isValid", :==:(ConstantValue(0)))
+      )*/
+      NoOp,
       codeAwareInstructionExecutor.program,
       name = "router")
     )
 
-    printResults(dir, port, ok, failed.filter(r => {
-      !(r.history.head.contains("router.parser.") && r.errorCause.exists(r => r.contains("Cannot resolve reference to")))
-    }).filter(r => {
-      r.errorCause.getOrElse("") != "No object at 0"
-    }), "soso")
+    printResults(dir, port, ok, failed, "soso")
     assert(ok.isEmpty)
   }
   test("axon ok") {

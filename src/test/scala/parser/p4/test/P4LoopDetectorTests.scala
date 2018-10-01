@@ -86,5 +86,4 @@ class P4LoopDetectorTests extends FunSuite {
     val relevant = clickExecutionContext.failedStates
     printResults(dir, 0, clickExecutionContext.stuckStates, clickExecutionContext.failedStates, "nasty")
   }
-
 }

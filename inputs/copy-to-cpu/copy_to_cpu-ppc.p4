@@ -40,6 +40,7 @@ parser parse_cpu_header {
 action _drop() {
     drop();
 }
+
 action _nop() {
 }
 field_list copy_to_cpu_fields {
@@ -47,6 +48,7 @@ field_list copy_to_cpu_fields {
 }
 action do_copy_to_cpu() {
     clone_ingress_pkt_to_egress(250, copy_to_cpu_fields);
+    modify_field(standard_metadata.egress_spec,1);
 }
 table copy_to_cpu {
     actions {do_copy_to_cpu;}
@@ -62,7 +64,7 @@ action do_cpu_encap() {
 }
 table redirect {
     reads { standard_metadata.instance_type : exact; }
-    actions { _drop; do_cpu_encap; }
+    actions { _drop; do_cpu_encap; _nop; }
     size : 16;
 }
 control egress {

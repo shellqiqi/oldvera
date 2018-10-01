@@ -159,32 +159,8 @@ class P4Bugs extends FunSuite {
     printResults(dir, port, ok, relevant, "bad")
   }
 
-  test("INTEGRATION - mplb no deparse with stars") {
-    val dir = "inputs/parser-deparser-bug/"
-    val p4 = s"$dir/mplb_router-ppc.p4"
-    val dataplane = s"$dir/commands.txt"
-    val switch = Switch.fromFile(p4)
-    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("router", Map[Int, String](1 -> "veth0", 2 -> "veth1"),
-      Map.empty, switch, dataplane)
-    val res = new ControlFlowInterpreter(switchInstance, switchInstance.switch)
-    val port = 1
-    val ib = InstructionBlock(
-      Forward(s"router.input.$port")
-    )
-    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
-    val (initial, fld) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
-        CreateTag("START", 0),
-        Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp"),
-        Constrain(Tag("START") + 272 + 16, :==:(ConstantValue(1025)))
-      ), State.clean, verbose = true)
-    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    val relevant = failed
-    printResults(dir, port, ok, relevant, "bad")
-  }
-
   test("INTEGRATION - mplb") {
-    val dir = "inputs/mplb-router-fuller/"
+    val dir = "inputs/mplb-router/"
     val p4 = s"$dir/mplb_router-ppc.p4"
     val dataplane = s"$dir/commands.txt"
 
@@ -207,13 +183,35 @@ class P4Bugs extends FunSuite {
     printResults(dir, port, ok, relevant, "bad")
   }
 
+  test("INTEGRATION - copy-to-cpu star entries") {
+    val dir = "inputs/copy-to-cpu/"
+    val p4 = s"$dir/copy_to_cpu-ppc.p4"
+    val dataplane = s"$dir/commands_star.txt"
+
+    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("router", Map[Int, String](1 -> "veth0", 2 -> "veth1", 3 -> "cpu"),
+      Map[Int, Int](250 -> 3), Switch.fromFile(p4), dataplane)
+    val res = new ControlFlowInterpreter(switchInstance, switchInstance.switch)
+
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, fld) = codeAwareInstructionExecutor.
+      execute(InstructionBlock(
+        CreateTag("START", 0),
+        Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
+      ), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    val relevant = failed
+    printResults(dir, port, ok, relevant, "bad")
+  }
+
   test("INTEGRATION - ndp_router reg access test") {
     val dir = "inputs/ndp-router-reg-access/"
     val p4 = s"$dir/ndp_router-ppc.p4"
     val dataplane = s"$dir/commands.txt"
-    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1"), "router", optAdditionalInitCode = Some((x, y) => {
-      new SymbolicRegistersInitFactory(x).initCode()
-    }))
+    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1"), "router")
     val port = 1
     val ib = InstructionBlock(
       Forward(s"router.input.$port")
@@ -271,11 +269,32 @@ class P4Bugs extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       execute(InstructionBlock(
-        res.allParserStatesInstruction()
+        res.allParserStatesInstruction(),
+        Assign("Truncate",ConstantValue(0))
       ), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "soso")
   }
+
+  test("INTEGRATION - encap test") {
+    val dir = "inputs/encap/"
+    val p4 = s"$dir/encap.p4"
+    val dataplane = s"$dir/commands.txt"
+    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](1 -> "veth0", 2 -> "veth1", 11 -> "cpu"), "router")
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      execute(InstructionBlock(
+        res.allParserStatesInstruction(),
+        Assign("Truncate",ConstantValue(0))
+      ), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    printResults(dir, port, ok, failed, "soso")
+  }
+
 
   test("p4xos/acceptor-ppc.p4") {
     val thrown = intercept[Exception] {

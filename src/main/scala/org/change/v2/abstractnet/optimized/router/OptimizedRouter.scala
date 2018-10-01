@@ -234,7 +234,7 @@ object OptimizedRouter {
     }
   }
 
-  def makeNaiveRouter(f: File): OptimizedRouter = {
+  def makeNaiveRouter(f: File, prefix: String = ""): OptimizedRouter = {
     val table = getRoutingEntries(f)
 
     var conflictCount = 0L
@@ -263,7 +263,7 @@ object OptimizedRouter {
           else Nil
         }))
     }).groupBy(_._1).foldRight(Fail("No route"): Instruction)( (kv, a) =>
-      If(ConstrainRaw(IPDst, OR(kv._2.map(_._2).toList)), Forward(kv._1), a)
+      If(ConstrainRaw(IPDst, OR(kv._2.map(_._2).toList)), Forward(prefix+kv._1), a)
     )
 
     println("Routing table size " + table.length)
@@ -271,9 +271,9 @@ object OptimizedRouter {
 
     new OptimizedRouter("NAIVE","Router", Nil, Nil, Nil) {
       override def instructions: Map[LocationId, Instruction] = {
-        table.map(i => i._2 -> Forward(i._2+"_EXIT").asInstanceOf[Instruction]).toMap ++
-        table.map(i => i._2+"_EXIT" -> NoOp.asInstanceOf[Instruction]).toMap +
-        ("0" -> i)
+        table.map(i => prefix+i._2 -> Forward(prefix+i._2+"_EXIT").asInstanceOf[Instruction]).toMap ++
+        table.map(i => prefix+i._2+"_EXIT" -> NoOp.asInstanceOf[Instruction]).toMap +
+        (prefix+"0" -> i)
       }
     }
   }
