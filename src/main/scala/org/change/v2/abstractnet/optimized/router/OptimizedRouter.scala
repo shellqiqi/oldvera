@@ -67,7 +67,7 @@ object OptimizedRouter {
       tokens = line.split("\\s+")
       if tokens.length >= 3
       hopType = tokens(1)
-      if hopType != "receive" && hopType != "connected"
+      if hopType != "receive" && hopType != "connected" && hopType != "attached"
       matchPattern = tokens(0)
       forwardingPort = tokens(2)
     } yield (

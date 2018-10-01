@@ -160,7 +160,7 @@ package object routerexperiments {
       for {
         fib <- fibs.listFiles(new FileFilter {
           override def accept(file: File): Boolean = file.getName.endsWith("." + extension)
-        }).take(10)
+        })
         entries = fibParser(fib, true)
       } yield fib.getName.split("\\.")(0) + "-in" -> buildBasicForkModel(entries)
     }.toMap
@@ -185,7 +185,7 @@ package object routerexperiments {
         }
       },
       if (!prependFileName) forwardingPort
-      else file.getName.split("\\.")(0) + "-" + forwardingPort
+      else (file.getName.split("\\.")(0) + "-" + forwardingPort)
     )).toSeq.sortBy(i => i._1._2 - i._1._1)
   }
 
@@ -197,7 +197,9 @@ package object routerexperiments {
     {
       for {
         link <- parsedJson.value
-      } yield (link("node1").toString() + link("node1interface").toString()) -> (link("node2").toString() + "-in")
+      } yield
+        (link("node1").asInstanceOf[JsString].value + "-" + link("node1interface").asInstanceOf[JsString].value) ->
+        (link("node2").asInstanceOf[JsString].value + "-in")
     }.toMap
   }
 
