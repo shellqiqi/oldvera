@@ -17,14 +17,14 @@ import org.change.v2.analysis.memory.TagExp.IntImprovements
 
 package object test {
 
-  val PRINTER_OUTPUT_TO_FILE = false
+  val PRINTER_OUTPUT_TO_FILE = true
 
 
  def executeAndPrintStats(ib: Instruction, initial: List[State], codeAwareInstructionExecutor : CodeAwareInstructionExecutor): (List[State], List[State]) = {
     val init = System.currentTimeMillis()
-    println("Ok now " + codeAwareInstructionExecutor.program.size)
+    println("program size " + codeAwareInstructionExecutor.program.size + " ports")
     val (ok, failed) = initial.foldLeft((Nil, Nil): (List[State], List[State]))((acc, init) => {
-      val (o, f) = codeAwareInstructionExecutor.execute(ib, init, true)
+      val (o, f) = codeAwareInstructionExecutor.runToCompletion(ib, init, true)
       (acc._1 ++ o, acc._2 ++ f)
     })
     println(s"Failed # ${failed.size}, Ok # ${ok.size}")
@@ -157,7 +157,7 @@ package object test {
       failedStateConsumers = printer :: Nil
     )
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         CreateTag("START", 0),
         Call(switchInstance.getName + ".generator." + packetLayout),
         if (useSyms)

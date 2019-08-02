@@ -31,7 +31,7 @@ class P4Bugs extends FunSuite {
     ps.println(JsonUtil.toJson(res.links()))
     ps.close()
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
-    val (initial, _) = codeAwareInstructionExecutor.execute(InstructionBlock(
+    val (initial, _) = codeAwareInstructionExecutor.runToCompletion(InstructionBlock(
       res.allParserStatesInstruction(),
       // this goes to say that we resolve to handling packets with cpu_header encapsulation + cpu_header.reason == 0, cpu_header.device == 0
       // but non-zero ether address. Expected behavior = only one failed state will spring out of this === the state where the parser
@@ -42,7 +42,7 @@ class P4Bugs extends FunSuite {
     )
     var init = System.currentTimeMillis()
     val (ok, failed) = initial.foldLeft((Nil, Nil) : (List[State], List[State]))((acc, init) => {
-      val (o, f) = codeAwareInstructionExecutor.execute(ib, init, verbose = true)
+      val (o, f) = codeAwareInstructionExecutor.runToCompletion(ib, init, verbose = true)
       (acc._1 ++ o, acc._2 ++ f)
     })
     println(s"Failed # ${failed.size}, Ok # ${ok.size}")
@@ -84,7 +84,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "good")
   }
@@ -100,7 +100,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "bad")
   }
@@ -116,7 +116,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "bad")
     assert(ok.isEmpty)
@@ -133,7 +133,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "bad")
   }
@@ -149,7 +149,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, fld) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         CreateTag("START", 0),
         Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp"),
         Constrain(Tag("START") + 272 + 16, :==:(ConstantValue(1025)))
@@ -174,7 +174,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, fld) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         CreateTag("START", 0),
         Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
       ), State.clean, verbose = true)
@@ -198,7 +198,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, fld) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         CreateTag("START", 0),
         Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
       ), State.clean, verbose = true)
@@ -218,7 +218,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "soso")
   }
@@ -235,7 +235,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "soso")
   }
@@ -252,7 +252,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "fail-readonly")
   }
@@ -268,7 +268,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         res.allParserStatesInstruction(),
         Assign("Truncate",ConstantValue(0))
       ), State.clean, verbose = true)
@@ -287,7 +287,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         res.allParserStatesInstruction(),
         Assign("Truncate",ConstantValue(0))
       ), State.clean, verbose = true)
@@ -308,7 +308,7 @@ class P4Bugs extends FunSuite {
       )
       val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
       val (initial, _) = codeAwareInstructionExecutor.
-        execute(InstructionBlock(
+        runToCompletion(InstructionBlock(
           res.allParserStatesInstruction()
         ), State.clean, verbose = true)
       val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
@@ -358,7 +358,7 @@ class P4Bugs extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         CreateTag("START", 0),
         Call("router.generator.parse_ethernet.parse_ipv4.parse_udp.parse_paxos")
       ), State.clean, verbose = true)
@@ -381,7 +381,7 @@ class P4Bugs extends FunSuite {
       )
       val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
       val (initial, _) = codeAwareInstructionExecutor.
-        execute(InstructionBlock(
+        runToCompletion(InstructionBlock(
           res.allParserStatesInstruction()
         ), State.clean, verbose = true)
       val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)

@@ -300,7 +300,11 @@ class P4GrammarListener extends P4GrammarBaseListener {
       320 -> ("instance_type", 64),
       384 -> ("parser_status", 64),
       448 -> ("parser_error_location", 64),
-      512 -> ("egress_priority", 64)
+      512 -> ("egress_priority", 64),
+      513 -> ("clone_spec", 64),
+      514 -> ("resubmit_flag", 64),
+      515 -> ("recirculate_flag", 64),
+      516 -> ("clone_session", 64)
     )
 //    declaredHeaders.put("standard_metadata_t", HeaderDeclaration("standard_metadata_t", hOffs, 512))
     headers.put("standard_metadata_t", hOffs.foldLeft(new Header().setName("standard_metadata_t").setLength(512))((acc, x) => {
@@ -508,7 +512,6 @@ class P4GrammarListener extends P4GrammarBaseListener {
   private val blocksLast:ParseTreeProperty[ListBuffer[Instruction]] = new ParseTreeProperty[ListBuffer[Instruction]]()
 
   override def enterControl_function_declaration(ctx:Control_function_declarationContext){
-    println("Enter control function "+ ctx.control_fn_name.getText)
     ctx.controlFunctionName = ctx.control_fn_name().NAME().getText
     ctx.control_block().parent = s"control.${ctx.controlFunctionName}"
   }
@@ -519,17 +522,6 @@ class P4GrammarListener extends P4GrammarBaseListener {
       this.instructions.put(s"control.${ctx.controlFunctionName}", Forward(s"control.${ctx.controlFunctionName}.out"))
     else
       this.instructions.put(s"control.${ctx.controlFunctionName}", Forward(s"control.${ctx.controlFunctionName}" + "[0]"))
-
-//    println("\n\n------------------------------\nGenerated SEFL CODE for function "+ ctx.control_fn_name.getText +"\n------------------------------\n")
-//    for ((x,y) <- ports){
-//      println(x+":")
-//      for ( z <- y)
-//        println("\t"+z)
-//    }
-//
-//    if(currentInstructions.nonEmpty){
-//      System.out.println("Not expecting instructions at exit of ctrl function!\n"+currentInstructions)
-//    }
   }
 
   override def enterControl_block(ctx:Control_blockContext) {
@@ -596,8 +588,6 @@ class P4GrammarListener extends P4GrammarBaseListener {
   override def exitApply_table_call(ctx:Apply_table_callContext){
     val execId = UUID.randomUUID().toString
     val portName = s"table.${ctx.table_name().getText}.in.$execId"
-    println("Apply matched " + ctx.table_name.getText)
-
     ctx.instruction = Forward(s"table.${ctx.table_name().getText}.in.$execId")
     this.links.put(s"table.${ctx.table_name().getText}.out.$execId", ctx.parent + ".out")
   }
@@ -620,7 +610,6 @@ class P4GrammarListener extends P4GrammarBaseListener {
 
 
   override def exitApply_and_select_block(ctx:Apply_and_select_blockContext){
-    println("Apply and select bmatched " + ctx.table_name.getText)
     //adding fork if there are multiple forward instructions
     // TODO: Wire it up
     val execId = UUID.randomUUID().toString
@@ -803,7 +792,6 @@ class P4GrammarListener extends P4GrammarBaseListener {
 
 
   override def exitField_name(ctx:Field_nameContext) {
-//    println("Matched field name "+ctx.getText)
   }
 
   //exp : exp bin_op exp # compound_exp
@@ -839,7 +827,6 @@ class P4GrammarListener extends P4GrammarBaseListener {
   }
 
   override def exitPar_exp(ctx:Par_expContext){
-    println("Matched par expression "+ctx.getText)
     ctx.expr = ctx.exp().expr
     expressions.put(ctx,expressions.get(ctx.exp))
   }
@@ -982,14 +969,12 @@ class P4GrammarListener extends P4GrammarBaseListener {
 
   override def exitNegated_bool_expr(ctx:Negated_bool_exprContext){
     val exp = constraints.get(ctx.bool_expr)
-    println(s"Exit negated bool expr of $exp")
     constraints.put(ctx, :~:(exp))
     ctx.alsoAdd = ctx.bool_expr().alsoAdd
     ctx.instruction = not(ctx.bool_expr().instruction)
   }
 
   override def exitConst_bool(ctx:Const_boolContext){
-    println("Matched const bool expr.")
     ctx.alsoAdd = Assign("__CONSTANT_1__", ConstantValue(1))
     ctx.instruction = Constrain("__CONSTANT_1__", :==:(ConstantValue(if (ctx.getText.equalsIgnoreCase("true")) 1 else 0)))
     values.put(ctx, if (ctx.getText.equalsIgnoreCase("true")) 1 else 0)

@@ -36,10 +36,10 @@ class CodeAwareInstructionExecutorWithListeners(caie : CodeAwareInstructionExecu
   }
 
   override def executeExoticInstruction(instruction: Instruction, s: State, v: Boolean): (List[State], List[State]) = instruction match {
-    case ExistsNamedSymbol(_) => (super.executeExoticInstruction(instruction, s, v)._1, Nil)
-    case ExistsRaw(_) => (super.executeExoticInstruction(instruction, s, v)._1, Nil)
-    case NotExistsNamedSymbol(_) => (super.executeExoticInstruction(instruction, s, v)._1, Nil)
-    case NotExistsRaw(_) => (super.executeExoticInstruction(instruction, s, v)._1, Nil)
+    case Drop(m) =>
+      val (succ, _) = super.executeExoticInstruction(instruction, s, v)
+      successStateConsumers.foreach(c => c.consumeAll(succ))
+      (Nil, Nil)
     case _ => super.executeExoticInstruction(instruction, s, v)
   }
 
@@ -61,6 +61,49 @@ class CodeAwareInstructionExecutorWithListeners(caie : CodeAwareInstructionExecu
   */
 class CodeAwareInstructionExecutor(val program : Map[String, Instruction],
                                    private val solver : Solver) extends OVSExecutor(solver) {
+  var queue = List.empty[State]
+
+  def runToCompletion(instruction : Instruction, init: State, verbose : Boolean) : (List[State], List[State]) = {
+    var first = instruction
+    var crt = init.unstuck()
+    var continue = true
+    var o = List.empty[State]
+    var f = List.empty[State]
+    while (continue) {
+      val (o1, f1, c) = run(first, crt, verbose = true)
+      o = o1 ++ o
+      f = f1 ++ f
+      continue = c
+      if (continue) {
+        val (x, y) = pop().get
+        crt = x
+        first = y
+        if (CodeAwareInstructionExecutor.DEBUG)
+          System.out.println("now running " + crt.history.head)
+      }
+    }
+    (o, f)
+  }
+
+  def run(instruction : Instruction, state : State, verbose : Boolean) : (List[State], List[State], Boolean) = {
+    val (s, f) = execute(instruction, state, verbose)
+    (s, f, queue.nonEmpty)
+  }
+  def nextInstruction() : Option[Instruction] = next().map(st => {
+    val hd = st.history.head
+    program(hd)
+  })
+  def next() : Option[State] = if (queue.isEmpty) None
+  else {
+    val hd = queue.head.unstuck()
+    Some(hd)
+  }
+  def pop() : Option[(State, Instruction)] = {
+    val r = next().map((_, nextInstruction().get))
+    queue = queue.tail
+    r
+  }
+  def push(state : State) : Unit = queue = state :: queue
 
   def this(caie: CodeAwareInstructionExecutor) = this(caie.program, caie.solver)
 
@@ -69,27 +112,18 @@ class CodeAwareInstructionExecutor(val program : Map[String, Instruction],
     if (!program.contains(crt.history.head)) {
       (List[State](crt), Nil)
     } else {
-      val crtI = program(crt.history.head)
-      this.execute(crtI, crt, v)
+      push(crt)
+      (Nil, Nil)
     }
   }
 
+  override def execute(instruction: Instruction, state: State, verbose: Boolean): (List[State], List[State]) = {
+    if (state.stuck) (List(state), Nil)
+    else super.execute(instruction, state, verbose)
+  }
   def executeInternal(instruction : Instruction, state : State, verbose : Boolean) : (List[State], List[State]) = {
-    this.execute(instruction, state, verbose)
+    execute(instruction, state, verbose)
   }
-
-  override def executeInstructionBlock(instruction: InstructionBlock, s: State, v: Boolean): (List[State], List[State]) =
-    instruction.instructions.toList match {
-      case Forward(place) :: tail => this.executeInternal(Forward(place), s, v)
-      case InstructionBlock(is) :: tail =>
-        this.executeInternal(InstructionBlock(is ++ tail), s, v)
-      case SuperFork(forkBlocks) :: tail =>
-        this.executeInternal(SuperFork(forkBlocks.map(f => InstructionBlock(f :: tail))), s, v)
-      case If (a, b, c) :: tail => this.execute(If(a, InstructionBlock(b :: tail), InstructionBlock(c :: tail)), s, v)
-      case Fork(forkBlocks) :: tail => this.executeInternal(Fork(forkBlocks.map(f => InstructionBlock(f :: tail))), s, v)
-      case head :: tail => super.executeInstructionBlock(InstructionBlock(head, InstructionBlock(tail)), s, v)
-      case _ => super.executeInstructionBlock(instruction, s, v)
-    }
 
   def +(pair : (String, Instruction)) : CodeAwareInstructionExecutor = {
     new CodeAwareInstructionExecutor(program = program + pair, solver = solver)
@@ -98,7 +132,9 @@ class CodeAwareInstructionExecutor(val program : Map[String, Instruction],
   override def executeExoticInstruction(instruction: Instruction, s: State, v: Boolean): (List[State], List[State]) = {
     instruction match {
       case t : Translatable => this.execute(t.generateInstruction(), s, v)
-      case Call(fun) => this.executeForward(Forward(fun), s, v)
+      case Drop(x) => (List(s.drop(x)), Nil)
+      case Call(fun) =>
+        runToCompletion(Forward(fun), s, v)
       case Unfail(u) => val (ok, failed) = executeInternal(u, s, v)
         (ok ++ failed.map(x => x.copy(errorCause = None).forwardTo(s"Fail(${x.errorCause})")), Nil)
       case Let(string, u) => val (ok, failed) = executeInternal(u, s, v)
@@ -128,6 +164,10 @@ class CodeAwareInstructionExecutor(val program : Map[String, Instruction],
           s.memory.copy(rawObjects = s.memory.rawObjects.filter(r => {
             r._1 > stopHere
           })).UnTag("LAST_HEADER").get)), Nil)
+      case ExistsNamedSymbol(_) => (super.executeExoticInstruction(instruction, s, v)._1, Nil)
+      case ExistsRaw(_) => (super.executeExoticInstruction(instruction, s, v)._1, Nil)
+      case NotExistsNamedSymbol(_) => (super.executeExoticInstruction(instruction, s, v)._1, Nil)
+      case NotExistsRaw(_) => (super.executeExoticInstruction(instruction, s, v)._1, Nil)
       case _ => super.executeExoticInstruction(instruction, s, v)
     }
   }
@@ -381,6 +421,7 @@ object RewriteLogic {
 }
 
 object CodeAwareInstructionExecutor {
+  var DEBUG = false
   val NULL_PORT = ""
 
   def flattenProgram(program: Map[String, Instruction], links : Map[String, String]): Map[String, Instruction] =
