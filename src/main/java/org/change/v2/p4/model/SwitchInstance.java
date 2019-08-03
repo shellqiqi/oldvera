@@ -279,7 +279,8 @@ public class SwitchInstance implements ISwitchInstance {
         }
         br.close();
         for (String table : switchInstance.getDeclaredTables())
-            Collections.sort(switchInstance.flowInstanceIterator(table), Comparator.comparingInt(FlowInstance::getPriority));
+            Collections.sort(switchInstance.flowInstanceIterator(table),
+                    Comparator.comparingInt(FlowInstance::getPriority).reversed());
         return switchInstance;
     }
 

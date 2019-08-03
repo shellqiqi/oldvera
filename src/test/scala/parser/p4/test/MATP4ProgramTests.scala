@@ -33,7 +33,7 @@ class MATP4ProgramTests extends FunSuite {
 //
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     var init = System.currentTimeMillis()
-    val (ok, failed) = codeAwareInstructionExecutor.execute(ib, State.clean, verbose = true)
+    val (ok, failed) = codeAwareInstructionExecutor.runToCompletion(ib, State.clean, verbose = true)
     println(s"Failed # ${failed.size}, Ok # ${ok.size}")
     println(s"Time is ${System.currentTimeMillis() - init}ms")
   }
@@ -54,7 +54,7 @@ class MATP4ProgramTests extends FunSuite {
 
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     var init = System.currentTimeMillis()
-    val (ok, failed) = codeAwareInstructionExecutor.execute(ib, State.clean, verbose = true)
+    val (ok, failed) = codeAwareInstructionExecutor.runToCompletion(ib, State.clean, verbose = true)
     println(s"Failed # ${failed.size}, Ok # ${ok.size}")
     println(s"Time is ${System.currentTimeMillis() - init}ms")
   }

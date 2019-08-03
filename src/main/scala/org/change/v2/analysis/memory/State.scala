@@ -18,8 +18,12 @@ case class State(memory: MemorySpace = MemorySpace.clean,
                  history: List[LocationId] = Nil,
                  errorCause: Option[ErrorCause] = None,
                  instructionHistory: List[Instruction] = Nil,
-                 savedStack: Map[String, MemorySpace] = Map[String, MemorySpace]()) {
+                 savedStack: Map[String, MemorySpace] = Map[String, MemorySpace](),
+                 stuck : Boolean = false,
+                 dropCause : Option[String] = None) {
+  def dropped() : Boolean = dropCause.nonEmpty
 
+  def drop(message : String): State = forwardTo("DROP").copy(dropCause = Some(message))
   def save(location: String): State = {
     val newstack = savedStack + (location -> memory)
     this.copy(savedStack = newstack)
@@ -34,9 +38,12 @@ case class State(memory: MemorySpace = MemorySpace.clean,
   }
 
   def location: LocationId = history.head
-  def forwardTo(locationId: LocationId): State = State(memory, locationId :: history, errorCause, instructionHistory)
+  def forwardTo(locationId: LocationId): State = {
+    copy(memory, locationId :: history, errorCause, instructionHistory, stuck=true)
+  }
+  def unstuck(): State = copy(stuck = false)
   def status = errorCause.getOrElse("OK")
-  def addInstructionToHistory(i: Instruction) = State(memory, history, errorCause, i :: instructionHistory)
+  def addInstructionToHistory(i: Instruction) = copy(memory, history, errorCause, i :: instructionHistory)
 
   def jsonString = {
     this.toJson.prettyPrint

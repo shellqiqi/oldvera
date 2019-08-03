@@ -3,7 +3,7 @@ package org.change.parser.p4
 import java.util.UUID
 
 import org.change.v2.analysis.expression.abst.{Expression, FloatingExpression}
-import org.change.v2.analysis.expression.concrete.ConstantValue
+import org.change.v2.analysis.expression.concrete.{ConstantStringValue, ConstantValue}
 import org.change.v2.analysis.expression.concrete.nonprimitive._
 import org.change.v2.analysis.memory.{Intable, Tag}
 import org.change.v2.analysis.processingmodels.Instruction
@@ -146,111 +146,41 @@ class ActionInstance(p4Action: P4Action,
   }
 
 
-  def handleResubmit(resubmit: Resubmit): InstructionBlock = {
+  def handleResubmit(resubmit: Resubmit): Instruction = {
     val fldList = argList.head.asInstanceOf[Symbol].id
     val actualFieldList = switch.getFieldListMap()(fldList)
-    InstructionBlock(
-      restore(actualFieldList.getFields.toList),
-      Assign("standard_metadata.instance_type", ConstantValue(PKT_INSTANCE_TYPE_RESUBMIT.value)),
-      Forward(switchInstance.getName + ".parser")
-    )
+    Assign("standard_metadata.resubmit_flag", ConstantStringValue(argList.head.asInstanceOf[Symbol].id))
   }
 
-  def handleRecirculate(recirculate: Recirculate): InstructionBlock = {
+  def handleRecirculate(recirculate: Recirculate): Instruction = {
     if (argList.nonEmpty) {
       val fldList = argList.head.asInstanceOf[Symbol].id
       val actualFieldList = switch.getFieldListMap()(fldList)
-      InstructionBlock(
-        setOriginal(),
-        restore(actualFieldList.getFields.toList),
-        Assign("standard_metadata.instance_type", ConstantValue(PKT_INSTANCE_TYPE_RECIRC.value)),
-        Forward(switchInstance.getName + ".parser")
-      )
+      Assign("standard_metadata.recirculate_flag", ConstantStringValue(argList.head.asInstanceOf[Symbol].id))
     } else {
-      InstructionBlock(
-        Assign("standard_metadata.instance_type", ConstantValue(PKT_INSTANCE_TYPE_RECIRC.value)),
-        Forward(switchInstance.getName + ".parser")
-      )
+      Assign("standard_metadata.recirculate_flag", ConstantStringValue(""))
     }
   }
 
-  def handleCloneFromIngressToIngress(cloneIngressPktToIngress: CloneIngressPktToIngress): Fork = {
+  def handleCloneFromIngressToIngress(cloneIngressPktToIngress: CloneIngressPktToIngress): Fork =
+    throw new UnsupportedOperationException("clone i2i not supported")
+
+  def handleCloneFromIngressToEgress(cloneIngressPktToEgress: CloneIngressPktToEgress): Instruction = {
     val fldList = argList(1).asInstanceOf[Symbol].id
-    val actualFieldList = switch.getFieldListMap()(fldList)
-    Fork(
-      List[Instruction](
-        InstructionBlock(
-          handleCloneCookie(argList.head),
-          restore(actualFieldList.getFields.toList),
-          Assign("standard_metadata.instance_type", ConstantValue(PKT_INSTANCE_TYPE_INGRESS_CLONE.value)),
-          Assign("IsClone", ConstantValue(1)),
-          Forward(switchInstance.getName + ".parser")
-        ),
-        NoOp
-      )
+    InstructionBlock(
+      Assign("standard_metadata.clone_spec", ConstantStringValue(fldList)),
+      Assign("standard_metadata.clone_session", argList.head)
     )
   }
 
-  def handleCloneFromIngressToEgress(cloneIngressPktToEgress: CloneIngressPktToEgress): Fork = {
+  def handleCloneFromEgressToIngress(cloneEgressPktToIngress: CloneEgressPktToIngress): Fork =
+    throw new UnsupportedOperationException("clone_e2i unsupported")
+
+  def handleCloneFromEgressToEgress(cloneEgressPktToIngress: CloneEgressPktToEgress): Instruction = {
     val fldList = argList(1).asInstanceOf[Symbol].id
-    val actualFieldList = switch.getFieldListMap()(fldList)
-    Fork(
-      List[Instruction](
-        InstructionBlock(
-          handleCloneCookie(argList.head),
-          restore(actualFieldList.getFields.toList),
-          Assign("standard_metadata.instance_type", ConstantValue(PKT_INSTANCE_TYPE_EGRESS_CLONE.value)),
-          Assign("IsClone", ConstantValue(1)),
-          Forward(s"${switchInstance.getName}.buffer.in")
-        ),
-        NoOp
-      )
-    )
-  }
-
-
-  def handleCloneFromEgressToIngress(cloneEgressPktToIngress: CloneEgressPktToIngress): Fork = {
-    val fldList = argList(1).asInstanceOf[Symbol].id
-    val actualFieldList = switch.getFieldListMap()(fldList)
-    Fork(
-      List[Instruction](
-        InstructionBlock(
-          handleCloneCookie(argList.head),
-          setOriginal(),
-          restore(actualFieldList.getFields.toList),
-          Assign("standard_metadata.instance_type", ConstantValue(PKT_INSTANCE_TYPE_INGRESS_CLONE.value)),
-          Assign("IsClone", ConstantValue(1)),
-          Forward(switchInstance.getName + ".parser")
-        ),
-        Forward("control.egress.out")
-      )
-    )
-  }
-
-
-  def handleCloneCookie(cookie : Long) : Instruction = {
-    Assign(switchInstance.getName + ".CloneCookie", ConstantValue(cookie))
-  }
-
-  def handleCloneCookie(cookie : FloatingExpression) : Instruction = {
-    Assign(switchInstance.getName + ".CloneCookie", cookie)
-  }
-
-  def handleCloneFromEgressToEgress(cloneEgressPktToIngress: CloneEgressPktToEgress): Fork = {
-    val fldList = argList(1).asInstanceOf[Symbol].id
-    val actualFieldList = switch.getFieldListMap()(fldList)
-    Fork(
-      List[Instruction](
-        InstructionBlock(
-          handleCloneCookie(argList.head),
-          setOriginal(),
-          restore(actualFieldList.getFields.toList),
-          Assign("standard_metadata.instance_type", ConstantValue(PKT_INSTANCE_TYPE_EGRESS_CLONE.value)),
-          Assign("IsClone", ConstantValue(1)),
-          Forward(switchInstance.getName + ".buffer.in")
-        ),
-        NoOp
-      )
+    InstructionBlock(
+      Assign("standard_metadata.clone_spec", ConstantStringValue(fldList)),
+      Assign("standard_metadata.clone_session", argList.head)
     )
   }
   def handleAdd(addToField: Add) : Instruction = Assign(argList.head.asInstanceOf[Symbol].id, :+:(argList(1), argList(2)))
@@ -677,10 +607,7 @@ class ActionInstance(p4Action: P4Action,
       case P4ActionType.Subtract => handleSubtract(primitiveAction.asInstanceOf[Subtract])
       case P4ActionType.SubtractFromField => handleSubtractFromField(primitiveAction.asInstanceOf[SubtractFromField])
       case P4ActionType.ModifyField => handleModifyField(primitiveAction.asInstanceOf[ModifyField])
-      case P4ActionType.Drop => If (Constrain("egress_pipeline", :==:(ConstantValue(0))),
-        Assign("standard_metadata.egress_spec", ConstantValue(511)),
-        Fail(dropMessage)
-      )
+      case P4ActionType.Drop => Assign("standard_metadata.egress_spec", ConstantValue(511))
       case P4ActionType.NoOp => NoOp
       case P4ActionType.RegisterRead => handleRegisterRead(primitiveAction.asInstanceOf[RegisterRead])
       case P4ActionType.RegisterWrite => handleRegisterWrite(primitiveAction.asInstanceOf[RegisterWrite])
@@ -690,9 +617,9 @@ class ActionInstance(p4Action: P4Action,
       case P4ActionType.CloneIngressPktToEgress => handleCloneFromIngressToEgress(primitiveAction.asInstanceOf[CloneIngressPktToEgress])
       case P4ActionType.Resubmit => handleResubmit(primitiveAction.asInstanceOf[Resubmit])
       case P4ActionType.Recirculate => handleRecirculate(primitiveAction.asInstanceOf[Recirculate])
-      case P4ActionType.AddHeader => handleAddHeader(shouldCheck = true)
+      case P4ActionType.AddHeader => handleAddHeader()
       case P4ActionType.CopyHeader => handleCopyHeader(noCheck = false)
-      case P4ActionType.RemoveHeader => handleRemoveHeader(shouldCheck = true)
+      case P4ActionType.RemoveHeader => handleRemoveHeader()
       case P4ActionType.Pop => handlePop()
       case P4ActionType.Push => handlePush()
       case P4ActionType.BitAnd => handleBitAndOrXor(isAnd = true, isOr = false, isXor = false)

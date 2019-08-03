@@ -1,6 +1,5 @@
 package org.change.v2.analysis.processingmodels.instructions
 
-
 import org.change.v2.analysis.constraint._
 import org.change.v2.analysis.expression.abst.FloatingExpression
 import org.change.v2.analysis.memory.{Intable, State, TagExp}
@@ -84,10 +83,10 @@ object Constrain {
 
 object Assert {
   def apply(id: String, dc: FloatingConstraint): Instruction =
-    If(ConstrainNamedSymbol(id, dc, None), NoOp, Fail(s"Assertion failure:$id $dc.toString"))
+    If(ConstrainNamedSymbol(id, dc, None), NoOp, Fail(s"Assertion failure:$id ${dc.toString}"))
 
   def apply(a: Intable, dc: FloatingConstraint): Instruction =
-    If(ConstrainRaw(a, dc, None), NoOp, Fail(s"Assertion failure:$a $dc.toString"))
+    If(ConstrainRaw(a, dc, None), NoOp, Fail(s"Assertion failure:$a ${dc.toString}"))
 
   def apply(a: Either[String, Intable], dc: FloatingConstraint): Instruction =
     a match {

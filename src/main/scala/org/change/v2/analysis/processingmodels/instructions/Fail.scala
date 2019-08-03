@@ -22,3 +22,7 @@ case class Fail(errMsg: String = "Fail op executed") extends Instruction {
     "Fail(" + errMsg + ")"
   }
 }
+case class Drop(msg : String = "dropped") extends Instruction {
+  override def apply(s: State, verbose: Boolean): (List[State], List[State]) = ???
+  override def toString: String = s"drop($msg)"
+}

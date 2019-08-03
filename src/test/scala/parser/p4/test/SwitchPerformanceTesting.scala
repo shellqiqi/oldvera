@@ -1,17 +1,10 @@
 package parser.p4.test
 
-import org.change.parser.p4.ControlFlowInterpreter
-import org.change.parser.p4.parser.{ParserGenerator, SkipParserAndDeparser, SwitchBasedParserGenerator, TrivialDeparserGenerator}
-import org.change.parser.p4.tables.SymbolicSwitchInstance
-import org.change.v2.analysis.executor.{CodeAwareInstructionExecutor, CodeAwareInstructionExecutorWithListeners}
-import org.change.v2.analysis.executor.solvers.Z3BVSolver
-import org.change.v2.analysis.expression.concrete.ConstantValue
-import org.change.v2.analysis.memory.State
+import org.change.parser.p4.parser.{ParserGenerator, SkipParserAndDeparser}
 import org.change.v2.analysis.processingmodels.Instruction
 import org.change.v2.analysis.processingmodels.instructions._
 import org.change.v2.p4.model.{ISwitchInstance, Switch}
 import org.scalatest.FunSuite
-import org.change.v2.analysis.memory.TagExp.IntImprovements
 
 class SwitchPerformanceTesting  extends FunSuite {
 

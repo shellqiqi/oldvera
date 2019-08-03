@@ -90,16 +90,16 @@ abstract class FullTableGeneric[T<:ISwitchInstance](tableName : String,
     initializeTable(),
     (0 until numberOfFlows).foldRight(default())((x, acc) => {
       val priorAndCt = priorAndConstraints(x)
-      priorAndCt._2.zip(priorAndCt._1).foldRight(action(x))((y, acc2) => {
+      priorAndCt._2.zip(priorAndCt._1).foldRight(InstructionBlock(
+        Assign(s"${actionDef(x)}.Fired", ConstantValue(1)),
+        Assign(s"$tableName.Hit", ConstantValue(1)),
+        action(x)
+      ) : Instruction)((y, acc2) => {
         If (Constrain("IsClone", :==:(ConstantValue(0))),
           InstructionBlock(
             y._2,
             If (y._1,
-              InstructionBlock(
-                acc2,
-                Assign(s"${actionDef(x)}.Fired", ConstantValue(1)),
-                Assign(s"$tableName.Hit", ConstantValue(1))
-              ),
+              acc2,
               InstructionBlock(
                 Assign(s"${actionDef(x)}.Fired", ConstantValue(0)),
                 Assign(s"$tableName.Hit", ConstantValue(0)),

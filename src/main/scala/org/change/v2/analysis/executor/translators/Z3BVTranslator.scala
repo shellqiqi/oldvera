@@ -11,10 +11,11 @@ class Z3BVTranslator(context: Z3Context) extends Translator[Z3Solver] {
   override def translate(mem: MemorySpace): Z3Solver = {
     val slv = context.mkSolver()
     (mem.symbols.values ++ mem.rawObjects.values).foldLeft(slv) { (slv, mo) =>
-      mo.value match {
-        case Some(v) => this.translate(slv, v, mo.size)._2
-        case _ => slv
-      }
+      mo.valueStack.foldLeft(slv)((acc, vs) => {
+        vs.vs.foldLeft(acc)((acc2, vv) => {
+          this.translate(slv, vv, mo.size)._2
+        })
+      })
     }
   }
 

@@ -2,7 +2,7 @@ package org.change.parser.p4
 
 import java.util
 
-import org.change.parser.p4.buffer.{BufferMechanism, OutputMechanism}
+import org.change.parser.p4.buffer.BufferMechanism
 import org.change.parser.p4.factories.{FullTableFactory, GlobalInitFactory, InitCodeFactory, InstanceBasedInitFactory}
 import org.change.parser.p4.tables.SymbolicSwitchInstance
 import org.change.parser.p4.parser.{ParserGenerator, SwitchBasedParserGenerator}
@@ -77,16 +77,14 @@ class ControlFlowInterpreter[T<:ISwitchInstance](val switchInstance: T,
         }
       })
     })
-  println("tables parsed OK")
   // plug in the buffer mechanism
-  private val bufferMechanism = new BufferMechanism(switchInstance)
+  private val bufferMechanism = new BufferMechanism(switch, switchInstance)
   private val bufferPlug = Map[String, Instruction](s"${switchInstance.getName}.buffer.in" -> bufferMechanism.symnetCode())
   private val bufferOutLink = Map[String, String](bufferMechanism.outName() -> s"${switchInstance.getName}.control.egress")
 
   // plug in the output mechanism
-  private lazy val outputMechanism = new OutputMechanism(switchInstance)
   //plug egress.out -> <sw>.deparser
-  private val outputPlug = Map[String, Instruction](s"${switchInstance.getName}.output.in" -> outputMechanism.symnetCode())
+  private val outputPlug = Map[String, Instruction](s"${switchInstance.getName}.output.in" -> bufferMechanism.outputCode())
   private val egressOutLink = Map[String, String](s"${switchInstance.getName}.control.egress.out" -> s"${switchInstance.getName}.deparser.in")
 
   // plug in the deparser

@@ -23,7 +23,7 @@ class SwitchTests extends FunSuite {
     val p4 = s"$dir/switch-ppc-orig.p4"
     val sw = Switch.fromFile(p4)
     assert( sw != null)
-    assert(sw.getActionProfiles() != null && !sw.getActionProfiles.isEmpty)
+    assert(sw.getActionProfiles != null && !sw.getActionProfiles.isEmpty)
     println(sw.getActionProfiles)
   }
 
@@ -41,78 +41,6 @@ class SwitchTests extends FunSuite {
         acc
       }))
   }
-
-//  test("SWITCH - first run") {
-//    val dir = "inputs/big-switch"
-//    val p4 = s"$dir/switch-ppc.p4"
-//    val dataplane = s"$dir/commands-switch.txt"
-//    //-i 0@veth0 -i 1@veth2 -i 2@veth4 -i 3@veth6 -i 4@veth8 -i 5@veth10 -i 6@veth12 -i 7@veth14 -i 8@veth16 -i 64@veth250
-//    val res = ControlFlowInterpreter(p4, dataplane, Map[Int, String](
-//      0 -> "veth0", 1 -> "veth2", 2 -> "veth4", 3 -> "veth6", 4 -> "veth8", 5 -> "veth10", 6 -> "veth12", 7 -> "veth14", 8 -> "veth16", 64 -> "veth250"
-//    ), "switch")
-//    val port = 0
-//    val ib = InstructionBlock(
-//      Forward(s"switch.input.$port")
-//    )
-//    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
-//    val (initial, _) = codeAwareInstructionExecutor.
-//      execute(InstructionBlock(
-//        res.allParserStatesInstruction()
-//      ), State.clean, verbose = true)
-//    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-//    printResults(dir, port, ok, failed, "soso")
-//  }
-
-//  test("SWITCH - code dump") {
-//    val dir = "inputs/big-switch"
-//    val p4 = s"$dir/switch-ppc-orig.p4"
-//    val dataplane = s"$dir/table_dump_full.txt"
-//
-//    val ifaces = Map[Int, String](
-//      0 -> "veth0", 1 -> "veth2",
-//      2 -> "veth4", 3 -> "veth6",
-//      4 -> "veth8", 5 -> "veth10",
-//      6 -> "veth12", 7 -> "veth14",
-//      8 -> "veth16", 64 -> "veth250"
-//    )
-//    val sw = Switch.fromFile(p4)
-//    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("switch",
-//      ifaces,
-//      Map.empty,
-//      sw,
-//      dataplane)
-//    val port = 0
-//    val ib = InstructionBlock(
-//      Forward(s"switch.input.$port")
-//    )
-//    //-i 0@veth0 -i 1@veth2 -i 2@veth4 -i 3@veth6 -i 4@veth8 -i 5@veth10
-//    // -i 6@veth12 -i 7@veth14 -i 8@veth16 -i 64@veth250
-//    val res = new ControlFlowInterpreter(switchInstance, switch = sw,
-//      optParserGenerator = Some(
-//        new SwitchBasedParserGenerator(switch = sw,
-//          switchInstance = switchInstance, codeFilter = Some((x : String) => {
-//            x.contains("parse_ethernet") &&
-//              x.contains("parse_ipv4") &&
-//              x.contains("parse_tcp")
-//          }))
-//      )
-//    )
-//    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(),
-//      res.links(),
-//      solver = new Z3BVSolver
-//    )
-//    import spray.json._
-//    val pscode = new PrintStream(s"$dir/code.json")
-//    pscode.println(codeAwareInstructionExecutor.program.toJson(JsonWriter.func2Writer(f => {
-//      JsObject(f.map(i => {
-//        try {
-//          i._1 -> JsString(i._2.toString)
-//        } catch {
-//          case ex : Exception => throw new Exception(s"Failed deserializing ${i._1}")
-//        }
-//      }))
-//    })).compactPrint)
-//  }
 
   test("SWITCH - L2Test run") {
     val dir = "inputs/big-switch"
@@ -158,7 +86,7 @@ class SwitchTests extends FunSuite {
       failedStateConsumers = printer :: Nil
     )
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         CreateTag("START", 0),
         Call("switch.generator.parse_ethernet.parse_ipv4.parse_tcp")
       ), State.clean, verbose = true)
@@ -223,7 +151,7 @@ class SwitchTests extends FunSuite {
       failedStateConsumers = printer :: Nil
     )
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         CreateTag("START", 0),
         Call("switch.generator.parse_ethernet.parse_ipv4.parse_tcp")
       ), State.clean, verbose = true)
@@ -240,8 +168,6 @@ class SwitchTests extends FunSuite {
     }), "soso")
     successIndex.close()
     failIndex.close()
-    if (ok.nonEmpty)
-      println(ok)
   }
 
   test("SWITCH - L2Test with trivial deparser & deterministic parser") {
@@ -289,7 +215,7 @@ class SwitchTests extends FunSuite {
       failedStateConsumers = printer :: Nil
     )
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         CreateTag("START", 0),
         Call("switch.generator.parse_ethernet.parse_ipv4.parse_tcp")
       ), State.clean, verbose = true)
@@ -306,67 +232,62 @@ class SwitchTests extends FunSuite {
     }), "soso")
     successIndex.close()
     failIndex.close()
-    if (ok.nonEmpty)
-      println(ok)
   }
-
-  test("SWITCH - tcp run") {
-    val dir = "inputs/big-switch"
-    val p4 = s"$dir/switch-ppc-orig.p4"
-    val dataplane = s"$dir/table_dump_full.txt"
-
-    val ifaces = Map[Int, String](
-      0 -> "veth0", 1 -> "veth2",
-      2 -> "veth4", 3 -> "veth6",
-      4 -> "veth8", 5 -> "veth10",
-      6 -> "veth12", 7 -> "veth14",
-      8 -> "veth16", 64 -> "veth250"
-    )
-    val sw = Switch.fromFile(p4)
-    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("switch",
-      ifaces,
-      Map.empty,
-      sw,
-      dataplane)
-    assert(switchInstance.tableDefinitions("system_acl").flowInstances.nonEmpty)
-    println(switchInstance.tableDefinitions.get("system_acl"))
-    val port = 0
-
-    //-i 0@veth0 -i 1@veth2 -i 2@veth4 -i 3@veth6 -i 4@veth8 -i 5@veth10 -i 6@veth12 -i 7@veth14 -i 8@veth16 -i 64@veth250
-    val res = new ControlFlowInterpreter(switchInstance, switch = sw,
-      optParserGenerator = Some(
-        new SwitchBasedParserGenerator(switch = sw,
-          switchInstance = switchInstance, codeFilter = Some((x : String) => {
-            x.contains("parse_ethernet") &&
-            x.contains("parse_ipv4") &&
-            x.contains("parse_tcp")
-          }))
-      )
-    )
-    val ib = res.startWherever()
-    val (failIndex, successIndex, printer) = createConsumer(dir)
-
-    val codeAwareInstructionExecutor = new CodeAwareInstructionExecutorWithListeners(
-      CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver),
-      successStateConsumers = printer :: Nil,
-      failedStateConsumers = printer :: Nil
-    )
-    val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
-        CreateTag("START", 0),
-        Call("switch.generator.parse_ethernet.parse_vlan.parse_ipv4.parse_tcp")
-      ), State.clean, verbose = true)
-    println(s"initial states gathered ${initial.size}")
-    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed.filter(r => {
-      !(r.errorCause.exists(k => k.startsWith("Cannot resolve reference to")) &&
-      r.history.head.contains("switch.parser."))
-    }), "soso")
-    successIndex.close()
-    failIndex.close()
-    if (ok.nonEmpty)
-      println(ok)
-  }
+//
+//  test("SWITCH - tcp run") {
+//    val dir = "inputs/big-switch"
+//    val p4 = s"$dir/switch-ppc-orig.p4"
+//    val dataplane = s"$dir/table_dump_full.txt"
+//
+//    val ifaces = Map[Int, String](
+//      0 -> "veth0", 1 -> "veth2",
+//      2 -> "veth4", 3 -> "veth6",
+//      4 -> "veth8", 5 -> "veth10",
+//      6 -> "veth12", 7 -> "veth14",
+//      8 -> "veth16", 64 -> "veth250"
+//    )
+//    val sw = Switch.fromFile(p4)
+//    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("switch",
+//      ifaces,
+//      Map.empty,
+//      sw,
+//      dataplane)
+//    assert(switchInstance.tableDefinitions("system_acl").flowInstances.nonEmpty)
+//    println(switchInstance.tableDefinitions.get("system_acl"))
+//    val port = 0
+//
+//    //-i 0@veth0 -i 1@veth2 -i 2@veth4 -i 3@veth6 -i 4@veth8 -i 5@veth10 -i 6@veth12 -i 7@veth14 -i 8@veth16 -i 64@veth250
+//    val res = new ControlFlowInterpreter(switchInstance, switch = sw,
+//      optParserGenerator = Some(
+//        new SwitchBasedParserGenerator(switch = sw,
+//          switchInstance = switchInstance, codeFilter = Some((x : String) => {
+//            x.contains("parse_ethernet.parse_ipv4.parse_tcp")
+//          }))
+//      )
+//    )
+//    val ib = res.startWherever()
+//    val (failIndex, successIndex, printer) = createConsumer(dir)
+//
+//    val codeAwareInstructionExecutor = new CodeAwareInstructionExecutorWithListeners(
+//      CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver),
+//      successStateConsumers = printer :: Nil,
+//      failedStateConsumers = printer :: Nil
+//    )
+//    val (initial, _) = codeAwareInstructionExecutor.
+//      runToCompletion(InstructionBlock(
+//        CreateTag("START", 0),
+//        Call("switch.generator.parse_ethernet.parse_ipv4.parse_tcp")
+//      ), State.clean, verbose = true)
+//    println(s"initial states gathered ${initial.size}")
+//    CodeAwareInstructionExecutor.DEBUG = true
+//    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+//    printResults(dir, port, ok, failed.filter(r => {
+//      !(r.errorCause.exists(k => k.startsWith("Cannot resolve reference to")) &&
+//      r.history.head.contains("switch.parser."))
+//    }), "soso")
+//    successIndex.close()
+//    failIndex.close()
+//  }
 
   test("SWITCH - L3Ipv4 with trivial deparser & deterministic parser") {
     val dir = "inputs/big-switch"

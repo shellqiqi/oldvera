@@ -26,7 +26,7 @@ class StarTest extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "good")
   }
