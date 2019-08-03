@@ -23,23 +23,7 @@ object P4Tester {
     val init = System.currentTimeMillis()
     println("Ok now " + initial.size)
     val (ok, failed) = initial.foldLeft((Nil, Nil): (List[State], List[State]))((acc, init) => {
-      var first = ib
-      var crt = init
-      var continue = true
-      var o = List.empty[State]
-      var f = List.empty[State]
-      while (continue) {
-        val (o1, f1, c) = codeAwareInstructionExecutor.run(first, crt, verbose = true)
-        o = o1 ++ o
-        f = f1 ++ f
-        continue = c
-        if (continue) {
-          val (x, y) = codeAwareInstructionExecutor.pop().get
-          crt = x
-          first = y
-          System.out.println("now running " + crt.history.head)
-        }
-      }
+      val (o, f) = codeAwareInstructionExecutor.runToCompletion(ib, init, verbose = true)
       (acc._1 ++ o, acc._2 ++ f)
     })
     println(s"Failed # ${failed.size}, Ok # ${ok.size}")
