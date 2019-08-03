@@ -1,8 +1,7 @@
 package org.change.v2.runners.experiments
 
-import java.io.File
+import java.io.{File, FileFilter, FileInputStream}
 
-import org.change.v2.abstractnet.click.selfbuildingblocks.EtherMumboJumbo
 import org.change.v2.abstractnet.mat.tree.Node
 import org.change.v2.abstractnet.mat.tree.Node.Forest
 import org.change.v2.abstractnet.optimized.router.OptimizedRouter
@@ -13,8 +12,12 @@ import org.change.v2.analysis.processingmodels.instructions._
 import org.change.v2.util.canonicalnames._
 import org.change.v2.abstractnet.mat.condition.{Range => CRange}
 import org.change.v2.analysis.constraint.{AND, Constraint, GTE_E, LTE_E, NOT, OR}
+import org.change.v2.util.conversion.RepresentationConversion
+import org.change.v2.util.regexes._
 
+import scala.io.Source
 import scala.util.Random
+import play.api.libs.json._
 
 /**
   * This package contains the boilerplate code for the benchmark of the various router models.
@@ -34,7 +37,7 @@ package object routerexperiments {
     allEntries.zipWithIndex.filter(chosenIndices contains _._2).unzip._1
   }
 
-  type RoutingModelFactory = (RoutingEntries) => Instruction
+  type RoutingModelFactory = RoutingEntries => Instruction
 
   def buildIfElseChainModel(entries: RoutingEntries): Instruction = {
     entries.foldRight(NoOp: Instruction)( (i, crtCode) =>
@@ -149,5 +152,73 @@ package object routerexperiments {
 
   private def rangeToConstraint(r: CRange): Constraint =
     AND(List(GTE_E(ConstantValue(r.lower)), LTE_E(ConstantValue(r.upper))))
+
+  def fibFolderToSEFL(fibs: File,
+                      fibParser: (File, Boolean) => Seq[((Long, Long), String)],
+                      extension: String): Map[String, Instruction] = {
+    {
+      for {
+        fib <- fibs.listFiles(new FileFilter {
+          override def accept(file: File): Boolean = file.getName.endsWith("." + extension)
+        })
+        entries = fibParser(fib, true)
+      } yield fib.getName.split("\\.")(0) + "-in" -> buildBasicForkModel(entries)
+    }.toMap
+  }
+
+  def getRoutingEntriesBatfish(file: File, prependFileName: Boolean = false): Seq[((Long, Long), String)] = {
+    (for {
+      line <- scala.io.Source.fromFile(file).getLines()
+      tokens = line.split("\\s+")
+      if tokens.length >= 2
+      if tokens(0) != ""
+      matchPattern = tokens(0)
+      forwardingPort = tokens(1)
+    } yield (
+      matchPattern match {
+        case ipv4netmaskRegex() => {
+          val netMaskTokens = matchPattern.split("/")
+          val netAddr = netMaskTokens(0)
+          val mask = netMaskTokens(1)
+          val (l, u) = RepresentationConversion.ipAndMaskToInterval(netAddr, mask)
+          (l,u)
+        }
+      },
+      if (!prependFileName) forwardingPort
+      else (file.getName.split("\\.")(0) + "-" + forwardingPort)
+    )).toSeq.sortBy(i => i._1._2 - i._1._1)
+  }
+
+  def getBatfishLinks(linksFile: File): Map[String, String] = {
+    val json = Source.fromFile(linksFile)
+    // parse
+    val parsedJson: JsArray = Json.parse(new FileInputStream(linksFile)).asInstanceOf[JsArray]
+
+    {
+      for {
+        link <- parsedJson.value
+      } yield
+        (link("node1").asInstanceOf[JsString].value + "-" + link("node1interface").asInstanceOf[JsString].value) ->
+        (link("node2").asInstanceOf[JsString].value + "-in")
+    }.toMap
+  }
+
+  def batfishFibsToSEFL(
+                       fibFolder: File,
+                       linksFile: File
+                       ): (Map[String, Instruction], Map[String, String]) =
+  (
+    fibFolderToSEFL(fibFolder, getRoutingEntriesBatfish, "fib"),
+    getBatfishLinks(linksFile)
+  )
+
+  def ciscoFibsToSEFL(
+                       fibFolder: File
+//                       ,linksFile: File
+  ): (Map[String, Instruction], Map[String, String]) =
+    (
+      fibFolderToSEFL(fibFolder, OptimizedRouter.getRoutingEntries, "out"),
+      Map.empty
+    )
 
 }

@@ -1,0 +1,1457 @@
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=512, dl_dst=fa:16:3e:d8:c7:b1
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=67, dl_dst=fa:16:3e:25:48:78
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=49152, dl_dst=fa:16:3e:65:00:d9
+nw_src=251.154.97.57/32, nw_dst=83.78.47.15/32, tp_src=67, tp_dst=128, dl_dst=fa:16:3e:a0:3c:ee, dl_src=fa:16:3e:5f:77:cc
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=68, dl_dst=fa:16:3e:f7:19:cb
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=1024
+nw_src=251.154.97.57/32, nw_dst=83.78.47.15/32, tp_src=67, tp_dst=65532, dl_dst=fa:16:3e:41:69:bf, dl_src=fa:16:3e:ec:21:c8
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=8, dl_dst=fa:16:3e:4f:7b:7c
+nw_src=251.154.97.57/32, nw_dst=83.78.47.15/32, tp_src=67, tp_dst=256, dl_dst=fa:16:3e:4f:76:9f
+nw_src=251.154.97.57/32, nw_dst=83.78.47.15/32, tp_src=67, tp_dst=4, dl_dst=fa:16:3e:9d:1f:d8, dl_src=fa:16:3e:f4:e0:9b
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=65472, dl_dst=fa:16:3e:55:51:68
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=16
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=1, dl_dst=fa:16:3e:cf:76:88
+nw_dst=83.78.47.15/32, tp_src=67, tp_dst=32
+nw_dst=83.78.42.238/32, tp_src=67, tp_dst=4096
+nw_dst=83.78.42.238/32, tp_src=67, tp_dst=128, dl_dst=fa:16:3e:7b:27:c7
+nw_dst=83.78.42.238/32, tp_src=67, tp_dst=67
+nw_dst=83.78.42.238/32, tp_src=67, tp_dst=64
+nw_src=251.154.97.57/32, nw_dst=83.78.42.238/32, tp_src=67, tp_dst=32768, dl_dst=fa:16:3e:25:52:84, dl_src=fa:16:3e:f1:b2:77
+nw_dst=83.78.42.238/32, tp_src=67, tp_dst=32, dl_dst=fa:16:3e:59:26:90
+nw_dst=83.78.42.238/32, tp_src=67, tp_dst=2048, dl_dst=fa:16:3e:f8:d0:5c
+nw_dst=83.78.42.238/32, tp_src=67, tp_dst=16384, dl_dst=fa:16:3e:af:73:f5
+nw_dst=83.78.37.65/32, tp_src=67, tp_dst=128, dl_dst=fa:16:3e:ce:96:29
+nw_src=251.154.97.160/32, nw_dst=83.78.37.65/32, tp_src=67, tp_dst=8192, dl_dst=fa:16:3e:3f:a5:67, dl_src=fa:16:3e:c4:7e:2a
+nw_src=251.154.97.160/32, nw_dst=83.78.37.65/32, tp_src=67, tp_dst=68, dl_dst=fa:16:3e:00:4d:0a, dl_src=fa:16:3e:29:5c:c3
+nw_dst=83.78.37.65/32, tp_src=67, tp_dst=1
+nw_dst=83.78.37.65/32, tp_src=443, tp_dst=67, dl_dst=fa:16:3e:1e:1f:9f
+nw_dst=83.78.37.65/32, tp_src=67, tp_dst=16384, dl_dst=fa:16:3e:0e:69:5c
+nw_dst=83.78.32.157/32, tp_src=67, tp_dst=65408, dl_dst=fa:16:3e:18:9b:d6
+nw_dst=83.78.32.157/32, tp_src=67, tp_dst=32
+nw_dst=83.78.50.121/32, tp_src=67, tp_dst=4
+nw_dst=83.78.50.121/32, tp_src=67, tp_dst=8
+nw_dst=83.78.50.121/32, tp_src=67, tp_dst=63488, dl_dst=fa:16:3e:6a:36:62
+nw_dst=83.78.50.121/32, tp_src=67, tp_dst=128
+nw_dst=83.78.50.121/32, tp_src=22, tp_dst=64
+nw_dst=83.78.50.121/32, tp_src=67, tp_dst=1
+nw_src=251.154.97.172/32, nw_dst=83.78.50.121/32, tp_src=67, tp_dst=512, dl_dst=fa:16:3e:8e:8a:41, dl_src=fa:16:3e:1a:30:dc
+nw_dst=83.78.50.121/32, tp_src=67, tp_dst=32768, dl_dst=fa:16:3e:be:b5:8f
+nw_dst=83.78.50.121/32, tp_src=67, tp_dst=64512
+nw_dst=38.17.70.7/32, tp_src=67, tp_dst=1024, dl_dst=fa:16:3e:a7:22:48
+nw_dst=38.17.70.7/32, tp_src=67, tp_dst=4096, dl_dst=fa:16:3e:8b:01:82
+nw_dst=38.17.70.7/32, tp_src=67, tp_dst=256, dl_dst=fa:16:3e:fb:da:1d
+nw_dst=38.17.70.7/32, tp_src=67, tp_dst=512, dl_dst=fa:16:3e:92:79:57
+nw_src=251.154.66.68/32, nw_dst=38.17.70.4/32, tp_src=67, tp_dst=128, dl_dst=fa:16:3e:55:d9:bc, dl_src=fa:16:3e:49:57:c4
+nw_dst=38.17.67.130/32, tp_src=67, tp_dst=1024, dl_dst=fa:16:3e:85:b7:d9
+nw_dst=38.17.67.130/32, tp_src=67, tp_dst=4
+nw_dst=38.17.67.130/32, tp_src=67, tp_dst=64512
+nw_dst=38.17.67.130/32, tp_src=67, tp_dst=2048
+nw_dst=38.17.73.209/32, tp_src=67, tp_dst=65520
+nw_dst=38.17.73.209/32, tp_src=67, tp_dst=8443
+nw_dst=38.17.73.209/32, tp_src=67, tp_dst=32768, dl_dst=fa:16:3e:29:c5:ee
+nw_dst=38.17.72.187/32, tp_src=67, tp_dst=64
+nw_dst=38.17.75.0/32, tp_src=67, tp_dst=32, dl_dst=fa:16:3e:33:1c:25
+nw_src=139.57.178.235/32, nw_dst=38.17.75.107/32, tp_src=67, tp_dst=4, dl_dst=fa:16:3e:e7:19:75, dl_src=fa:16:3e:69:36:ee
+nw_dst=38.17.75.107/32, tp_src=67, tp_dst=256
+nw_dst=38.17.75.107/32, tp_src=2888, tp_dst=1
+nw_dst=38.17.63.204/32, tp_src=67, tp_dst=256
+nw_dst=38.17.63.204/32, tp_src=67, tp_dst=1024
+nw_dst=38.17.63.204/32, tp_src=67, tp_dst=2
+nw_dst=38.17.63.204/32, tp_src=67, tp_dst=16, dl_dst=fa:16:3e:67:ea:15
+nw_dst=38.17.63.204/32, tp_src=67, tp_dst=32
+nw_dst=38.17.63.162/32, tp_src=67, tp_dst=2048
+nw_src=139.57.178.245/32, nw_dst=38.17.63.162/32, tp_src=67, tp_dst=68, dl_dst=fa:16:3e:a8:f5:be, dl_src=fa:16:3e:ce:05:4e
+nw_dst=38.17.56.120/32, tp_src=67, tp_dst=8192
+nw_dst=38.17.56.72/32, tp_src=67, tp_dst=8192, dl_dst=fa:16:3e:51:66:c3
+nw_dst=38.17.56.72/32, tp_src=67, tp_dst=2
+nw_dst=38.17.56.72/32, tp_src=67, tp_dst=16, dl_dst=fa:16:3e:95:e3:c7
+nw_dst=38.17.56.72/32, tp_src=67, tp_dst=32768, dl_dst=fa:16:3e:91:4c:24
+nw_dst=38.17.57.43/32, tp_src=67, tp_dst=2048, dl_dst=fa:16:3e:dd:8b:4a
+nw_dst=56.185.98.96/32, tp_src=67, tp_dst=32768
+nw_dst=56.185.98.96/32, tp_src=67, tp_dst=32, dl_dst=fa:16:3e:5f:3c:59
+nw_dst=56.185.98.171/32, tp_src=67, tp_dst=67
+nw_dst=56.185.98.171/32, tp_src=443, tp_dst=128
+nw_dst=56.185.101.143/32, tp_src=67, tp_dst=64
+nw_dst=56.185.101.143/32, tp_src=67, tp_dst=8
+nw_dst=56.185.101.143/32, tp_src=67, tp_dst=8192
+nw_dst=56.185.108.206/32, tp_src=67, tp_dst=16
+nw_dst=222.27.32.201/32, tp_src=67, tp_dst=4, dl_dst=fa:16:3e:6a:99:60
+nw_dst=223.238.119.114/32, tp_src=67, tp_dst=256
+nw_dst=223.238.119.248/32, tp_src=67, tp_dst=2048
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=68, dl_dst=fa:16:3e:9f:d0:38, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=256, dl_dst=fa:16:3e:24:1e:03, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=2048, dl_dst=fa:16:3e:dd:88:83, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=1024, dl_dst=fa:16:3e:a3:21:11, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=68, dl_dst=fa:16:3e:a3:64:4f, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=32, dl_dst=fa:16:3e:9c:37:6a, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=65408, dl_dst=fa:16:3e:71:83:b0, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=1, dl_dst=fa:16:3e:4d:3f:a2, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=65532, dl_dst=fa:16:3e:bb:3c:a9, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=16384, dl_dst=fa:16:3e:b8:5e:17, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=32, dl_dst=fa:16:3e:56:f4:fa, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=4096, dl_dst=fa:16:3e:dc:08:59, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, tp_dst=1, dl_src=fa:16:3e:13:54:2c, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=67, dl_dst=fa:16:3e:47:dc:4f, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, tp_dst=64, dl_src=fa:16:3e:90:2e:aa, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=32768, dl_dst=fa:16:3e:fe:c6:14, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=2, dl_dst=fa:16:3e:01:3d:42, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=65520, dl_dst=fa:16:3e:eb:b5:50, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=8, dl_dst=fa:16:3e:3e:43:fc, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, tp_dst=65528, dl_src=fa:16:3e:74:dd:17, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=64, dl_dst=fa:16:3e:42:ee:2f, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=16384, dl_dst=fa:16:3e:2a:d4:c5, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=65280, dl_dst=fa:16:3e:3d:24:92, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=128, dl_dst=fa:16:3e:3a:04:57, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, tp_dst=8, dl_src=fa:16:3e:ba:b6:14, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=32768, dl_dst=fa:16:3e:68:5b:08, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=8192, dl_dst=fa:16:3e:b8:4c:4a, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=128, dl_dst=fa:16:3e:25:5f:44, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=2048, dl_dst=fa:16:3e:ba:8f:78, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=4, dl_dst=fa:16:3e:b2:c6:51, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=1024, dl_dst=fa:16:3e:3a:64:43, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=256, dl_dst=fa:16:3e:07:a3:fc, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=16, dl_dst=fa:16:3e:12:09:2b, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=65408, dl_dst=fa:16:3e:35:8a:5d, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=2, dl_dst=fa:16:3e:2d:44:8b, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=4, dl_dst=fa:16:3e:08:2a:e0, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=4096, dl_dst=fa:16:3e:73:be:5f, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=8192, dl_dst=fa:16:3e:8d:23:8d, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, tp_dst=16, dl_src=fa:16:3e:1b:4a:db, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=512, dl_dst=fa:16:3e:b9:f7:7d, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=63488, dl_dst=fa:16:3e:29:72:5e, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=67, dl_dst=fa:16:3e:7f:f1:61, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=61440, dl_dst=fa:16:3e:77:f5:ad, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=512, dl_dst=fa:16:3e:56:94:c6, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=22, dl_dst=fa:16:3e:c5:49:f0, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=65472, dl_dst=fa:16:3e:b6:05:d3, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=443, dl_dst=fa:16:3e:33:ec:40, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=8443, dl_dst=fa:16:3e:f9:e3:b4, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=65024, dl_dst=fa:16:3e:b1:39:c8, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=65472, dl_dst=fa:16:3e:26:ce:8e, eth_type=0x800
+nw_proto=17, nw_dst=83.78.47.15/32, tp_dst=65504, dl_dst=fa:16:3e:d8:cb:e0, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=65504, dl_dst=fa:16:3e:5f:ef:d2, eth_type=0x800
+nw_proto=6, nw_dst=83.78.47.15/32, tp_dst=65520, dl_dst=fa:16:3e:f6:e1:bb, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=512, dl_dst=fa:16:3e:c8:b8:d1, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=128, dl_dst=fa:16:3e:32:13:3a, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=8, dl_dst=fa:16:3e:97:2b:21, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=128, dl_dst=fa:16:3e:17:98:90, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=64, dl_dst=fa:16:3e:59:32:c3, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=32768, dl_dst=fa:16:3e:a5:4e:66, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=64, dl_dst=fa:16:3e:6b:6e:ed, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=68, dl_dst=fa:16:3e:6f:69:a0, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=32, dl_dst=fa:16:3e:10:09:67, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, tp_dst=57344, dl_src=fa:16:3e:0c:6f:c5, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=4096, dl_dst=fa:16:3e:27:82:c6, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=2048, dl_dst=fa:16:3e:39:ba:e8, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, tp_dst=8, dl_src=fa:16:3e:74:d3:09, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, tp_dst=16384, dl_src=fa:16:3e:df:a7:dc, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=16384, dl_dst=fa:16:3e:63:ae:5b, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=68, dl_dst=fa:16:3e:2f:d4:5c, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=2, dl_dst=fa:16:3e:41:60:f1, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=2048, dl_dst=fa:16:3e:8a:46:f7, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=32, dl_dst=fa:16:3e:87:54:a5, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=512, dl_dst=fa:16:3e:3b:a8:cc, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=65532, dl_dst=fa:16:3e:6b:8d:8d, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, tp_dst=45527, dl_src=fa:16:3e:24:fd:de, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=67, dl_dst=fa:16:3e:42:de:01, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=1, dl_dst=fa:16:3e:b9:2e:85, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=256, dl_dst=fa:16:3e:1d:d3:bc, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=32768, dl_dst=fa:16:3e:eb:5e:e9, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=65534, dl_dst=fa:16:3e:0d:a8:3d, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, tp_dst=4, dl_src=fa:16:3e:2d:5f:26, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=16, dl_dst=fa:16:3e:20:c8:f6, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=65280, dl_dst=fa:16:3e:f7:14:c6, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=65024, dl_dst=fa:16:3e:a2:9e:4c, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=65408, dl_dst=fa:16:3e:de:c8:96, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=65408, dl_dst=fa:16:3e:36:7c:51, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=4, dl_dst=fa:16:3e:24:e6:9a, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=64512, dl_dst=fa:16:3e:da:bc:ef, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=2, dl_dst=fa:16:3e:6b:db:42, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=8192, dl_dst=fa:16:3e:4d:9f:e5, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=22, dl_dst=fa:16:3e:d6:48:3b, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=49152, dl_dst=fa:16:3e:0c:e4:52, eth_type=0x800
+nw_proto=17, nw_dst=83.78.42.238/32, tp_dst=1024, dl_dst=fa:16:3e:c4:db:95, eth_type=0x800
+nw_proto=6, nw_dst=83.78.42.238/32, tp_dst=4096, dl_dst=fa:16:3e:6e:a7:3e, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=65024, dl_dst=fa:16:3e:ea:91:a7, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, tp_dst=32768, dl_src=fa:16:3e:df:48:39, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, tp_dst=2, dl_src=fa:16:3e:e7:0c:83, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, tp_dst=65280, dl_src=fa:16:3e:d6:dd:f1, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=128, dl_dst=fa:16:3e:06:a8:d1, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=16, dl_dst=fa:16:3e:42:e9:e4, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, tp_dst=4096, dl_src=fa:16:3e:79:b4:21, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=64, dl_dst=fa:16:3e:c8:c0:bb, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=4, dl_dst=fa:16:3e:c7:c7:44, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=2048, dl_dst=fa:16:3e:e3:74:d8, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=1, dl_dst=fa:16:3e:dc:2c:b7, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=68, dl_dst=fa:16:3e:67:fe:f0, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=16384, dl_dst=fa:16:3e:af:04:90, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=256, dl_dst=fa:16:3e:13:47:59, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=2, dl_dst=fa:16:3e:ed:5f:b1, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=128, dl_dst=fa:16:3e:ec:02:b9, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=16, dl_dst=fa:16:3e:f4:4f:70, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=1024, dl_dst=fa:16:3e:69:78:91, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=32768, dl_dst=fa:16:3e:72:b2:2c, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=32, dl_src=fa:16:3e:26:d7:3a, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=57344, dl_dst=fa:16:3e:0d:57:56, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=67, dl_dst=fa:16:3e:25:48:2f, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=4096, dl_dst=fa:16:3e:35:c4:c4, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=4, dl_dst=fa:16:3e:97:c8:d1, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=512, dl_dst=fa:16:3e:86:14:c8, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=16, dl_dst=fa:16:3e:1a:db:b9, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=8, dl_dst=fa:16:3e:97:8f:38, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=1, dl_dst=fa:16:3e:48:f5:19, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=2, dl_dst=fa:16:3e:f2:31:d4, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=64512, dl_src=fa:16:3e:b3:42:bd, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, tp_dst=512, dl_src=fa:16:3e:64:0a:ca, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, tp_dst=64512, dl_src=fa:16:3e:63:fe:27, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=2048, dl_src=fa:16:3e:23:93:2b, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=1024, dl_dst=fa:16:3e:77:97:3b, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=32, dl_dst=fa:16:3e:23:85:97, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=256, dl_dst=fa:16:3e:c2:e7:34, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=8192, dl_src=fa:16:3e:3a:40:be, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=65528, dl_dst=fa:16:3e:9b:bc:17, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=64, dl_dst=fa:16:3e:6d:a2:43, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=68, dl_dst=fa:16:3e:22:5c:14, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=65532, dl_dst=fa:16:3e:5b:75:d5, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=64, dl_dst=fa:16:3e:04:81:f8, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=22, dl_dst=fa:16:3e:7e:a9:2f, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=16384, dl_src=fa:16:3e:ae:17:31, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=32768, dl_src=fa:16:3e:47:be:26, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, tp_dst=8, dl_src=fa:16:3e:dc:dd:b1, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, tp_dst=8192, dl_src=fa:16:3e:ba:3c:a6, eth_type=0x800
+nw_proto=17, nw_dst=83.78.37.65/32, tp_dst=63488, dl_dst=fa:16:3e:e8:92:46, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=128, dl_dst=fa:16:3e:47:d5:3e, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=65504, dl_src=fa:16:3e:af:ee:b8, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=4096, dl_dst=fa:16:3e:98:17:da, eth_type=0x800
+nw_proto=6, nw_dst=83.78.37.65/32, tp_dst=65520, dl_dst=fa:16:3e:8c:e8:bf, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=2048, dl_src=fa:16:3e:2d:d0:da, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=68, dl_dst=fa:16:3e:af:df:e6, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=8192, dl_src=fa:16:3e:33:b4:d2, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=1024, dl_dst=fa:16:3e:7d:23:8c, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=512, dl_dst=fa:16:3e:97:d8:2d, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=32, dl_dst=fa:16:3e:13:df:80, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, tp_dst=32, dl_src=fa:16:3e:fa:6c:7b, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=8, dl_dst=fa:16:3e:83:ce:23, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, tp_dst=8, dl_src=fa:16:3e:8b:c6:31, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=68, dl_dst=fa:16:3e:ed:34:77, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=65472, dl_dst=fa:16:3e:c0:3e:e5, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=8192, dl_dst=fa:16:3e:75:18:ac, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=65528, dl_dst=fa:16:3e:ce:10:04, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=64, dl_dst=fa:16:3e:5a:7e:d5, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=3389, dl_dst=fa:16:3e:24:0f:bd, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=64, dl_dst=fa:16:3e:0e:39:9a, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=512, dl_dst=fa:16:3e:4e:0d:8c, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=67, dl_dst=fa:16:3e:85:9d:a4, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=32768, dl_dst=fa:16:3e:a3:d7:e6, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=256, dl_src=fa:16:3e:e6:69:7b, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=16384, dl_dst=fa:16:3e:a0:47:69, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=2, dl_dst=fa:16:3e:73:68:23, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=1, dl_dst=fa:16:3e:55:1e:d8, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=32768, dl_dst=fa:16:3e:c4:76:18, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=16384, dl_dst=fa:16:3e:07:f7:04, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=4096, dl_dst=fa:16:3e:c1:8a:10, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=49152, dl_dst=fa:16:3e:b3:7c:f3, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=128, dl_dst=fa:16:3e:26:b3:58, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=128, dl_dst=fa:16:3e:4d:38:02, eth_type=0x800
+nw_proto=6, nw_dst=83.78.32.157/32, tp_dst=16, dl_dst=fa:16:3e:2f:f6:e9, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=256, dl_dst=fa:16:3e:ce:d0:e7, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=1, dl_dst=fa:16:3e:2b:73:c7, eth_type=0x800
+nw_proto=17, nw_dst=83.78.32.157/32, tp_dst=4, dl_dst=fa:16:3e:36:1d:cc, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=512, dl_dst=fa:16:3e:38:45:79, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=64, dl_dst=fa:16:3e:a2:5e:e3, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, tp_dst=16384, dl_src=fa:16:3e:d0:e7:12, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=128, dl_dst=fa:16:3e:35:9e:74, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=1, dl_dst=fa:16:3e:6e:eb:db, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=2, dl_dst=fa:16:3e:0a:fa:41, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=1, dl_dst=fa:16:3e:69:a0:0b, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=68, dl_dst=fa:16:3e:f2:31:0f, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, tp_dst=32, dl_src=fa:16:3e:52:97:fc, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=1024, dl_dst=fa:16:3e:93:97:e6, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=4, dl_dst=fa:16:3e:11:ca:13, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=2, dl_dst=fa:16:3e:20:4b:98, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=4096, dl_dst=fa:16:3e:f2:2a:1e, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=32768, dl_dst=fa:16:3e:9d:58:27, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=4096, dl_dst=fa:16:3e:cf:65:3c, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=32768, dl_dst=fa:16:3e:a3:37:e4, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=68, dl_dst=fa:16:3e:29:b1:05, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=16, dl_dst=fa:16:3e:8e:a8:53, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=8, dl_dst=fa:16:3e:d7:db:bf, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=65408, dl_dst=fa:16:3e:0a:d3:15, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=16, dl_dst=fa:16:3e:51:8b:9d, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=8, dl_dst=fa:16:3e:f9:53:f7, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=64, dl_dst=fa:16:3e:2e:81:5c, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=61440, dl_dst=fa:16:3e:e8:3f:79, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=256, dl_dst=fa:16:3e:f3:bc:1b, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=16, dl_dst=fa:16:3e:36:ad:75, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=68, dl_dst=fa:16:3e:38:04:00, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.172/32, tp_dst=65520, dl_src=fa:16:3e:b3:12:67, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=1024, dl_dst=fa:16:3e:d8:63:69, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=32, dl_dst=fa:16:3e:a4:5b:2a, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=64, dl_dst=fa:16:3e:ed:61:92, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=256, dl_dst=fa:16:3e:1b:f6:9c, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=512, dl_dst=fa:16:3e:d4:c9:e4, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=8, dl_dst=fa:16:3e:13:4f:24, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.172/32, tp_dst=57929, dl_src=fa:16:3e:3c:49:7b, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=128, dl_dst=fa:16:3e:12:96:c5, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=2, dl_dst=fa:16:3e:1f:fa:2e, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.172/32, tp_dst=32768, dl_src=fa:16:3e:9e:cc:5e, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=4096, dl_dst=01:00:00:57:ab:ee, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=67, dl_dst=fa:16:3e:02:05:87, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=32768, dl_dst=fa:16:3e:1b:89:ee, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=65280, dl_dst=fa:16:3e:c1:fd:49, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=1, dl_dst=fa:16:3e:8e:7d:eb, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=4, dl_dst=fa:16:3e:66:6d:4d, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=8192, dl_dst=fa:16:3e:9f:23:21, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=128, dl_dst=fa:16:3e:23:f9:eb, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=8, dl_dst=fa:16:3e:f5:ac:d5, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=16384, dl_dst=fa:16:3e:40:be:72, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=16, dl_dst=fa:16:3e:1e:92:99, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.172/32, tp_dst=2048, dl_src=fa:16:3e:88:83:ae, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=1024, dl_dst=fa:16:3e:7c:b0:d1, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=2048, dl_dst=fa:16:3e:b1:27:28, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=1, dl_dst=fa:16:3e:80:a6:75, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=22, dl_dst=fa:16:3e:d2:bf:ae, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=2, dl_dst=fa:16:3e:d2:66:17, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=16384, dl_dst=fa:16:3e:3b:37:c2, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=68, dl_dst=fa:16:3e:d9:0e:1c, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=65504, dl_dst=fa:16:3e:9e:9b:4c, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=32768, dl_dst=fa:16:3e:2e:8b:2f, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=4, dl_dst=fa:16:3e:b0:1f:c0, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.175/32, tp_dst=128, dl_src=fa:16:3e:30:31:03, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=4096, dl_dst=fa:16:3e:83:43:90, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=16, dl_dst=fa:16:3e:a4:17:f0, eth_type=0x800
+nw_proto=17, nw_dst=83.78.50.121/32, tp_dst=2, dl_dst=fa:16:3e:8e:46:c0, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=4096, dl_dst=fa:16:3e:e1:3b:30, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.175/32, tp_dst=65024, dl_src=fa:16:3e:37:99:9f, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=2048, dl_dst=fa:16:3e:3d:42:c5, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=256, dl_dst=fa:16:3e:72:0d:4f, eth_type=0x800
+nw_proto=6, nw_dst=83.78.50.121/32, tp_dst=2, dl_dst=fa:16:3e:39:ab:a2, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=128, dl_dst=fa:16:3e:a8:10:e9, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=8, dl_dst=fa:16:3e:bc:e6:0d, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=32768, dl_dst=fa:16:3e:50:b3:ee, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=68, dl_dst=fa:16:3e:d0:43:79, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=67, dl_dst=fa:16:3e:4f:31:f3, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=4096, dl_dst=fa:16:3e:24:ef:6c, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=8192, dl_dst=fa:16:3e:f2:78:bb, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, tp_dst=8192, dl_src=fa:16:3e:c1:76:de, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=256, dl_dst=fa:16:3e:32:6a:f4, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=512, dl_dst=fa:16:3e:f8:90:20, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=128, dl_dst=fa:16:3e:2c:66:de, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=32768, dl_dst=c2:81:09:72:0a:44, eth_type=0x800
+nw_proto=17, nw_src=251.154.66.68/32, tp_dst=64, dl_src=fa:16:3e:88:8b:7a, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=1024, dl_dst=fa:16:3e:9d:b5:b3, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=2, dl_dst=fa:16:3e:bf:34:8e, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=2, dl_dst=fa:16:3e:69:ee:d4, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=512, dl_dst=fa:16:3e:e0:67:6e, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, tp_dst=1024, dl_src=fa:16:3e:33:d2:13, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=64, dl_dst=fa:16:3e:91:94:63, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=8, dl_dst=fa:16:3e:2e:8f:de, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=57344, dl_dst=fa:16:3e:68:8f:22, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, tp_dst=4, dl_src=fa:16:3e:05:14:11, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=65408, dl_dst=fa:16:3e:46:5e:91, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=32, dl_dst=fa:16:3e:e5:92:b0, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=2048, dl_dst=fa:16:3e:49:7a:a4, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=8443, dl_dst=fa:16:3e:03:c2:32, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=67, dl_dst=fa:16:3e:0e:f5:72, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=1, dl_dst=fa:16:3e:9e:e9:2d, eth_type=0x800
+nw_proto=17, nw_src=251.154.66.68/32, tp_dst=16, dl_src=fa:16:3e:38:b8:7b, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=16384, dl_dst=fa:16:3e:af:22:d6, eth_type=0x800
+nw_proto=17, nw_src=251.154.66.68/32, tp_dst=61440, dl_src=fa:16:3e:d8:6a:f6, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.7/32, tp_dst=256, dl_dst=fa:16:3e:7f:a1:d3, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=2048, dl_dst=fa:16:3e:2a:35:d4, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=68, dl_dst=fa:16:3e:9e:c6:8d, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.7/32, tp_dst=4, dl_dst=fa:16:3e:e5:b7:15, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=16384, dl_dst=fa:16:3e:a0:04:11, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.4/32, tp_dst=32768, dl_dst=fa:16:3e:15:5e:df, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, tp_dst=4096, dl_src=fa:16:3e:53:07:a5, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=2, dl_dst=fa:16:3e:f2:a2:26, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, tp_dst=32, dl_src=fa:16:3e:26:2e:21, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=8192, dl_dst=fa:16:3e:96:b7:97, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=1024, dl_dst=fa:16:3e:74:4d:23, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=64512, dl_dst=fa:16:3e:4b:d8:1c, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=512, dl_dst=fa:16:3e:b8:7e:29, eth_type=0x800
+nw_proto=17, nw_src=251.154.66.68/32, tp_dst=4, dl_src=fa:16:3e:9d:65:ef, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.4/32, tp_dst=64, dl_dst=fa:16:3e:68:08:52, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=8, dl_dst=fa:16:3e:3d:b2:67, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=32768, dl_dst=fa:16:3e:2f:ac:93, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.4/32, tp_dst=16384, dl_dst=fa:16:3e:ea:f8:04, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.4/32, tp_dst=2, dl_dst=fa:16:3e:44:2e:d1, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.4/32, tp_dst=128, dl_dst=fa:16:3e:93:af:a6, eth_type=0x800
+nw_proto=17, nw_dst=38.17.70.4/32, tp_dst=2048, dl_dst=fa:16:3e:fb:37:7b, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.4/32, tp_dst=2048, dl_dst=fa:16:3e:64:33:69, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, tp_dst=67, dl_src=fa:16:3e:46:dd:8a, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, tp_dst=65024, dl_src=fa:16:3e:51:c6:6b, eth_type=0x800
+nw_proto=6, nw_dst=38.17.70.4/32, tp_dst=65534, dl_dst=fa:16:3e:18:bd:da, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, tp_dst=16, dl_src=fa:16:3e:4e:7c:99, eth_type=0x800
+nw_proto=17, nw_src=204.51.24.121/32, tp_dst=4, dl_src=fa:16:3e:45:f2:d2, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=4, dl_dst=fa:16:3e:75:f5:62, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=64, dl_dst=fa:16:3e:56:e6:41, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=16, dl_dst=fa:16:3e:96:94:29, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=32768, dl_dst=fa:16:3e:0f:90:80, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=16384, dl_dst=fa:16:3e:9f:91:8c, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=256, dl_dst=fa:16:3e:bb:f0:6c, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=32, dl_dst=fa:16:3e:3a:43:ee, eth_type=0x800
+nw_proto=6, nw_src=204.51.56.151/32, tp_dst=68, dl_src=fa:16:3e:01:76:cb, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=16, dl_dst=fa:16:3e:fd:b6:82, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=8, dl_dst=fa:16:3e:93:c3:e3, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.76/32, tp_dst=8, dl_src=fa:16:3e:b8:96:1e, eth_type=0x800
+nw_proto=6, nw_src=204.51.56.85/32, tp_dst=16384, dl_src=fa:16:3e:4b:5d:e4, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=4, dl_dst=fa:16:3e:f8:18:e8, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=2048, dl_dst=fa:16:3e:2c:19:17, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=65280, dl_dst=fa:16:3e:88:d6:2d, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=4, dl_dst=fa:16:3e:db:e7:ed, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=512, dl_dst=fa:16:3e:e9:84:6a, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=4, dl_dst=fa:16:3e:2e:9f:e0, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=67, dl_dst=fa:16:3e:8b:1f:c2, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=16, dl_dst=fa:16:3e:1a:d9:09, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=16, dl_dst=fa:16:3e:60:14:b3, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=2, dl_dst=fa:16:3e:0e:fe:f2, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=2048, dl_dst=fa:16:3e:8b:c6:d9, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=4, dl_dst=fa:16:3e:81:cf:45, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=2, dl_dst=fa:16:3e:1b:94:41, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=2, dl_dst=c2:81:09:76:18:0c, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=32, dl_dst=fa:16:3e:cf:e2:9f, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=512, dl_dst=fa:16:3e:5c:c5:84, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=65534, dl_dst=fa:16:3e:45:85:30, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=2, dl_dst=fa:16:3e:50:ce:6f, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=16384, dl_dst=fa:16:3e:0f:0d:5e, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=16384, dl_dst=fa:16:3e:fa:e0:9e, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=512, dl_dst=fa:16:3e:61:47:67, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=68, dl_dst=fa:16:3e:05:21:4e, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.228/32, tp_dst=2048, dl_src=fa:16:3e:61:4c:35, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=63488, dl_dst=fa:16:3e:8e:82:ec, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=128, dl_dst=fa:16:3e:34:27:39, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=443, dl_dst=fa:16:3e:6d:43:a4, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=32, dl_dst=fa:16:3e:c7:e2:c9, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, tp_dst=2, dl_src=fa:16:3e:72:b0:3d, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=32768, dl_dst=fa:16:3e:37:0f:ea, eth_type=0x800
+nw_proto=6, nw_dst=38.17.67.130/32, tp_dst=16, dl_dst=fa:16:3e:17:dd:f3, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, tp_dst=2048, dl_src=fa:16:3e:e8:01:a5, eth_type=0x800
+nw_proto=17, nw_dst=38.17.67.130/32, tp_dst=8192, dl_dst=fa:16:3e:63:a7:a4, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.194/32, tp_dst=1, dl_dst=fa:16:3e:4e:eb:dc, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.194/32, tp_dst=32768, dl_dst=fa:16:3e:cd:33:d1, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.194/32, tp_dst=16384, dl_dst=fa:16:3e:9c:35:d1, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.194/32, tp_dst=8, dl_dst=fa:16:3e:be:e9:c0, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.194/32, tp_dst=4096, dl_dst=fa:16:3e:94:4a:f6, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.194/32, tp_dst=1, dl_dst=fa:16:3e:7b:eb:c2, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.194/32, tp_dst=16, dl_dst=fa:16:3e:e1:c2:d2, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.194/32, tp_dst=4096, dl_dst=fa:16:3e:97:84:a8, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.194/32, tp_dst=64512, dl_dst=fa:16:3e:38:cd:1b, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.194/32, tp_dst=68, dl_dst=fa:16:3e:c0:70:be, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.193/32, tp_dst=68, dl_dst=fa:16:3e:5f:d8:21, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, tp_dst=4, dl_src=fa:16:3e:4d:6d:cc, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.193/32, tp_dst=64, dl_dst=fa:16:3e:c9:8c:fa, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.193/32, tp_dst=512, dl_dst=c2:81:09:29:ab:6d, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.193/32, tp_dst=128, dl_dst=fa:16:3e:5e:a7:07, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.193/32, tp_dst=4, dl_dst=fa:16:3e:d2:93:50, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.193/32, tp_dst=16384, dl_dst=fa:16:3e:64:a8:d2, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.209/32, tp_dst=512, dl_dst=fa:16:3e:ea:00:e1, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.209/32, tp_dst=1024, dl_dst=fa:16:3e:9f:3e:76, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.209/32, tp_dst=2, dl_dst=fa:16:3e:08:81:d1, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.209/32, tp_dst=32, dl_dst=fa:16:3e:2d:00:11, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.209/32, tp_dst=68, dl_dst=fa:16:3e:81:3f:80, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.209/32, tp_dst=8, dl_dst=fa:16:3e:dc:be:8f, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.209/32, tp_dst=32768, dl_dst=fa:16:3e:b3:8f:7d, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.209/32, tp_dst=8192, dl_dst=fa:16:3e:a5:b6:0e, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, tp_dst=65532, dl_src=fa:16:3e:7f:f6:a7, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.209/32, tp_dst=256, dl_dst=fa:16:3e:34:64:39, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.228/32, tp_dst=4096, dl_src=fa:16:3e:7f:22:f8, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.209/32, tp_dst=63488, dl_dst=fa:16:3e:10:54:21, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.209/32, tp_dst=4, dl_dst=fa:16:3e:79:5c:d7, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, tp_dst=32, dl_src=fa:16:3e:ab:f8:1b, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, tp_dst=8, dl_src=fa:16:3e:85:67:3e, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, tp_dst=256, dl_src=fa:16:3e:ab:9c:d0, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.209/32, tp_dst=67, dl_dst=fa:16:3e:95:2b:dc, eth_type=0x800
+nw_proto=17, nw_dst=38.17.73.209/32, tp_dst=64, dl_dst=fa:16:3e:bb:ed:ed, eth_type=0x800
+nw_proto=6, nw_dst=38.17.73.209/32, tp_dst=2048, dl_dst=fa:16:3e:d4:45:76, eth_type=0x800
+nw_proto=17, nw_dst=38.17.72.187/32, tp_dst=256, dl_dst=fa:16:3e:13:63:c5, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.187/32, tp_dst=4096, dl_dst=fa:16:3e:4c:dc:9e, eth_type=0x800
+nw_proto=17, nw_dst=38.17.72.187/32, tp_dst=65520, dl_dst=fa:16:3e:c3:ca:f8, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.187/32, tp_dst=68, dl_dst=fa:16:3e:67:a9:44, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.230/32, tp_dst=2, dl_src=fa:16:3e:31:e7:3a, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.230/32, tp_dst=8, dl_src=fa:16:3e:28:17:1f, eth_type=0x800
+nw_proto=17, nw_dst=38.17.72.187/32, tp_dst=4096, dl_dst=fa:16:3e:64:ae:e6, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.230/32, tp_dst=8192, dl_src=fa:16:3e:e1:ef:73, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.198/32, tp_dst=8, dl_dst=fa:16:3e:a9:d5:1c, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.198/32, tp_dst=4, dl_dst=fa:16:3e:a6:3d:7b, eth_type=0x800
+nw_proto=17, nw_dst=38.17.72.198/32, tp_dst=2048, dl_dst=fa:16:3e:8f:c0:02, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.198/32, tp_dst=8192, dl_dst=fa:16:3e:ed:a0:6e, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.230/32, tp_dst=32, dl_src=fa:16:3e:3e:3d:52, eth_type=0x800
+nw_proto=17, nw_dst=38.17.72.198/32, tp_dst=32768, dl_dst=fa:16:3e:3f:e3:5d, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.198/32, tp_dst=2048, dl_dst=fa:16:3e:ac:54:97, eth_type=0x800
+nw_proto=17, nw_dst=38.17.72.198/32, tp_dst=2, dl_dst=fa:16:3e:1a:6a:4f, eth_type=0x800
+nw_proto=17, nw_dst=38.17.72.198/32, tp_dst=16384, dl_dst=fa:16:3e:f3:78:e1, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.198/32, tp_dst=256, dl_dst=fa:16:3e:14:ab:5d, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.198/32, tp_dst=61440, dl_dst=fa:16:3e:71:05:15, eth_type=0x800
+nw_proto=6, nw_dst=38.17.72.198/32, tp_dst=512, dl_dst=fa:16:3e:9f:8d:dd, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.0/32, tp_dst=16, dl_dst=fa:16:3e:83:b5:d1, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.0/32, tp_dst=2, dl_dst=fa:16:3e:65:e1:da, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.230/32, tp_dst=4, dl_src=fa:16:3e:e7:44:fa, eth_type=0x800
+nw_proto=17, nw_dst=38.17.75.0/32, tp_dst=2048, dl_dst=fa:16:3e:b1:8d:2b, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.0/32, tp_dst=32, dl_dst=fa:16:3e:f8:34:ec, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.0/32, tp_dst=64, dl_dst=fa:16:3e:c9:a7:25, eth_type=0x800
+nw_proto=17, nw_dst=38.17.75.0/32, tp_dst=16384, dl_dst=fa:16:3e:f8:15:1a, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.0/32, tp_dst=512, dl_dst=fa:16:3e:11:eb:02, eth_type=0x800
+nw_proto=17, nw_dst=38.17.75.0/32, tp_dst=1024, dl_dst=fa:16:3e:88:83:53, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.56/32, tp_dst=8, dl_dst=fa:16:3e:cb:ca:f1, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.230/32, tp_dst=256, dl_src=fa:16:3e:d5:15:f2, eth_type=0x800
+nw_proto=17, nw_dst=38.17.75.56/32, tp_dst=65024, dl_dst=fa:16:3e:36:82:a5, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.235/32, tp_dst=32768, dl_src=fa:16:3e:70:e7:02, eth_type=0x800
+nw_proto=17, nw_dst=38.17.75.107/32, tp_dst=4, dl_dst=fa:16:3e:31:fa:06, eth_type=0x800
+nw_proto=17, nw_dst=38.17.75.107/32, tp_dst=4096, dl_dst=fa:16:3e:69:4d:6c, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.107/32, tp_dst=65408, dl_dst=ff:ff:ff:9d:74:39, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.107/32, tp_dst=512, dl_dst=fa:16:3e:19:4e:19, eth_type=0x800
+nw_proto=17, nw_dst=38.17.75.107/32, tp_dst=128, dl_dst=fa:16:3e:73:f7:64, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.235/32, tp_dst=65528, dl_src=fa:16:3e:b2:c1:27, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.235/32, tp_dst=61440, dl_src=fa:16:3e:81:97:db, eth_type=0x800
+nw_proto=6, nw_dst=38.17.75.107/32, tp_dst=32, dl_dst=fa:16:3e:5f:de:97, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=256, dl_dst=fa:16:3e:47:91:ba, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=2048, dl_dst=fa:16:3e:52:8c:e5, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=16, dl_dst=fa:16:3e:84:7f:7b, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=8192, dl_dst=fa:16:3e:1a:f2:db, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=1024, dl_dst=fa:16:3e:22:e5:ca, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=16384, dl_dst=fa:16:3e:91:92:8d, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=64, dl_dst=fa:16:3e:c2:41:6f, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=67, dl_dst=fa:16:3e:47:37:db, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=68, dl_dst=fa:16:3e:a1:cb:0f, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=8192, dl_dst=fa:16:3e:c2:35:cb, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=8, dl_dst=fa:16:3e:c4:2f:6f, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=32768, dl_dst=fa:16:3e:13:db:3a, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=4, dl_dst=fa:16:3e:f9:51:f5, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=4, dl_dst=fa:16:3e:f4:f4:e0, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=512, dl_dst=fa:16:3e:de:f7:e2, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=2, dl_dst=fa:16:3e:b3:1f:b3, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=16, dl_dst=fa:16:3e:82:00:f2, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=128, dl_dst=fa:16:3e:33:ad:db, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=32, dl_dst=fa:16:3e:c8:1a:9c, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=1, dl_dst=fa:16:3e:06:5e:23, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=256, dl_dst=fa:16:3e:4a:df:ba, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=32, dl_dst=fa:16:3e:81:b4:78, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=512, dl_dst=01:00:00:4c:3d:d2, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=8, dl_dst=fa:16:3e:67:4e:7b, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=4096, dl_dst=fa:16:3e:ed:84:2e, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.204/32, tp_dst=1024, dl_dst=fa:16:3e:52:c1:cb, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.235/32, tp_dst=16384, dl_src=fa:16:3e:63:b7:3f, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.204/32, tp_dst=1, dl_dst=fa:16:3e:55:2f:75, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.235/32, tp_dst=65024, dl_src=fa:16:3e:34:77:b4, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=128, dl_dst=fa:16:3e:97:6e:be, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=4, dl_dst=fa:16:3e:9e:a3:79, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=16, dl_dst=fa:16:3e:38:e7:6e, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=2, dl_dst=fa:16:3e:82:5f:dc, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.245/32, tp_dst=4, dl_src=fa:16:3e:32:e6:f7, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=4096, dl_dst=fa:16:3e:ca:94:f7, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=32, dl_dst=fa:16:3e:27:55:0c, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=67, dl_dst=fa:16:3e:31:d1:dc, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=16384, dl_dst=fa:16:3e:91:df:e5, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=8, dl_dst=fa:16:3e:f4:1c:7b, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=16384, dl_dst=fa:16:3e:06:54:a1, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=32768, dl_dst=fa:16:3e:7a:59:7d, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=8192, dl_dst=fa:16:3e:12:21:68, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=1, dl_dst=fa:16:3e:68:74:93, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=67, dl_dst=fa:16:3e:bb:7d:62, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=64, dl_dst=fa:16:3e:be:fa:13, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=512, dl_dst=fa:16:3e:5a:7a:8a, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=61440, dl_dst=fa:16:3e:e4:19:96, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=2, dl_dst=fa:16:3e:0c:21:a1, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=1024, dl_dst=fa:16:3e:c1:6b:9f, eth_type=0x800
+nw_proto=17, nw_dst=38.17.63.162/32, tp_dst=256, dl_dst=fa:16:3e:95:a6:2c, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=2048, dl_dst=fa:16:3e:72:26:51, eth_type=0x800
+nw_proto=6, nw_dst=38.17.63.162/32, tp_dst=68, dl_dst=fa:16:3e:63:69:43, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.120/32, tp_dst=512, dl_dst=c2:81:09:8f:6a:a8, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.120/32, tp_dst=32, dl_dst=fa:16:3e:1e:0a:22, eth_type=0x800
+nw_proto=17, nw_dst=38.17.56.120/32, tp_dst=67, dl_dst=fa:16:3e:a3:32:5a, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.120/32, tp_dst=256, dl_dst=fa:16:3e:95:c5:ab, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.247/32, tp_dst=65528, dl_src=fa:16:3e:ca:59:89, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.120/32, tp_dst=4, dl_dst=fa:16:3e:e0:ee:7e, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.247/32, tp_dst=1024, dl_src=fa:16:3e:8f:78:bf, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.120/32, tp_dst=16384, dl_dst=fa:16:3e:0e:0a:2e, eth_type=0x800
+nw_proto=17, nw_dst=38.17.56.120/32, tp_dst=1, dl_dst=fa:16:3e:cb:ae:e0, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.120/32, tp_dst=65520, dl_dst=fa:16:3e:58:ea:2d, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.120/32, tp_dst=1, dl_dst=fa:16:3e:99:fa:65, eth_type=0x800
+nw_proto=17, nw_dst=38.17.56.120/32, tp_dst=4, dl_dst=fa:16:3e:96:59:63, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.247/32, tp_dst=32768, dl_src=fa:16:3e:d8:2c:f6, eth_type=0x800
+nw_proto=17, nw_dst=38.17.56.72/32, tp_dst=256, dl_dst=fa:16:3e:4a:9d:98, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.72/32, tp_dst=32768, dl_dst=fa:16:3e:3a:2e:b5, eth_type=0x800
+nw_proto=6, nw_dst=38.17.56.72/32, tp_dst=2, dl_dst=fa:16:3e:78:0d:46, eth_type=0x800
+nw_proto=6, nw_dst=38.17.57.43/32, tp_dst=16384, dl_dst=fa:16:3e:a4:35:62, eth_type=0x800
+nw_proto=17, nw_dst=38.17.57.43/32, tp_dst=1024, dl_dst=fa:16:3e:02:4a:79, eth_type=0x800
+nw_proto=6, nw_dst=38.17.57.43/32, tp_dst=2, dl_dst=fa:16:3e:ef:a5:2d, eth_type=0x800
+nw_proto=17, nw_dst=38.17.57.43/32, tp_dst=4096, dl_dst=fa:16:3e:43:33:ce, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.251/32, tp_dst=4096, dl_src=fa:16:3e:f7:38:c7, eth_type=0x800
+nw_proto=17, nw_dst=38.17.57.43/32, tp_dst=2, dl_dst=fa:16:3e:68:be:31, eth_type=0x800
+nw_proto=17, nw_dst=38.17.57.43/32, tp_dst=49152, dl_dst=fa:16:3e:e6:55:aa, eth_type=0x800
+nw_proto=6, nw_dst=38.17.57.43/32, tp_dst=65024, dl_dst=fa:16:3e:85:97:8c, eth_type=0x800
+nw_proto=6, nw_dst=38.17.57.43/32, tp_dst=1024, dl_dst=fa:16:3e:9a:cf:c3, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.251/32, tp_dst=64512, dl_src=fa:16:3e:62:cc:0a, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.251/32, tp_dst=65280, dl_src=fa:16:3e:42:75:e4, eth_type=0x800
+nw_proto=17, nw_dst=38.17.57.43/32, tp_dst=32768, dl_dst=fa:16:3e:d5:e0:7c, eth_type=0x800
+nw_proto=17, nw_dst=38.17.57.43/32, tp_dst=16384, dl_dst=fa:16:3e:75:73:f5, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.251/32, tp_dst=32768, dl_src=fa:16:3e:cb:6c:b3, eth_type=0x800
+nw_proto=17, nw_dst=38.17.58.197/32, tp_dst=1, dl_dst=fa:16:3e:62:9a:88, eth_type=0x800
+nw_proto=17, nw_dst=38.17.58.197/32, tp_dst=2048, dl_dst=fa:16:3e:28:4b:9a, eth_type=0x800
+nw_proto=17, nw_dst=38.17.58.197/32, tp_dst=65024, dl_dst=fa:16:3e:f8:b1:f4, eth_type=0x800
+nw_proto=17, nw_dst=38.17.58.197/32, tp_dst=1024, dl_dst=fa:16:3e:20:26:d9, eth_type=0x800
+nw_proto=6, nw_dst=38.17.58.197/32, tp_dst=16, dl_dst=fa:16:3e:2c:c1:86, eth_type=0x800
+nw_proto=17, nw_dst=38.17.58.197/32, tp_dst=64512, dl_dst=fa:16:3e:ea:00:85, eth_type=0x800
+nw_proto=6, nw_dst=38.17.59.197/32, tp_dst=8192, dl_dst=fa:16:3e:7a:ab:07, eth_type=0x800
+nw_proto=6, nw_dst=38.17.59.221/32, tp_dst=8192, dl_dst=fa:16:3e:8b:1e:19, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, tp_dst=16, dl_src=fa:16:3e:79:12:7b, eth_type=0x800
+nw_proto=6, nw_dst=38.17.59.223/32, tp_dst=64, dl_dst=fa:16:3e:e5:ac:5d, eth_type=0x800
+nw_proto=17, nw_dst=34.116.192.2/32, tp_dst=128, dl_dst=fa:16:3e:e1:46:63, eth_type=0x800
+nw_proto=6, nw_dst=34.116.192.2/32, tp_dst=67, dl_dst=fa:16:3e:38:de:2f, eth_type=0x800
+nw_proto=17, nw_dst=34.116.232.45/32, tp_dst=4096, dl_dst=fa:16:3e:13:1c:c6, eth_type=0x800
+nw_proto=6, nw_dst=34.116.135.175/32, tp_dst=64, dl_dst=fa:16:3e:d4:32:60, eth_type=0x800
+nw_proto=6, nw_dst=34.116.153.94/32, tp_dst=64, dl_dst=fa:16:3e:cb:56:cf, eth_type=0x800
+nw_proto=6, nw_dst=34.114.78.44/32, tp_dst=2, dl_dst=fa:16:3e:c3:df:bf, eth_type=0x800
+nw_proto=6, nw_dst=34.114.78.44/32, tp_dst=1024, dl_dst=fa:16:3e:8b:fb:3f, eth_type=0x800
+nw_proto=6, nw_dst=34.114.78.44/32, tp_dst=2048, dl_dst=fa:16:3e:2e:11:a0, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=8192, dl_dst=fa:16:3e:a4:d5:2a, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, tp_dst=4, dl_src=fa:16:3e:d3:7e:ca, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=67, dl_dst=fa:16:3e:35:71:74, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=128, dl_dst=fa:16:3e:e4:b7:27, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, tp_dst=512, dl_src=fa:16:3e:98:43:4d, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=2, dl_dst=fa:16:3e:2e:fb:bd, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=64, dl_dst=fa:16:3e:c4:90:0b, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=32768, dl_dst=fa:16:3e:ca:bd:d4, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.131/32, tp_dst=2, dl_src=fa:16:3e:17:71:f2, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=128, dl_dst=fa:16:3e:72:f5:e4, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=16, dl_dst=fa:16:3e:cc:f3:f2, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.131/32, tp_dst=1, dl_src=fa:16:3e:2e:56:25, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=32768, dl_dst=fa:16:3e:7a:24:95, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=16384, dl_dst=fa:16:3e:e5:fb:89, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=64, dl_dst=fa:16:3e:46:e2:fb, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=16, dl_dst=fa:16:3e:ea:b3:43, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=1024, dl_dst=fa:16:3e:64:9a:73, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=16384, dl_dst=fa:16:3e:35:cc:49, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=68, dl_dst=fa:16:3e:bf:1a:c2, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=1, dl_dst=fa:16:3e:d4:65:b9, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=8, dl_dst=fa:16:3e:ad:6b:7f, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=65504, dl_dst=fa:16:3e:2d:ed:6f, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=57344, dl_dst=fa:16:3e:a6:8b:61, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=32768, dl_dst=fa:16:3e:7e:95:7f, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=4096, dl_dst=fa:16:3e:fc:cd:8f, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.131/32, tp_dst=128, dl_src=fa:16:3e:66:b7:58, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=67, dl_dst=fa:16:3e:78:53:c3, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=256, dl_dst=fa:16:3e:a7:43:df, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=8192, dl_dst=fa:16:3e:53:17:d7, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=8, dl_dst=fa:16:3e:74:ef:ec, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=32, dl_dst=fa:16:3e:0e:06:52, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=4096, dl_dst=fa:16:3e:b4:4c:8e, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=2, dl_dst=fa:16:3e:83:73:90, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=1024, dl_dst=fa:16:3e:29:fd:58, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=4, dl_dst=fa:16:3e:c7:d3:40, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=65024, dl_dst=fa:16:3e:68:0e:1e, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.96/32, tp_dst=8192, dl_dst=fa:16:3e:fd:a8:db, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=64, dl_dst=fa:16:3e:bc:06:37, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=32, dl_dst=fa:16:3e:6d:0d:49, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.96/32, tp_dst=67, dl_dst=fa:16:3e:10:e6:95, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=32, dl_dst=fa:16:3e:61:03:b6, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=128, dl_dst=fa:16:3e:19:5e:ca, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.131/32, tp_dst=65534, dl_src=fa:16:3e:c4:b6:e3, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=16384, dl_dst=fa:16:3e:5d:76:65, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.171/32, tp_dst=61440, dl_dst=fa:16:3e:39:bf:b9, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.171/32, tp_dst=16384, dl_dst=fa:16:3e:4a:48:cb, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.171/32, tp_dst=4096, dl_dst=fa:16:3e:da:f4:0e, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.131/32, tp_dst=1024, dl_src=fa:16:3e:62:48:94, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=2, dl_dst=fa:16:3e:43:1a:02, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=4096, dl_dst=fa:16:3e:49:ec:f4, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.171/32, tp_dst=256, dl_dst=fa:16:3e:c4:7a:d7, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.171/32, tp_dst=2048, dl_dst=fa:16:3e:46:c7:fd, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.171/32, tp_dst=2, dl_dst=fa:16:3e:f9:92:c3, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.171/32, tp_dst=32, dl_dst=fa:16:3e:a9:77:77, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=2048, dl_dst=fa:16:3e:c1:df:41, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=64, dl_dst=fa:16:3e:8d:05:67, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=65280, dl_dst=fa:16:3e:c9:c2:c2, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=57344, dl_dst=fa:16:3e:fc:e2:a9, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.131/32, tp_dst=8, dl_src=fa:16:3e:5f:d9:54, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=67, dl_dst=fa:16:3e:85:5d:d5, eth_type=0x800
+nw_proto=6, nw_dst=56.185.98.171/32, tp_dst=512, dl_dst=fa:16:3e:f3:e5:34, eth_type=0x800
+nw_proto=17, nw_dst=56.185.98.171/32, tp_dst=8192, dl_dst=fa:16:3e:36:14:d3, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=4, dl_dst=fa:16:3e:2b:dc:4d, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.143/32, tp_dst=1024, dl_dst=fa:16:3e:70:11:91, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=2048, dl_dst=fa:16:3e:4f:6b:ca, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=256, dl_dst=fa:16:3e:4f:99:3d, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=2, dl_dst=fa:16:3e:f6:e4:91, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=1, dl_dst=fa:16:3e:ab:2f:e5, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=16, dl_dst=fa:16:3e:81:e2:f8, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.143/32, tp_dst=16, dl_dst=fa:16:3e:d3:97:53, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=16384, dl_dst=fa:16:3e:61:61:09, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=512, dl_dst=fa:16:3e:b7:d0:a9, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.143/32, tp_dst=1, dl_dst=fa:16:3e:35:62:0c, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.143/32, tp_dst=512, dl_dst=fa:16:3e:9c:b4:a8, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.143/32, tp_dst=8, dl_dst=fa:16:3e:a8:a4:e2, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.163/32, tp_dst=4, dl_dst=fa:16:3e:58:56:15, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.163/32, tp_dst=65024, dl_dst=fa:16:3e:aa:64:43, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.163/32, tp_dst=2048, dl_dst=fa:16:3e:e9:73:29, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.163/32, tp_dst=2048, dl_dst=fa:16:3e:95:52:94, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.163/32, tp_dst=8, dl_dst=fa:16:3e:ea:fe:c4, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.163/32, tp_dst=32, dl_dst=fa:16:3e:a9:18:94, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.163/32, tp_dst=64, dl_dst=fa:16:3e:c7:ed:d0, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.163/32, tp_dst=16384, dl_dst=fa:16:3e:6f:4d:2d, eth_type=0x800
+nw_proto=17, nw_dst=56.185.101.163/32, tp_dst=1024, dl_dst=fa:16:3e:d2:77:af, eth_type=0x800
+nw_proto=6, nw_dst=56.185.101.163/32, tp_dst=32768, dl_dst=fa:16:3e:72:9a:56, eth_type=0x800
+nw_proto=17, nw_dst=56.185.103.88/32, tp_dst=2, dl_dst=fa:16:3e:33:bd:e7, eth_type=0x800
+nw_proto=17, nw_dst=56.185.103.88/32, tp_dst=4, dl_dst=fa:16:3e:2a:e1:b6, eth_type=0x800
+nw_proto=17, nw_dst=56.185.103.88/32, tp_dst=32768, dl_dst=fa:16:3e:40:c1:73, eth_type=0x800
+nw_proto=17, nw_dst=56.185.103.88/32, tp_dst=2048, dl_dst=fa:16:3e:40:66:b0, eth_type=0x800
+nw_proto=17, nw_dst=56.185.103.88/32, tp_dst=512, dl_dst=fa:16:3e:02:05:47, eth_type=0x800
+nw_proto=6, nw_dst=56.185.103.88/32, tp_dst=512, dl_dst=fa:16:3e:05:c3:96, eth_type=0x800
+nw_proto=17, nw_dst=56.185.103.88/32, tp_dst=256, dl_dst=fa:16:3e:7f:90:35, eth_type=0x800
+nw_proto=6, nw_dst=56.185.103.33/32, tp_dst=64, dl_dst=fa:16:3e:9c:29:4c, eth_type=0x800
+nw_proto=6, nw_dst=56.185.103.33/32, tp_dst=443, dl_dst=fa:16:3e:4a:13:3c, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=67, dl_dst=fa:16:3e:dc:87:19, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=65534, dl_dst=fa:16:3e:0b:81:07, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.157/32, tp_dst=65532, dl_src=fa:16:3e:c2:af:0a, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=65472, dl_dst=fa:16:3e:2c:79:95, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.157/32, tp_dst=1024, dl_src=fa:16:3e:6f:46:1c, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=128, dl_dst=fa:16:3e:5c:f0:b9, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=8, dl_dst=fa:16:3e:0a:68:13, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=2, dl_dst=fa:16:3e:00:3d:91, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.157/32, tp_dst=4096, dl_src=fa:16:3e:0a:c3:3c, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=1024, dl_dst=fa:16:3e:9e:52:2d, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=32768, dl_dst=fa:16:3e:66:e5:e1, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.157/32, tp_dst=32, dl_src=fa:16:3e:f7:28:c4, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=8192, dl_dst=fa:16:3e:a7:d5:88, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=2048, dl_dst=fa:16:3e:0e:22:93, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=67, dl_dst=fa:16:3e:2b:36:a6, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=4096, dl_dst=fa:16:3e:f2:6d:3b, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=256, dl_dst=fa:16:3e:d7:2c:a7, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=16, dl_dst=fa:16:3e:84:4f:e4, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=512, dl_dst=fa:16:3e:7c:f4:b9, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=2048, dl_dst=fa:16:3e:e2:d3:3c, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=64, dl_dst=fa:16:3e:cd:c4:cc, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=68, dl_dst=fa:16:3e:80:d6:63, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=32768, dl_dst=fa:16:3e:53:8e:54, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=65534, dl_dst=fa:16:3e:7c:60:2f, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=512, dl_dst=fa:16:3e:26:6d:e6, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=256, dl_dst=fa:16:3e:65:ed:6d, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=128, dl_dst=fa:16:3e:ec:bd:99, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=64, dl_dst=fa:16:3e:1e:34:b5, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=65472, dl_dst=fa:16:3e:bd:5b:5b, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=16, dl_dst=fa:16:3e:bd:f3:6a, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=16384, dl_dst=fa:16:3e:55:69:c8, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=68, dl_dst=fa:16:3e:b3:92:9c, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=64, dl_dst=fa:16:3e:e0:42:ab, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=16384, dl_dst=fa:16:3e:55:25:c0, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.149/32, tp_dst=32, dl_src=fa:16:3e:12:bb:31, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=256, dl_dst=fa:16:3e:1c:4a:0a, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.149/32, tp_dst=32768, dl_src=fa:16:3e:48:30:ef, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.206/32, tp_dst=256, dl_dst=fa:16:3e:ab:d5:26, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=4096, dl_dst=fa:16:3e:b6:a8:37, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.206/32, tp_dst=8, dl_dst=fa:16:3e:9a:b5:5a, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.149/32, tp_dst=1024, dl_src=fa:16:3e:22:3c:1d, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.69/32, tp_dst=16384, dl_dst=fa:16:3e:b9:d1:c8, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.69/32, tp_dst=67, dl_dst=fa:16:3e:39:4b:9a, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.69/32, tp_dst=4, dl_dst=fa:16:3e:b7:d7:3d, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.69/32, tp_dst=65532, dl_dst=fa:16:3e:9d:e3:20, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.69/32, tp_dst=16, dl_dst=fa:16:3e:ac:b1:f1, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.69/32, tp_dst=2048, dl_dst=fa:16:3e:fb:23:c8, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.69/32, tp_dst=32, dl_dst=fa:16:3e:d6:7e:2d, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.69/32, tp_dst=128, dl_dst=fa:16:3e:7d:1a:7b, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.69/32, tp_dst=4096, dl_dst=fa:16:3e:1b:61:fa, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.149/32, tp_dst=256, dl_src=fa:16:3e:c2:a8:bd, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.69/32, tp_dst=68, dl_dst=fa:16:3e:0b:6d:9f, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.69/32, tp_dst=16384, dl_dst=01:00:00:43:be:aa, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.149/32, tp_dst=64512, dl_src=fa:16:3e:97:c2:30, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.69/32, tp_dst=8, dl_dst=fa:16:3e:8f:25:fd, eth_type=0x800
+nw_proto=6, nw_dst=56.185.108.119/32, tp_dst=67, dl_dst=fa:16:3e:d8:d7:3d, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.119/32, tp_dst=512, dl_dst=fa:16:3e:6e:86:ed, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.150/32, tp_dst=64, dl_src=fa:16:3e:03:75:bf, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.150/32, tp_dst=32, dl_src=fa:16:3e:86:24:2a, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.150/32, tp_dst=1024, dl_src=fa:16:3e:e4:a3:3b, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.150/32, tp_dst=8, dl_src=fa:16:3e:4c:73:f4, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.150/32, tp_dst=4096, dl_src=fa:16:3e:d8:6a:92, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.119/32, tp_dst=256, dl_dst=fa:16:3e:2f:7e:57, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.119/32, tp_dst=32768, dl_dst=fa:16:3e:96:98:d5, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.119/32, tp_dst=16, dl_dst=fa:16:3e:de:3e:bb, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.119/32, tp_dst=4096, dl_dst=fa:16:3e:7b:07:69, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.119/32, tp_dst=45527, dl_dst=fa:16:3e:3e:26:af, eth_type=0x800
+nw_proto=17, nw_dst=56.185.108.119/32, tp_dst=128, dl_dst=fa:16:3e:ee:34:80, eth_type=0x800
+nw_proto=6, nw_dst=222.28.232.195/32, tp_dst=32, dl_dst=fa:16:3e:19:d2:e0, eth_type=0x800
+nw_proto=17, nw_dst=222.28.232.195/32, tp_dst=4096, dl_dst=fa:16:3e:a0:ad:9f, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.181/32, tp_dst=35008, dl_src=fa:16:3e:9a:93:88, eth_type=0x800
+nw_proto=6, nw_dst=222.28.232.195/32, tp_dst=16, dl_dst=fa:16:3e:ec:7d:61, eth_type=0x800
+nw_proto=17, nw_dst=222.28.232.195/32, tp_dst=2048, dl_dst=fa:16:3e:bd:43:67, eth_type=0x800
+nw_proto=17, nw_dst=222.28.230.206/32, tp_dst=1024, dl_dst=fa:16:3e:ca:eb:64, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.191/32, tp_dst=32768, dl_src=fa:16:3e:f9:4a:0a, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.191/32, tp_dst=57344, dl_src=fa:16:3e:86:c0:cc, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.134/32, tp_dst=64, dl_src=fa:16:3e:78:f1:5a, eth_type=0x800
+nw_proto=17, nw_dst=222.27.33.44/32, tp_dst=16, dl_dst=fa:16:3e:ec:1e:70, eth_type=0x800
+nw_proto=6, nw_dst=222.27.62.55/32, tp_dst=128, dl_dst=fa:16:3e:2c:94:1d, eth_type=0x800
+nw_proto=17, nw_dst=223.238.119.114/32, tp_dst=2, dl_dst=fa:16:3e:24:fc:a4, eth_type=0x800
+nw_proto=6, nw_dst=223.238.119.114/32, tp_dst=1, dl_dst=fa:16:3e:b9:8f:5d, eth_type=0x800
+nw_proto=6, nw_dst=223.238.119.114/32, tp_dst=256, dl_dst=fa:16:3e:f4:50:2f, eth_type=0x800
+nw_proto=17, nw_dst=223.238.119.248/32, tp_dst=1, dl_dst=fa:16:3e:34:2d:c7, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.152/32, tp_dst=512, dl_src=fa:16:3e:29:8b:09, eth_type=0x800
+nw_proto=6, nw_dst=223.238.96.99/32, tp_dst=16, dl_dst=fa:16:3e:fe:a6:1f, eth_type=0x800
+nw_proto=17, nw_dst=223.238.96.99/32, tp_dst=16, dl_dst=fa:16:3e:e3:38:f1, eth_type=0x800
+nw_proto=17, nw_dst=223.238.101.132/32, tp_dst=68, dl_dst=fa:16:3e:59:97:69, eth_type=0x800
+nw_proto=17, nw_dst=223.238.77.196/32, tp_dst=1, dl_dst=fa:16:3e:79:2f:2c, eth_type=0x800
+nw_proto=17, nw_dst=223.238.77.196/32, tp_dst=128, dl_dst=fa:16:3e:b4:91:0d, eth_type=0x800
+nw_proto=17, nw_dst=223.238.79.110/32, tp_dst=16384, dl_dst=fa:16:3e:e6:9f:76, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.103/32, tp_dst=512, dl_src=fa:16:3e:1c:df:70, eth_type=0x800
+nw_proto=17, nw_dst=207.21.252.115/32, tp_dst=256, dl_dst=fa:16:3e:f1:7f:bd, eth_type=0x800
+nw_proto=17, nw_dst=207.21.252.115/32, tp_dst=65024, dl_dst=fa:16:3e:b3:c2:f9, eth_type=0x800
+nw_proto=6, nw_dst=207.21.252.115/32, tp_dst=16384, dl_dst=fa:16:3e:21:07:b8, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.103/32, tp_dst=128, dl_src=fa:16:3e:4c:29:a1, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.103/32, tp_dst=16, dl_src=fa:16:3e:c5:0e:66, eth_type=0x800
+nw_proto=6, nw_dst=207.21.252.76/32, tp_dst=256, dl_dst=fa:16:3e:f0:a4:7d, eth_type=0x800
+nw_proto=6, nw_dst=207.21.252.35/32, tp_dst=128, dl_dst=fa:16:3e:91:98:43, eth_type=0x800
+nw_proto=6, nw_dst=207.21.227.113/32, tp_dst=68, dl_dst=fa:16:3e:8b:2b:a7, eth_type=0x800
+nw_proto=17, nw_dst=207.21.227.113/32, tp_dst=1024, dl_dst=fa:16:3e:3e:3a:ac, eth_type=0x800
+nw_proto=6, nw_src=83.169.93.70/32, tp_dst=2048, dl_src=fa:16:3e:21:bb:8a, eth_type=0x800
+nw_proto=17, nw_src=83.169.93.70/32, tp_dst=512, dl_src=fa:16:3e:35:f8:1e, eth_type=0x800
+nw_proto=6, nw_dst=207.21.219.237/32, tp_dst=3389, dl_dst=fa:16:3e:e2:4c:13, eth_type=0x800
+nw_proto=6, nw_dst=207.21.208.40/32, tp_dst=16384, dl_dst=fa:16:3e:3f:3e:08, eth_type=0x800
+nw_proto=6, nw_dst=207.21.208.40/32, tp_dst=2048, dl_dst=fa:16:3e:97:73:f7, eth_type=0x800
+nw_proto=17, nw_dst=207.21.208.40/32, tp_dst=1, dl_dst=fa:16:3e:f6:9a:73, eth_type=0x800
+nw_proto=17, nw_dst=205.129.45.171/32, tp_dst=2, dl_dst=fa:16:3e:e7:fa:b6, eth_type=0x800
+nw_proto=17, nw_dst=146.42.36.108/32, tp_dst=45527, dl_dst=fa:16:3e:7c:01:d4, eth_type=0x800
+nw_proto=17, nw_dst=146.42.36.108/32, tp_dst=256, dl_dst=fa:16:3e:0e:13:03, eth_type=0x800
+nw_proto=17, nw_dst=146.42.36.108/32, tp_dst=128, dl_dst=fa:16:3e:64:29:46, eth_type=0x800
+nw_proto=6, nw_dst=146.42.36.108/32, tp_dst=4096, dl_dst=fa:16:3e:26:c0:52, eth_type=0x800
+nw_proto=6, nw_dst=146.42.36.108/32, tp_dst=32, dl_dst=fa:16:3e:64:d2:ce, eth_type=0x800
+nw_proto=6, nw_dst=146.42.36.108/32, tp_dst=67, dl_dst=fa:16:3e:1b:9c:f5, eth_type=0x800
+nw_proto=17, nw_dst=146.42.36.108/32, tp_dst=64, dl_dst=fa:16:3e:8c:65:f4, eth_type=0x800
+nw_proto=17, nw_dst=146.42.36.108/32, tp_dst=67, dl_dst=fa:16:3e:15:60:43, eth_type=0x800
+nw_proto=17, nw_src=27.68.102.33/32, tp_dst=32768, dl_src=fa:16:3e:d5:e8:45, eth_type=0x800
+nw_proto=17, nw_dst=146.42.40.191/32, tp_dst=4, dl_dst=fa:16:3e:1a:43:9e, eth_type=0x800
+nw_proto=17, nw_src=27.68.102.33/32, tp_dst=64, dl_src=fa:16:3e:0f:5f:5b, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.33/32, tp_dst=256, dl_src=fa:16:3e:f9:7c:bb, eth_type=0x800
+nw_proto=17, nw_dst=146.42.40.191/32, tp_dst=256, dl_dst=fa:16:3e:1d:16:c2, eth_type=0x800
+nw_proto=6, nw_dst=146.42.40.191/32, tp_dst=8192, dl_dst=fa:16:3e:03:a4:11, eth_type=0x800
+nw_proto=17, nw_dst=146.42.40.81/32, tp_dst=16384, dl_dst=fa:16:3e:4e:2e:a3, eth_type=0x800
+nw_proto=17, nw_src=27.68.102.33/32, tp_dst=8192, dl_src=fa:16:3e:a8:47:67, eth_type=0x800
+nw_proto=17, nw_src=27.68.102.33/32, tp_dst=4096, dl_src=fa:16:3e:4a:64:30, eth_type=0x800
+nw_proto=6, nw_dst=130.119.204.166/32, tp_dst=256, dl_dst=fa:16:3e:af:f8:c7, eth_type=0x800
+nw_proto=17, nw_dst=130.119.204.166/32, tp_dst=64, dl_dst=fa:16:3e:91:3d:9f, eth_type=0x800
+nw_proto=17, nw_dst=130.119.204.234/32, tp_dst=64, dl_dst=fa:16:3e:da:c6:ac, eth_type=0x800
+nw_proto=6, nw_dst=130.119.204.234/32, tp_dst=1, dl_dst=fa:16:3e:57:ec:58, eth_type=0x800
+nw_proto=17, nw_dst=130.119.208.56/32, tp_dst=1, dl_dst=fa:16:3e:18:6c:8e, eth_type=0x800
+nw_proto=17, nw_dst=130.119.250.208/32, tp_dst=32768, dl_dst=fa:16:3e:80:07:13, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.44/32, tp_dst=4, dl_src=fa:16:3e:43:17:fe, eth_type=0x800
+nw_proto=6, nw_dst=115.245.241.46/32, tp_dst=8192, dl_dst=fa:16:3e:bd:4d:da, eth_type=0x800
+nw_proto=6, nw_dst=115.245.247.215/32, tp_dst=4, dl_dst=fa:16:3e:96:90:8b, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.191/32, tp_dst=32, dl_src=fa:16:3e:6d:73:be, eth_type=0x800
+nw_proto=17, nw_dst=115.245.252.145/32, tp_dst=1, dl_dst=fa:16:3e:7c:76:31, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, nw_dst=83.78.47.15/32, dl_dst=fa:16:3e:27:46:d3, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, nw_dst=83.78.47.15/32, dl_dst=fa:16:3e:f5:1c:30, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.57/32, nw_dst=83.78.47.15/32, dl_dst=fa:16:3e:e6:71:be, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, nw_dst=83.78.42.238/32, dl_dst=fa:16:3e:8b:9d:b3, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.57/32, nw_dst=83.78.42.238/32, dl_dst=fa:16:3e:10:f0:f5, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, nw_dst=83.78.42.238/32, dl_dst=fa:16:3e:dc:2c:c1, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.57/32, nw_dst=83.78.37.65/32, dl_dst=fa:16:3e:6e:59:fc, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.57/32, nw_dst=83.78.37.65/32, dl_dst=fa:16:3e:ad:66:33, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.57/32, nw_dst=83.78.37.65/32, dl_dst=fa:16:3e:3c:8e:f4, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, nw_dst=83.78.37.65/32, dl_dst=fa:16:3e:56:d3:db, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, nw_dst=83.78.37.65/32, dl_dst=fa:16:3e:4d:4f:c5, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.160/32, nw_dst=83.78.37.65/32, dl_dst=fa:16:3e:5d:4c:25, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, nw_dst=83.78.32.157/32, dl_dst=fa:16:3e:60:0e:72, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, nw_dst=83.78.32.157/32, dl_dst=fa:16:3e:bf:58:ab, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.160/32, nw_dst=83.78.32.157/32, dl_dst=fa:16:3e:94:d6:b8, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.160/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:2c:94:aa, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.160/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:3a:35:cb, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.160/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:02:a7:df, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.172/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:5b:48:11, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.172/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:b3:93:44, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.172/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:24:d8:2e, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.175/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:9c:c8:e2, eth_type=0x800
+nw_proto=17, nw_src=251.154.97.175/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:ee:a1:89, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.175/32, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:4a:3f:46, eth_type=0x800
+nw_proto=1, nw_src=251.154.66.68/32, nw_dst=38.17.70.7/32, dl_dst=fa:16:3e:cc:57:82, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, nw_dst=38.17.70.7/32, dl_dst=fa:16:3e:1f:c0:84, eth_type=0x800
+nw_proto=17, nw_src=251.154.66.68/32, dl_src=fa:16:3e:40:27:26, eth_type=0x800
+nw_proto=1, nw_src=251.154.66.68/32, nw_dst=38.17.70.4/32, dl_dst=fa:16:3e:e5:3f:9b, eth_type=0x800
+nw_proto=17, nw_src=251.154.66.68/32, nw_dst=38.17.70.4/32, dl_dst=fa:16:3e:c9:08:e6, eth_type=0x800
+nw_proto=6, nw_src=251.154.66.68/32, nw_dst=38.17.70.4/32, dl_dst=fa:16:3e:94:33:9f, eth_type=0x800
+nw_proto=6, nw_src=204.51.24.121/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:14:9e:dd, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.121/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:e4:d0:c9, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.123/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:86:f7:ba, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.127/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:59:dd:79, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.124/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:57:af:2d, eth_type=0x800
+nw_proto=17, nw_src=204.51.24.104/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:d8:cc:23, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.104/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:1a:25:4d, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.102/32, dl_src=fa:16:3e:5e:36:6c, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.97/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:c3:f6:8e, eth_type=0x800
+nw_proto=6, nw_src=204.51.24.98/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:7f:df:e7, eth_type=0x800
+nw_proto=17, nw_src=204.51.24.11/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:ab:7d:18, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.14/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:07:c5:20, eth_type=0x800
+nw_proto=17, nw_src=204.51.24.2/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:f0:a3:f1, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.2/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:6a:21:34, eth_type=0x800
+nw_proto=6, nw_src=204.51.24.60/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:e8:c9:3e, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.55/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:e1:1b:8e, eth_type=0x800
+nw_proto=1, nw_src=204.51.24.51/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:93:64:59, eth_type=0x800
+nw_proto=6, nw_src=204.51.24.34/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:fb:96:5b, eth_type=0x800
+nw_proto=17, nw_src=204.51.24.40/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:54:0a:71, eth_type=0x800
+nw_proto=6, nw_src=204.51.28.66/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:46:71:0c, eth_type=0x800
+nw_proto=17, nw_src=204.51.28.71/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:6c:4c:8f, eth_type=0x800
+nw_proto=17, nw_src=204.51.28.74/32, dl_src=fa:16:3e:86:68:73, eth_type=0x800
+nw_proto=1, nw_src=204.51.28.92/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:27:29:e1, eth_type=0x800
+nw_proto=1, nw_src=204.51.28.91/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:28:16:28, eth_type=0x800
+nw_proto=1, nw_src=204.51.28.85/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:0d:ae:c9, eth_type=0x800
+nw_proto=6, nw_src=204.51.56.155/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:9e:7f:fe, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.156/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:dc:82:b3, eth_type=0x800
+nw_proto=6, nw_src=204.51.56.156/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:5f:aa:2a, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.195/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:c9:93:2d, eth_type=0x800
+nw_proto=6, nw_src=204.51.56.205/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:2f:87:6f, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.208/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:20:67:d3, eth_type=0x800
+nw_proto=1, nw_src=204.51.56.208/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:1b:b1:1c, eth_type=0x800
+nw_proto=6, nw_src=204.51.56.219/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:34:59:88, eth_type=0x800
+nw_proto=1, nw_src=204.51.56.222/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:dd:17:89, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.42/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:f8:2c:f8, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.41/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:47:6a:47, eth_type=0x800
+nw_proto=1, nw_src=204.51.56.33/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:49:10:1e, eth_type=0x800
+nw_proto=6, nw_src=204.51.56.34/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:22:e7:fc, eth_type=0x800
+nw_proto=1, nw_src=204.51.56.75/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:d0:da:23, eth_type=0x800
+nw_proto=6, nw_src=204.51.56.69/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:5e:b1:39, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.65/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:b1:20:ec, eth_type=0x800
+nw_proto=1, nw_src=204.51.56.67/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:7b:72:4e, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.94/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:59:55:92, eth_type=0x800
+nw_proto=17, nw_src=204.51.56.90/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:d5:96:7c, eth_type=0x800
+nw_proto=6, nw_src=204.81.158.168/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:c1:95:a2, eth_type=0x800
+nw_proto=17, nw_src=204.81.158.189/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:68:8a:62, eth_type=0x800
+nw_proto=6, nw_src=204.81.158.180/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:ba:29:eb, eth_type=0x800
+nw_proto=17, nw_src=204.81.158.182/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:5b:ca:ef, eth_type=0x800
+nw_proto=1, nw_src=204.81.158.178/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:fd:8a:c1, eth_type=0x800
+nw_proto=6, nw_src=204.81.158.143/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:aa:78:ab, eth_type=0x800
+nw_proto=6, nw_src=204.81.158.140/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:13:9b:86, eth_type=0x800
+nw_proto=17, nw_src=204.81.158.138/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:c6:4b:fc, eth_type=0x800
+nw_proto=1, nw_src=204.81.158.131/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:03:9d:b6, eth_type=0x800
+nw_proto=17, nw_src=204.81.158.128/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:a9:e8:58, eth_type=0x800
+nw_proto=6, nw_src=204.81.158.216/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:5e:9b:48, eth_type=0x800
+nw_proto=17, nw_src=204.81.158.215/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:48:c6:42, eth_type=0x800
+nw_proto=6, nw_src=204.81.158.253/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:13:42:bf, eth_type=0x800
+nw_proto=6, nw_src=204.81.158.255/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:88:a0:bc, eth_type=0x800
+nw_proto=17, nw_src=204.81.158.247/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:f0:d7:a0, eth_type=0x800
+nw_proto=17, nw_src=204.81.156.138/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:8d:93:dc, eth_type=0x800
+nw_proto=1, nw_src=204.81.156.135/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:4f:65:a1, eth_type=0x800
+nw_proto=17, nw_src=204.81.156.132/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:0d:e9:a4, eth_type=0x800
+nw_proto=17, nw_src=204.81.156.162/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:cb:81:2e, eth_type=0x800
+nw_proto=17, nw_src=204.81.156.171/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:2b:45:e9, eth_type=0x800
+nw_proto=17, nw_src=204.81.156.29/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:90:02:9d, eth_type=0x800
+nw_proto=6, nw_src=204.81.156.24/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:b5:98:1b, eth_type=0x800
+nw_proto=6, nw_src=204.81.157.241/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:a8:c5:f3, eth_type=0x800
+nw_proto=6, nw_src=204.81.157.247/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:db:d4:b6, eth_type=0x800
+nw_proto=1, nw_src=204.81.157.156/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:df:33:04, eth_type=0x800
+nw_proto=17, nw_src=205.172.82.1/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:e1:9b:3b, eth_type=0x800
+nw_proto=17, nw_src=205.172.82.5/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:19:3e:87, eth_type=0x800
+nw_proto=17, nw_src=205.172.82.158/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:eb:39:4b, eth_type=0x800
+nw_proto=1, nw_src=205.172.82.156/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:00:44:85, eth_type=0x800
+nw_proto=6, nw_src=205.172.82.151/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:e8:a6:e1, eth_type=0x800
+nw_proto=17, nw_src=205.172.82.141/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:dc:d8:07, eth_type=0x800
+nw_proto=6, nw_src=205.172.83.179/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:b0:94:35, eth_type=0x800
+nw_proto=1, nw_src=205.172.83.189/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:bf:03:99, eth_type=0x800
+nw_proto=1, nw_src=205.172.83.61/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:46:11:d8, eth_type=0x800
+nw_proto=6, nw_src=205.172.83.62/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:09:09:dd, eth_type=0x800
+nw_proto=1, nw_src=205.172.83.58/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:18:26:b5, eth_type=0x800
+nw_proto=17, nw_src=205.172.80.29/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:9b:77:db, eth_type=0x800
+nw_proto=6, nw_src=205.172.80.60/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:8a:56:54, eth_type=0x800
+nw_proto=1, nw_src=205.172.80.51/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:87:f7:a8, eth_type=0x800
+nw_proto=17, nw_src=205.172.80.49/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:3d:7f:15, eth_type=0x800
+nw_proto=17, nw_src=205.172.80.99/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:4f:a1:51, eth_type=0x800
+nw_proto=1, nw_src=205.172.80.104/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:e4:39:17, eth_type=0x800
+nw_proto=17, nw_src=205.172.80.125/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:25:3c:72, eth_type=0x800
+nw_proto=1, nw_src=205.172.80.123/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:67:12:a0, eth_type=0x800
+nw_proto=1, nw_src=205.172.80.198/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:73:af:66, eth_type=0x800
+nw_proto=17, nw_src=205.172.80.179/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:31:3a:56, eth_type=0x800
+nw_proto=6, nw_src=205.172.80.176/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:54:b6:22, eth_type=0x800
+nw_proto=17, nw_src=205.172.86.164/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:89:20:a7, eth_type=0x800
+nw_proto=6, nw_src=205.172.86.166/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:bc:03:5e, eth_type=0x800
+nw_proto=17, nw_src=205.172.86.162/32, dl_src=fa:16:3e:eb:22:38, eth_type=0x800
+nw_proto=1, nw_src=205.172.86.177/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:71:39:c4, eth_type=0x800
+nw_proto=6, nw_src=205.172.86.178/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:41:09:cc, eth_type=0x800
+nw_proto=1, nw_src=205.172.86.188/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:fc:1a:92, eth_type=0x800
+nw_proto=6, nw_src=205.172.86.190/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:74:fe:8c, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.228/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:06:33:65, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.228/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:89:e5:e0, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:57:b3:58, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.228/32, nw_dst=38.17.73.194/32, dl_dst=fa:16:3e:52:1b:a0, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.228/32, nw_dst=38.17.73.194/32, dl_dst=fa:16:3e:4e:11:82, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, nw_dst=38.17.73.194/32, dl_dst=fa:16:3e:82:f6:aa, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.228/32, nw_dst=38.17.73.193/32, dl_dst=fa:16:3e:2a:e3:ca, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, nw_dst=38.17.73.193/32, dl_dst=fa:16:3e:6a:f3:0d, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.228/32, nw_dst=38.17.73.193/32, dl_dst=fa:16:3e:f7:8a:0d, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, nw_dst=38.17.73.209/32, dl_dst=fa:16:3e:82:b4:f6, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.228/32, nw_dst=38.17.73.209/32, dl_dst=fa:16:3e:2f:ac:4d, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.228/32, nw_dst=38.17.73.209/32, dl_dst=fa:16:3e:3a:b2:89, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.228/32, nw_dst=38.17.72.187/32, dl_dst=fa:16:3e:6a:e9:49, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.228/32, nw_dst=38.17.72.187/32, dl_dst=fa:16:3e:56:1a:cd, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.228/32, nw_dst=38.17.72.187/32, dl_dst=fa:16:3e:18:b4:a2, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.230/32, nw_dst=38.17.72.187/32, dl_dst=fa:16:3e:7f:31:8d, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.230/32, nw_dst=38.17.72.187/32, dl_dst=fa:16:3e:67:2a:16, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.230/32, nw_dst=38.17.72.187/32, dl_dst=fa:16:3e:1d:f9:e6, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.230/32, nw_dst=38.17.72.198/32, dl_dst=fa:16:3e:22:e3:55, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.230/32, nw_dst=38.17.72.198/32, dl_dst=fa:16:3e:47:3f:1e, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.230/32, nw_dst=38.17.72.198/32, dl_dst=fa:16:3e:c0:60:ab, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.230/32, nw_dst=38.17.75.0/32, dl_dst=fa:16:3e:67:3f:d9, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.230/32, nw_dst=38.17.75.0/32, dl_dst=fa:16:3e:95:76:76, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.230/32, nw_dst=38.17.75.0/32, dl_dst=fa:16:3e:e0:2f:ce, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.230/32, dl_src=fa:16:3e:a9:fc:01, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.230/32, nw_dst=38.17.75.56/32, dl_dst=fa:16:3e:0e:7f:59, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.230/32, nw_dst=38.17.75.56/32, dl_dst=fa:16:3e:9c:70:83, eth_type=0x800
+nw_proto=17, nw_dst=38.17.75.107/32, dl_dst=fa:16:3e:e3:ae:34, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.235/32, nw_dst=38.17.75.107/32, dl_dst=fa:16:3e:d5:76:4b, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.235/32, nw_dst=38.17.75.107/32, dl_dst=fa:16:3e:b8:07:df, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.235/32, nw_dst=38.17.63.204/32, dl_dst=fa:16:3e:30:d9:d3, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.235/32, nw_dst=38.17.63.204/32, dl_dst=fa:16:3e:81:1a:46, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.235/32, nw_dst=38.17.63.204/32, dl_dst=fa:16:3e:0b:73:ee, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.245/32, nw_dst=38.17.63.162/32, dl_dst=fa:16:3e:80:c0:1e, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.245/32, nw_dst=38.17.63.162/32, dl_dst=fa:16:3e:5e:6a:f1, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.245/32, nw_dst=38.17.63.162/32, dl_dst=fa:16:3e:0a:32:0c, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.247/32, nw_dst=38.17.56.120/32, dl_dst=fa:16:3e:a9:0c:c8, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.247/32, nw_dst=38.17.56.120/32, dl_dst=fa:16:3e:57:c1:bd, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.247/32, nw_dst=38.17.56.120/32, dl_dst=fa:16:3e:b9:eb:79, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.247/32, nw_dst=38.17.56.72/32, dl_dst=fa:16:3e:5c:cc:a0, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.247/32, nw_dst=38.17.56.72/32, dl_dst=fa:16:3e:f2:c2:d7, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.247/32, nw_dst=38.17.56.72/32, dl_dst=fa:16:3e:b8:fb:ca, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.251/32, nw_dst=38.17.57.43/32, dl_dst=fa:16:3e:38:b6:9b, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.251/32, nw_dst=38.17.57.43/32, dl_dst=fa:16:3e:6a:b7:48, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.251/32, nw_dst=38.17.57.43/32, dl_dst=fa:16:3e:1d:78:87, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.251/32, nw_dst=38.17.58.197/32, dl_dst=fa:16:3e:34:fb:96, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.251/32, nw_dst=38.17.58.197/32, dl_dst=fa:16:3e:dd:d9:54, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.251/32, nw_dst=38.17.58.197/32, dl_dst=fa:16:3e:e8:ac:c0, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.251/32, nw_dst=38.17.59.197/32, dl_dst=fa:16:3e:41:99:67, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.251/32, nw_dst=38.17.59.197/32, dl_dst=fa:16:3e:c3:16:bd, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=38.17.59.221/32, dl_dst=fa:16:3e:d5:28:05, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=38.17.59.221/32, dl_dst=fa:16:3e:b7:99:d4, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=38.17.59.221/32, dl_dst=fa:16:3e:f6:1d:19, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=38.17.59.223/32, dl_dst=fa:16:3e:97:2e:fe, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=38.17.59.223/32, dl_dst=fa:16:3e:47:8e:c9, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=34.116.192.2/32, dl_dst=fa:16:3e:1b:f6:d1, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.116.192.2/32, dl_dst=fa:16:3e:7b:3c:87, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.116.192.1/32, dl_dst=fa:16:3e:7f:9e:b8, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=34.116.196.210/32, dl_dst=fa:16:3e:cc:79:45, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=34.116.232.45/32, dl_dst=fa:16:3e:03:e3:03, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.116.232.46/32, dl_dst=fa:16:3e:fa:01:19, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=34.116.232.200/32, dl_dst=fa:16:3e:83:1e:6a, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=34.116.237.240/32, dl_dst=fa:16:3e:06:65:27, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=34.116.135.175/32, dl_dst=fa:16:3e:8c:b8:34, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=34.116.135.175/32, dl_dst=fa:16:3e:e1:50:bb, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.116.135.175/32, dl_dst=fa:16:3e:2b:ee:bd, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=34.116.131.23/32, dl_dst=fa:16:3e:62:81:ca, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.116.131.23/32, dl_dst=fa:16:3e:69:00:b4, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=34.116.152.174/32, dl_dst=fa:16:3e:2a:25:e0, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.116.153.108/32, dl_dst=fa:16:3e:20:68:36, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.116.153.110/32, dl_dst=fa:16:3e:c8:ec:6f, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=34.116.153.244/32, dl_dst=fa:16:3e:f3:96:6b, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=34.116.150.146/32, dl_dst=fa:16:3e:d6:6e:22, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.116.150.225/32, dl_dst=fa:16:3e:64:20:fe, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=34.114.78.44/32, dl_dst=fa:16:3e:a7:b2:ca, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=34.114.78.44/32, dl_dst=fa:16:3e:5b:52:08, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=34.114.78.44/32, dl_dst=01:00:00:75:78:b9, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=33.104.153.25/32, dl_dst=fa:16:3e:9e:24:41, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=33.104.153.26/32, dl_dst=fa:16:3e:f1:f4:48, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=33.104.153.219/32, dl_dst=fa:16:3e:bd:f6:45, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.248/32, nw_dst=56.185.98.96/32, dl_dst=fa:16:3e:a1:6b:7b, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=56.185.98.96/32, dl_dst=fa:16:3e:9a:47:04, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.248/32, nw_dst=56.185.98.96/32, dl_dst=fa:16:3e:b6:e6:ea, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.131/32, nw_dst=56.185.98.96/32, dl_dst=fa:16:3e:e2:2c:6b, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.131/32, nw_dst=56.185.98.96/32, dl_dst=fa:16:3e:bf:47:de, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.131/32, nw_dst=56.185.98.96/32, dl_dst=fa:16:3e:aa:55:85, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.131/32, nw_dst=56.185.98.171/32, dl_dst=fa:16:3e:7c:48:a3, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.131/32, nw_dst=56.185.98.171/32, dl_dst=fa:16:3e:c7:82:be, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.131/32, nw_dst=56.185.98.171/32, dl_dst=fa:16:3e:52:2a:b1, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.137/32, nw_dst=56.185.101.143/32, dl_dst=fa:16:3e:71:7a:ac, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.137/32, nw_dst=56.185.101.143/32, dl_dst=fa:16:3e:71:b9:b6, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.137/32, nw_dst=56.185.101.143/32, dl_dst=fa:16:3e:fc:fc:6a, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.139/32, nw_dst=56.185.101.163/32, dl_dst=fa:16:3e:16:98:38, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.139/32, nw_dst=56.185.101.163/32, dl_dst=fa:16:3e:03:1a:77, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.139/32, nw_dst=56.185.101.163/32, dl_dst=fa:16:3e:1b:45:4b, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.157/32, nw_dst=56.185.103.88/32, dl_dst=fa:16:3e:26:9c:49, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.157/32, nw_dst=56.185.103.88/32, dl_dst=fa:16:3e:be:d8:87, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.157/32, nw_dst=56.185.103.88/32, dl_dst=fa:16:3e:41:2a:98, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.157/32, nw_dst=56.185.103.33/32, dl_dst=fa:16:3e:f6:d0:2a, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.157/32, nw_dst=56.185.103.33/32, dl_dst=fa:16:3e:22:46:b8, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.157/32, nw_dst=56.185.103.33/32, dl_dst=fa:16:3e:32:73:c8, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.157/32, nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:96:14:64, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.157/32, nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:fc:6e:25, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.157/32, nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:81:3e:56, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.149/32, nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:73:15:60, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.149/32, nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:04:d9:11, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.149/32, nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:51:a4:50, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.149/32, nw_dst=56.185.108.69/32, dl_dst=fa:16:3e:fa:fe:29, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.149/32, nw_dst=56.185.108.69/32, dl_dst=fa:16:3e:13:7d:32, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.149/32, nw_dst=56.185.108.69/32, dl_dst=fa:16:3e:c1:76:42, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.150/32, nw_dst=56.185.108.119/32, dl_dst=fa:16:3e:22:dc:7e, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.150/32, nw_dst=56.185.108.119/32, dl_dst=fa:16:3e:a5:23:1b, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.150/32, nw_dst=56.185.108.119/32, dl_dst=fa:16:3e:24:5c:7d, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.181/32, nw_dst=222.28.232.195/32, dl_dst=fa:16:3e:72:81:fb, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.181/32, nw_dst=222.28.232.195/32, dl_dst=fa:16:3e:63:6d:29, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.181/32, nw_dst=222.28.232.195/32, dl_dst=fa:16:3e:3c:3e:04, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.181/32, nw_dst=222.28.232.180/32, dl_dst=fa:16:3e:46:8a:a1, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.181/32, nw_dst=222.28.232.180/32, dl_dst=fa:16:3e:9f:5f:43, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.181/32, nw_dst=222.28.232.180/32, dl_dst=fa:16:3e:29:30:39, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.181/32, nw_dst=222.28.230.206/32, dl_dst=fa:16:3e:25:72:6f, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.181/32, dl_src=fa:16:3e:fc:b7:24, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.181/32, nw_dst=222.28.230.206/32, dl_dst=fa:16:3e:3f:c0:41, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.191/32, nw_dst=222.27.32.201/32, dl_dst=fa:16:3e:6e:ee:24, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.191/32, nw_dst=222.27.32.201/32, dl_dst=fa:16:3e:07:e9:81, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.191/32, nw_dst=222.27.32.243/32, dl_dst=fa:16:3e:ea:7b:64, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.191/32, nw_dst=222.27.32.243/32, dl_dst=fa:16:3e:07:bc:0c, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.191/32, dl_src=fa:16:3e:aa:e7:74, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.191/32, nw_dst=222.27.32.58/32, dl_dst=fa:16:3e:ad:34:bc, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.191/32, nw_dst=222.27.32.58/32, dl_dst=fa:16:3e:10:79:7e, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.191/32, nw_dst=222.27.32.42/32, dl_dst=fa:16:3e:d9:a6:f4, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.134/32, nw_dst=222.27.33.44/32, dl_dst=fa:16:3e:7d:c3:8b, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.134/32, nw_dst=222.27.33.44/32, dl_dst=fa:16:3e:c0:f0:5e, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.132/32, nw_dst=222.27.33.44/32, dl_dst=fa:16:3e:fe:cb:84, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.132/32, nw_dst=222.27.62.55/32, dl_dst=fa:16:3e:ba:28:5b, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.132/32, nw_dst=222.27.62.55/32, dl_dst=fa:16:3e:83:ef:b9, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.128/32, nw_dst=223.238.119.114/32, dl_dst=fa:16:3e:f0:66:fa, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.128/32, nw_dst=223.238.119.114/32, dl_dst=fa:16:3e:3d:8d:a5, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.128/32, nw_dst=223.238.119.114/32, dl_dst=fa:16:3e:71:36:02, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.151/32, nw_dst=223.238.119.227/32, dl_dst=fa:16:3e:83:1d:1e, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.151/32, nw_dst=223.238.119.227/32, dl_dst=fa:16:3e:dd:47:88, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.152/32, nw_dst=223.238.114.229/32, dl_dst=fa:16:3e:dd:32:ee, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.115/32, nw_dst=223.238.114.229/32, dl_dst=fa:16:3e:da:f0:39, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.115/32, nw_dst=223.238.114.230/32, dl_dst=fa:16:3e:29:e3:e0, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.115/32, nw_dst=223.238.115.129/32, dl_dst=fa:16:3e:47:86:0e, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.115/32, nw_dst=223.238.96.99/32, dl_dst=fa:16:3e:6a:f2:34, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.115/32, nw_dst=223.238.96.99/32, dl_dst=fa:16:3e:96:5a:d9, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.115/32, nw_dst=223.238.96.99/32, dl_dst=fa:16:3e:7d:91:62, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.113/32, nw_dst=223.238.101.132/32, dl_dst=fa:16:3e:00:81:36, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.113/32, nw_dst=223.238.101.132/32, dl_dst=fa:16:3e:cc:a0:ce, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.113/32, nw_dst=223.238.77.196/32, dl_dst=01:00:00:aa:68:b1, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.113/32, nw_dst=223.238.77.196/32, dl_dst=fa:16:3e:ae:dd:f3, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.113/32, nw_dst=223.238.77.196/32, dl_dst=fa:16:3e:cf:15:55, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.117/32, nw_dst=223.238.77.196/32, dl_dst=fa:16:3e:97:af:92, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.117/32, nw_dst=223.238.77.196/32, dl_dst=fa:16:3e:b5:aa:e3, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.117/32, nw_dst=223.238.77.196/32, dl_dst=fa:16:3e:62:7e:58, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.103/32, nw_dst=223.238.79.125/32, dl_dst=fa:16:3e:5d:86:fb, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.103/32, nw_dst=223.238.79.108/32, dl_dst=fa:16:3e:6a:bb:7d, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.103/32, nw_dst=216.246.112.34/32, dl_dst=fa:16:3e:1f:ae:43, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.103/32, nw_dst=216.246.125.57/32, dl_dst=fa:16:3e:5c:93:3f, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.103/32, nw_dst=216.246.86.247/32, dl_dst=fa:16:3e:25:1a:79, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.103/32, nw_dst=216.35.198.85/32, dl_dst=fa:16:3e:17:a5:09, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.103/32, dl_src=fa:16:3e:98:7c:1a, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.103/32, nw_dst=216.115.176.220/32, dl_dst=fa:16:3e:54:fa:50, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.103/32, nw_dst=216.115.247.25/32, dl_dst=fa:16:3e:14:e9:78, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.103/32, nw_dst=207.21.252.115/32, dl_dst=fa:16:3e:cd:b8:31, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.103/32, nw_dst=207.21.252.115/32, dl_dst=fa:16:3e:1c:57:79, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.103/32, nw_dst=207.21.252.115/32, dl_dst=fa:16:3e:a8:11:44, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.103/32, nw_dst=207.21.252.76/32, dl_dst=fa:16:3e:0a:4c:36, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.103/32, nw_dst=207.21.252.76/32, dl_dst=fa:16:3e:16:b2:16, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.103/32, nw_dst=207.21.252.76/32, dl_dst=fa:16:3e:7b:15:cc, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.103/32, nw_dst=207.21.252.35/32, dl_dst=fa:16:3e:f8:ec:3b, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.103/32, nw_dst=207.21.252.35/32, dl_dst=fa:16:3e:db:0e:b5, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.103/32, nw_dst=207.21.252.35/32, dl_dst=fa:16:3e:16:73:41, eth_type=0x800
+nw_proto=17, nw_src=83.169.93.5/32, nw_dst=207.21.252.35/32, dl_dst=fa:16:3e:a0:88:91, eth_type=0x800
+nw_proto=1, nw_src=83.169.93.5/32, nw_dst=207.21.252.35/32, dl_dst=fa:16:3e:26:c4:93, eth_type=0x800
+nw_proto=6, nw_src=83.169.93.1/32, nw_dst=207.21.227.113/32, dl_dst=fa:16:3e:d4:8e:88, eth_type=0x800
+nw_proto=1, nw_src=83.169.93.8/32, nw_dst=207.21.227.113/32, dl_dst=fa:16:3e:06:3c:19, eth_type=0x800
+nw_proto=6, nw_src=83.169.93.8/32, nw_dst=207.21.227.113/32, dl_dst=fa:16:3e:94:d8:53, eth_type=0x800
+nw_proto=1, nw_src=83.169.93.10/32, nw_dst=207.21.232.163/32, dl_dst=fa:16:3e:9b:16:1e, eth_type=0x800
+nw_proto=17, nw_src=83.169.93.70/32, nw_dst=207.21.232.180/32, dl_dst=fa:16:3e:cc:f4:62, eth_type=0x800
+nw_proto=6, nw_src=83.169.93.70/32, nw_dst=207.21.221.71/32, dl_dst=fa:16:3e:4b:3c:36, eth_type=0x800
+nw_proto=17, nw_src=83.169.93.70/32, nw_dst=207.21.221.71/32, dl_dst=fa:16:3e:f8:21:eb, eth_type=0x800
+nw_proto=1, nw_src=83.169.93.70/32, dl_src=fa:16:3e:8d:e1:5d, eth_type=0x800
+nw_proto=17, nw_src=83.169.93.83/32, nw_dst=207.21.219.237/32, dl_dst=fa:16:3e:5c:16:b7, eth_type=0x800
+nw_proto=17, nw_src=83.169.93.88/32, nw_dst=207.21.219.237/32, dl_dst=fa:16:3e:22:2a:be, eth_type=0x800
+nw_proto=17, nw_src=82.253.122.193/32, nw_dst=207.21.208.40/32, dl_dst=fa:16:3e:71:03:41, eth_type=0x800
+nw_proto=6, nw_src=82.253.122.196/32, nw_dst=207.21.208.40/32, dl_dst=fa:16:3e:e1:73:65, eth_type=0x800
+nw_proto=6, nw_src=82.253.122.213/32, nw_dst=205.129.46.124/32, dl_dst=fa:16:3e:cc:88:56, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.33/32, nw_dst=146.42.36.108/32, dl_dst=fa:16:3e:5c:b5:07, eth_type=0x800
+nw_proto=17, nw_src=27.68.102.33/32, nw_dst=146.42.36.108/32, dl_dst=fa:16:3e:82:09:64, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.33/32, nw_dst=146.42.36.108/32, dl_dst=fa:16:3e:a3:f7:4f, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.33/32, nw_dst=146.42.40.191/32, dl_dst=fa:16:3e:e3:33:e8, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.33/32, nw_dst=146.42.40.191/32, dl_dst=fa:16:3e:30:f1:49, eth_type=0x800
+nw_proto=17, nw_src=27.68.102.33/32, nw_dst=146.42.40.191/32, dl_dst=fa:16:3e:85:08:bb, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.33/32, nw_dst=146.42.40.81/32, dl_dst=fa:16:3e:0d:84:3a, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.33/32, nw_dst=146.42.40.81/32, dl_dst=fa:16:3e:42:0d:fd, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.33/32, nw_dst=130.119.204.166/32, dl_dst=fa:16:3e:81:d9:83, eth_type=0x800
+nw_proto=17, nw_src=27.68.102.33/32, nw_dst=130.119.204.166/32, dl_dst=fa:16:3e:f6:29:6f, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.33/32, nw_dst=130.119.204.166/32, dl_dst=fa:16:3e:ea:d9:cf, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.40/32, nw_dst=130.119.204.234/32, dl_dst=fa:16:3e:b1:11:52, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.40/32, nw_dst=130.119.204.234/32, dl_dst=fa:16:3e:36:d8:ee, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.40/32, nw_dst=130.119.208.5/32, dl_dst=fa:16:3e:78:55:a5, eth_type=0x800
+nw_proto=17, nw_dst=130.119.208.5/32, dl_dst=fa:16:3e:1d:4d:7e, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.40/32, nw_dst=130.119.208.56/32, dl_dst=fa:16:3e:1e:2b:6a, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.40/32, nw_dst=130.119.222.18/32, dl_dst=fa:16:3e:69:41:93, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.40/32, nw_dst=130.119.222.18/32, dl_dst=fa:16:3e:0a:fe:49, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.40/32, nw_dst=130.119.250.74/32, dl_dst=fa:16:3e:d0:4f:58, eth_type=0x800
+nw_proto=6, nw_src=27.68.102.44/32, dl_src=fa:16:3e:69:8f:09, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.44/32, nw_dst=130.119.250.208/32, dl_dst=fa:16:3e:19:48:e3, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.44/32, nw_dst=130.216.33.16/32, dl_dst=fa:16:3e:c1:b4:45, eth_type=0x800
+nw_proto=1, nw_src=27.68.102.44/32, nw_dst=134.248.89.74/32, dl_dst=fa:16:3e:36:80:e5, eth_type=0x800
+nw_proto=1, nw_src=55.142.132.66/32, nw_dst=134.248.89.90/32, dl_dst=fa:16:3e:be:4c:3c, eth_type=0x800
+nw_proto=6, nw_src=52.252.224.168/32, nw_dst=134.248.81.144/32, dl_dst=fa:16:3e:86:b9:b9, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.175/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:e3:50:e7, eth_type=0x800
+nw_proto=6, nw_src=251.154.97.175/32, dl_src=fa:16:3e:0d:40:32, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.110/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:8b:66:83, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.98/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:39:c8:e9, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.97/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:df:cc:fb, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.95/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:ac:0c:5d, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.89/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:4e:cc:48, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.86/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:07:73:01, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.82/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:4d:9f:05, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.81/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:e8:62:92, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.79/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:00:ba:9f, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.70/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:b9:84:42, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.64/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:38:43:b0, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.63/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:8e:90:da, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.42/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:78:e0:52, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.39/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:ec:97:0a, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.34/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:6c:bc:00, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.33/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:ae:2a:89, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.30/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:5c:0f:a9, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.29/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:07:94:4d, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.26/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:e1:2a:d4, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.15/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:ef:6a:1f, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.12/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:9f:68:bd, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.11/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:01:54:f3, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.9/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:d7:4b:8e, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.7/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:97:7d:ac, eth_type=0x800
+nw_proto=6, nw_src=174.18.147.0/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:5f:7c:06, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.63/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:70:8a:66, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.52/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:4f:e4:a4, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.50/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:1d:ee:cc, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.48/32, dl_src=fa:16:3e:42:a8:17, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.44/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:cc:fb:b3, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.41/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:7d:09:e7, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.39/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:ea:1b:61, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.36/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:f5:78:0f, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.35/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:b4:cb:0a, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.33/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:06:2a:44, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.27/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:a2:5f:36, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.25/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:cd:fe:1b, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.23/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:65:56:20, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.18/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:71:51:8c, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.17/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:2b:86:62, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.11/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:ba:55:4b, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.7/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:cd:31:86, eth_type=0x800
+nw_proto=6, nw_src=174.18.146.0/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:01:15:5d, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.251/32, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:2f:07:ed, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.251/32, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:58:5d:8d, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.248/32, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:ea:71:ad, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.247/32, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:c4:35:59, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.245/32, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:0c:9c:79, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.235/32, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:f7:67:df, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.230/32, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:86:b3:bc, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.139/32, nw_dst=86.125.118.160/32, dl_dst=fa:16:3e:41:dc:e7, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.139/32, nw_dst=86.125.118.163/32, dl_dst=fa:16:3e:69:37:89, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.137/32, nw_dst=86.125.113.246/32, dl_dst=fa:16:3e:6f:8f:53, eth_type=0x800
+nw_proto=17, nw_src=139.57.178.137/32, nw_dst=86.125.113.246/32, dl_dst=fa:16:3e:12:ab:7e, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.137/32, nw_dst=86.125.113.246/32, dl_dst=fa:16:3e:e6:12:b1, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.137/32, nw_dst=86.125.124.225/32, dl_dst=fa:16:3e:d0:bb:25, eth_type=0x800
+nw_proto=1, nw_src=83.169.93.5/32, nw_dst=115.245.247.249/32, dl_dst=fa:16:3e:b1:5d:45, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.191/32, nw_dst=115.245.252.135/32, dl_dst=fa:16:3e:0e:70:8a, eth_type=0x800
+nw_proto=1, nw_src=83.169.89.191/32, nw_dst=115.245.253.228/32, dl_dst=fa:16:3e:fe:71:ec, eth_type=0x800
+nw_proto=1, nw_src=251.154.97.168/30, nw_dst=83.78.50.121/32, dl_dst=fa:16:3e:64:af:4d, eth_type=0x800
+nw_proto=1, nw_src=251.154.66.64/30, nw_dst=38.17.70.7/32, dl_dst=fa:16:3e:3c:1d:de, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.132/30, nw_dst=56.185.98.96/32, dl_dst=fa:16:3e:63:60:31, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.152/30, nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:03:a2:49, eth_type=0x800
+nw_proto=17, nw_src=83.169.89.176/30, nw_dst=222.28.232.180/32, dl_dst=fa:16:3e:59:fc:65, eth_type=0x800
+nw_proto=6, nw_src=83.169.89.96/30, nw_dst=216.246.112.34/32, dl_dst=fa:16:3e:02:6d:28, eth_type=0x800
+nw_proto=6, nw_src=139.57.178.252/30, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:74:af:78, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.240/30, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:88:07:bb, eth_type=0x800
+nw_proto=1, nw_src=139.57.178.236/30, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:c1:38:60, eth_type=0x800
+dl_dst=fa:16:3e:49:21:ba
+nw_src=251.154.97.57/32, nw_dst=83.78.42.238/32, dl_dst=fa:16:3e:5b:8f:6f
+nw_src=251.154.97.57/32, nw_dst=83.78.37.65/32, dl_dst=fa:16:3e:53:2a:90
+nw_src=251.154.97.160/32, dl_src=fa:16:3e:9e:fe:50
+nw_src=251.154.97.160/32, nw_dst=83.78.32.157/32, dl_dst=fa:16:3e:00:00:02
+dl_dst=fa:16:3e:5f:5c:7d
+nw_src=251.154.97.172/32, dl_src=fa:16:3e:8a:64:f9
+dl_dst=fa:16:3e:2b:56:b7
+nw_src=251.154.66.68/32, nw_dst=38.17.70.7/32, dl_dst=fa:16:3e:eb:96:0f
+nw_src=251.154.66.68/32, nw_dst=38.17.70.4/32, dl_dst=fa:16:3e:bc:9d:d4
+nw_src=204.51.24.121/32, dl_src=fa:16:3e:b0:e1:c6
+in_port=37563
+nw_src=204.51.24.127/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:fc:21:5b
+dl_dst=fa:16:3e:2f:af:50
+dl_dst=fa:16:3e:28:5e:40
+nw_src=204.51.24.101/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:eb:6d:bf
+dl_dst=fa:16:3e:cc:66:56
+nw_src=204.51.24.13/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:54:23:2a
+nw_src=204.51.24.56/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:95:7a:72
+dl_dst=fa:16:3e:87:78:a4
+dl_dst=fa:16:3e:70:da:76
+dl_dst=fa:16:3e:07:38:d8
+dl_dst=fa:16:3e:eb:30:e3
+nw_dst=38.17.67.130/32
+dl_dst=fa:16:3e:67:4e:fe
+nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:5f:54:33
+nw_src=204.51.28.89/32, dl_src=fa:16:3e:51:ad:94
+nw_src=204.51.28.82/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:43:a6:85
+nw_src=204.51.28.86/32, dl_src=fa:16:3e:ac:af:77
+nw_src=204.51.56.155/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:ef:3e:f3
+nw_src=204.51.56.148/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:a8:96:99
+nw_dst=38.17.67.130/32
+nw_src=204.51.56.221/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:9d:72:a5
+dl_dst=fa:16:3e:78:b5:71
+nw_src=204.51.56.45/32, dl_src=fa:16:3e:99:e9:bd
+nw_src=204.51.56.70/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:d6:98:f6
+nw_src=204.51.56.86/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:d1:1d:16
+nw_src=204.81.158.166/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:d0:da:d5
+dl_dst=fa:16:3e:a2:1c:4d
+nw_dst=38.17.67.130/32
+nw_src=204.81.158.176/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:03:6a:82
+nw_src=204.81.158.146/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:c4:fe:c9
+dl_dst=fa:16:3e:61:e1:74
+dl_dst=fa:16:3e:c6:80:41
+dl_dst=fa:16:3e:f3:17:bd
+dl_dst=fa:16:3e:93:a1:11
+nw_dst=38.17.67.130/32
+nw_src=204.81.156.136/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:dd:fd:4b
+nw_src=204.81.156.141/32, dl_src=fa:16:3e:e8:78:1f
+nw_src=204.81.156.177/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:e7:ba:60
+nw_src=204.81.156.178/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:5d:ae:93
+nw_src=204.81.156.184/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:dd:ee:d2
+nw_src=204.81.156.20/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:43:6d:f7
+nw_src=204.81.157.242/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:62:07:f3
+nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:93:08:e2
+nw_src=204.81.157.187/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:e8:59:4e
+nw_src=205.172.82.10/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:0d:50:64
+nw_src=205.172.82.9/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:03:c5:48
+dl_dst=fa:16:3e:9d:92:f6
+nw_src=205.172.82.139/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:b2:b3:63
+nw_src=205.172.82.136/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:0c:13:17
+dl_dst=fa:16:3e:24:65:1d
+nw_src=205.172.83.191/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:6c:29:88
+dl_src=fa:16:3e:3d:37:1b
+nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:1c:e8:3a
+nw_src=205.172.80.97/32, nw_dst=38.17.67.130/32, dl_dst=01:00:00:2e:22:10
+dl_dst=fa:16:3e:a3:e1:a3
+nw_src=205.172.80.127/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:0a:26:29
+dl_dst=fa:16:3e:14:89:40
+nw_src=205.172.80.191/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:74:bf:47
+nw_src=205.172.80.186/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:fe:fb:f7
+dl_src=fa:16:3e:4b:09:15
+nw_src=205.172.86.161/32, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:a7:69:29
+nw_src=205.172.86.183/32, dl_src=fa:16:3e:22:7b:e8
+dl_dst=fa:16:3e:93:56:14
+nw_dst=38.17.73.194/32, dl_dst=fa:16:3e:2e:56:22
+nw_src=139.57.178.228/32, nw_dst=38.17.73.193/32, dl_dst=fa:16:3e:c8:40:47
+nw_src=139.57.178.228/32, nw_dst=38.17.73.209/32, dl_dst=fa:16:3e:a8:0b:e1
+dl_dst=fa:16:3e:b9:20:46
+nw_src=139.57.178.230/32, nw_dst=38.17.72.187/32, dl_dst=fa:16:3e:70:93:4d
+nw_src=139.57.178.230/32, nw_dst=38.17.72.198/32, dl_dst=fa:16:3e:31:8d:f6
+dl_dst=fa:16:3e:9a:21:30
+nw_src=139.57.178.230/32, nw_dst=38.17.75.56/32, dl_dst=fa:16:3e:64:8c:e1
+dl_dst=fa:16:3e:9a:14:5c
+nw_src=139.57.178.235/32, nw_dst=38.17.63.204/32, dl_dst=fa:16:3e:2b:d4:66
+nw_src=139.57.178.245/32, dl_src=fa:16:3e:b3:2e:b0
+dl_dst=fa:16:3e:fc:0b:96
+dl_dst=fa:16:3e:03:60:be
+nw_src=139.57.178.251/32, nw_dst=38.17.57.43/32, dl_dst=fa:16:3e:47:93:87
+dl_dst=fa:16:3e:a0:b0:fb
+nw_src=139.57.178.251/32, nw_dst=38.17.59.197/32, dl_dst=fa:16:3e:5d:54:9f
+nw_src=139.57.178.248/32, nw_dst=38.17.59.221/32, dl_dst=fa:16:3e:d1:6b:ad
+nw_src=139.57.178.248/32, nw_dst=34.116.192.2/32, dl_dst=fa:16:3e:28:43:50
+dl_dst=fa:16:3e:50:94:e5
+nw_src=139.57.178.248/32, nw_dst=34.116.196.210/32, dl_dst=fa:16:3e:c3:fe:9c
+nw_src=139.57.178.248/32, nw_dst=34.116.216.143/32, dl_dst=fa:16:3e:1d:cd:b8
+dl_dst=fa:16:3e:38:a9:06
+nw_src=139.57.178.248/32, nw_dst=34.116.237.240/32, dl_dst=fa:16:3e:7a:b7:9c
+nw_src=139.57.178.248/32, nw_dst=34.116.135.175/32, dl_dst=fa:16:3e:f4:f6:0a
+in_port=180
+nw_src=139.57.178.248/32, dl_src=fa:16:3e:c0:bc:16
+nw_src=139.57.178.248/32, nw_dst=34.116.153.197/32, dl_dst=fa:16:3e:a4:1b:e0
+nw_src=139.57.178.248/32, nw_dst=34.116.150.223/32, dl_dst=fa:16:3e:9c:e7:f1
+nw_src=139.57.178.248/32, nw_dst=34.116.144.172/32, dl_dst=fa:16:3e:43:4c:07
+dl_dst=fa:16:3e:73:80:9c
+nw_dst=33.104.153.52/32, dl_dst=fa:16:3e:c2:b5:df
+nw_src=139.57.178.248/32, nw_dst=56.185.98.96/32, dl_dst=01:00:00:d8:ab:f1
+nw_src=139.57.178.131/32, nw_dst=56.185.98.96/32, dl_dst=fa:16:3e:8c:2f:73
+nw_src=139.57.178.131/32, nw_dst=56.185.98.171/32, dl_dst=fa:16:3e:2b:ad:50
+nw_src=139.57.178.137/32, nw_dst=56.185.101.143/32, dl_dst=fa:16:3e:c7:4c:23
+in_port=37680
+dl_src=fa:16:3e:30:1b:d9
+dl_dst=fa:16:3e:44:6a:5b
+nw_src=139.57.178.157/32, nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:cc:50:dd
+nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:b2:cd:53
+nw_src=139.57.178.149/32, nw_dst=56.185.108.69/32, dl_dst=fa:16:3e:c9:7c:bf
+nw_src=139.57.178.150/32, nw_dst=56.185.108.119/32, dl_dst=fa:16:3e:7f:6a:97
+nw_src=83.169.89.181/32, nw_dst=222.28.232.195/32, dl_dst=fa:16:3e:5a:3e:cf
+dl_dst=fa:16:3e:a9:72:ac
+nw_src=83.169.89.191/32, nw_dst=222.27.32.201/32, dl_dst=fa:16:3e:e3:91:0f
+nw_src=83.169.89.191/32, nw_dst=222.27.32.58/32, dl_dst=fa:16:3e:e7:1b:a8
+dl_dst=fa:16:3e:16:61:be
+nw_src=83.169.89.134/32, nw_dst=222.27.33.44/32, dl_dst=fa:16:3e:4c:67:27
+nw_src=83.169.89.132/32, nw_dst=222.27.33.44/32, dl_dst=fa:16:3e:8f:dd:ea
+dl_dst=fa:16:3e:31:3e:fe
+nw_src=83.169.89.151/32, nw_dst=223.238.119.227/32, dl_dst=fa:16:3e:7a:54:3a
+nw_src=83.169.89.152/32, nw_dst=223.238.119.248/32, dl_dst=fa:16:3e:08:85:b3
+nw_src=83.169.89.115/32, nw_dst=223.238.114.230/32, dl_dst=fa:16:3e:97:ca:9f
+nw_src=83.169.89.115/32, nw_dst=223.238.115.129/32, dl_dst=fa:16:3e:98:c3:ae
+nw_src=83.169.89.115/32, nw_dst=223.238.96.99/32, dl_dst=fa:16:3e:83:1a:9c
+nw_src=83.169.89.113/32, nw_dst=223.238.101.132/32, dl_dst=fa:16:3e:b3:ae:4c
+nw_src=83.169.89.113/32, nw_dst=223.238.77.196/32, dl_dst=fa:16:3e:47:d8:b6
+nw_src=83.169.89.117/32, nw_dst=223.238.77.196/32, dl_dst=fa:16:3e:7b:52:e8
+nw_src=83.169.89.103/32, nw_dst=223.238.79.125/32, dl_dst=fa:16:3e:c3:84:3d
+nw_src=83.169.89.103/32, nw_dst=223.238.79.110/32, dl_dst=fa:16:3e:8e:ab:1f
+nw_src=83.169.89.103/32, nw_dst=216.246.86.225/32, dl_dst=01:00:00:39:ec:79
+nw_src=83.169.89.103/32, nw_dst=216.35.238.189/32, dl_dst=fa:16:3e:da:27:ba
+nw_src=83.169.89.103/32, nw_dst=216.35.17.238/32, dl_dst=fa:16:3e:66:7d:3e
+nw_dst=207.21.252.76/32, dl_dst=fa:16:3e:ac:93:16
+nw_src=83.169.89.103/32, nw_dst=207.21.252.35/32, dl_dst=fa:16:3e:2d:c1:b8
+dl_dst=fa:16:3e:7c:b1:01
+nw_dst=207.21.227.113/32
+nw_src=83.169.93.10/32, nw_dst=207.21.232.163/32, dl_dst=fa:16:3e:20:bf:c9
+nw_src=83.169.93.70/32, nw_dst=207.21.232.180/32, dl_dst=fa:16:3e:5a:0b:d6
+nw_src=83.169.93.70/32, nw_dst=207.21.232.53/32, dl_dst=fa:16:3e:08:23:50
+nw_src=83.169.93.70/32, nw_dst=207.21.221.71/32, dl_dst=fa:16:3e:5c:f4:51
+nw_src=83.169.93.83/32, nw_dst=207.21.219.237/32, dl_dst=fa:16:3e:63:4a:e9
+nw_dst=207.21.208.40/32, dl_dst=fa:16:3e:a3:d5:93
+nw_src=82.253.122.213/32, dl_src=fa:16:3e:b3:9a:1f
+nw_src=82.253.122.213/32, nw_dst=205.129.46.102/32, dl_dst=fa:16:3e:d4:3a:df
+nw_src=82.253.122.213/32, nw_dst=205.129.44.143/32, dl_dst=fa:16:3e:59:d0:fa
+dl_dst=fa:16:3e:2f:64:7f
+dl_dst=fa:16:3e:ba:8e:53
+nw_src=27.68.102.33/32, nw_dst=146.42.36.108/32, dl_dst=fa:16:3e:41:51:19
+nw_src=27.68.102.33/32, nw_dst=146.42.40.191/32, dl_dst=fa:16:3e:5f:3d:cb
+nw_src=27.68.102.33/32, nw_dst=146.42.40.81/32, dl_dst=fa:16:3e:14:f0:c2
+in_port=37621
+nw_src=27.68.102.40/32, nw_dst=130.119.204.234/32, dl_dst=fa:16:3e:3d:e3:87
+nw_dst=130.119.208.5/32, dl_dst=fa:16:3e:c1:ef:40
+nw_src=27.68.102.40/32, nw_dst=130.119.208.56/32, dl_dst=fa:16:3e:75:a0:e3
+nw_src=27.68.102.40/32, nw_dst=130.119.222.18/32, dl_dst=fa:16:3e:42:2b:42
+nw_src=27.68.102.40/32, nw_dst=130.119.250.74/32, dl_dst=fa:16:3e:55:81:ec
+dl_dst=fa:16:3e:b5:02:d2
+dl_dst=fa:16:3e:be:7c:11
+nw_src=52.252.224.208/32, nw_dst=134.248.81.10/32, dl_dst=fa:16:3e:d3:1b:54
+nw_src=139.57.178.251/32, nw_dst=83.78.61.110/32, dl_dst=fa:16:3e:7a:08:1e
+nw_src=139.57.178.230/32, nw_dst=83.78.61.242/32, dl_dst=fa:16:3e:df:a9:ae
+dl_dst=fa:16:3e:f4:6c:59
+nw_src=139.57.178.150/32, nw_dst=83.78.61.242/32, dl_dst=fa:16:3e:d4:fa:47
+nw_src=139.57.178.139/32, nw_dst=83.78.61.242/32, dl_dst=fa:16:3e:ed:18:9c
+nw_src=139.57.178.139/32, nw_dst=86.125.118.160/32, dl_dst=fa:16:3e:1b:a3:f6
+nw_src=139.57.178.139/32, nw_dst=86.125.118.163/32, dl_dst=fa:16:3e:b5:ab:9d
+dl_dst=fa:16:3e:95:39:4a
+nw_src=139.57.178.137/32, nw_dst=86.125.124.225/32, dl_dst=fa:16:3e:34:95:16
+dl_dst=fa:16:3e:b4:ca:06
+dl_dst=fa:16:3e:99:ba:42
+dl_dst=fa:16:3e:a7:6d:68
+dl_dst=fa:16:3e:95:4b:c9
+dl_dst=fa:16:3e:58:57:1d
+nw_src=101.139.117.146/32, nw_dst=86.125.125.3/32, dl_dst=fa:16:3e:c5:52:bc
+nw_src=101.139.117.145/32, nw_dst=86.125.125.3/32, dl_dst=fa:16:3e:1f:b8:b7
+nw_src=101.139.117.140/32, nw_dst=86.125.125.3/32, dl_dst=fa:16:3e:eb:7a:55
+dl_dst=fa:16:3e:f7:49:b7
+dl_src=fa:16:3e:d8:7d:e5
+nw_src=101.139.117.131/32, nw_dst=86.125.125.3/32, dl_dst=fa:16:3e:25:03:6c
+nw_src=101.139.117.129/32, nw_dst=86.125.125.3/32, dl_dst=fa:16:3e:ec:4b:73
+nw_src=83.169.93.94/32, nw_dst=86.125.125.3/32, dl_dst=fa:16:3e:28:ab:b3
+nw_src=83.169.93.93/32, nw_dst=86.125.125.3/32, dl_dst=fa:16:3e:f3:b9:6d
+dl_dst=fa:16:3e:3e:24:a5
+nw_src=83.169.93.84/32, nw_dst=86.125.125.3/32, dl_dst=fa:16:3e:63:2f:d9
+in_port=37587
+nw_src=83.169.93.10/32, nw_dst=115.245.240.60/32, dl_dst=fa:16:3e:8c:ae:70
+nw_src=83.169.89.191/32, nw_dst=115.245.253.252/32, dl_dst=fa:16:3e:1f:c5:68
+nw_src=83.169.89.191/32, dl_src=fa:16:3e:d5:1b:c1
+nw_proto=17, nw_src=251.154.96.0/24, dl_src=fa:16:3e:d7:c8:ae, eth_type=0x800
+nw_proto=6, nw_src=205.172.81.0/24, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:da:48:c1, eth_type=0x800
+nw_proto=6, nw_src=139.57.179.0/24, nw_dst=83.78.55.243/32, dl_dst=fa:16:3e:99:82:97, eth_type=0x800
+nw_proto=17, nw_src=251.154.98.0/23, nw_dst=83.78.47.15/32, dl_dst=fa:16:3e:e2:18:c6, eth_type=0x800
+nw_proto=1, nw_src=139.57.176.0/23, nw_dst=56.185.108.69/32, dl_dst=fa:16:3e:c8:4d:38, eth_type=0x800
+nw_src=251.154.97.60/30, nw_dst=83.78.47.15/32, dl_dst=fa:16:3e:ca:61:d5
+nw_src=251.154.97.164/30, nw_dst=83.78.37.65/32, dl_dst=fa:16:3e:96:04:97
+nw_src=139.57.178.224/30, nw_dst=38.17.67.130/32, dl_dst=fa:16:3e:29:52:ea
+nw_dst=56.185.108.206/32, dl_dst=fa:16:3e:52:b2:fb
+nw_src=139.57.178.140/30, nw_dst=83.78.61.242/32, dl_dst=fa:16:3e:30:a7:ec
+nw_proto=6, nw_src=251.154.112.0/20, nw_dst=83.78.47.15/32, dl_dst=fa:16:3e:7a:68:7b, eth_type=0x800
+nw_src=251.154.67.0/24, nw_dst=38.17.70.7/32, dl_dst=fa:16:3e:20:26:6c
+nw_src=251.154.64.0/23, nw_dst=38.17.70.4/32, dl_dst=fa:16:3e:73:ac:56
+nw_src=251.154.80.0/20, nw_dst=38.17.70.7/32, dl_dst=fa:16:3e:d3:93:0d
+nw_proto=1, nw_src=251.154.97.160/32, nw_dst=83.0.0.0/8, dl_dst=fa:16:3e:ab:f5:4f, eth_type=0x800
+nw_proto=1, nw_src=224.0.0.0/4, dl_src=fa:16:3e:67:e8:19, eth_type=0x800

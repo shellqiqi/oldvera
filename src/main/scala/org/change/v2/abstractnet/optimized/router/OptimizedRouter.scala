@@ -60,14 +60,14 @@ object OptimizedRouter {
   def getBuilder: OptimizedRouterElementBuilder =
     getBuilder(s"$genericElementName-$unnamedCount")
 
-  def getRoutingEntries(file: File): Seq[((Long, Long), String)] = {
+  def getRoutingEntries(file: File, prependFileName: Boolean = false): Seq[((Long, Long), String)] = {
     (for {
       line <- scala.io.Source.fromFile(file).getLines()
+      if  line.matches("[0-9].*")
       tokens = line.split("\\s+")
       if tokens.length >= 3
-      if tokens(0) != ""
       hopType = tokens(1)
-      if hopType != "receive" && hopType != "connected"
+      if hopType != "receive" && hopType != "connected" && hopType != "attached"
       matchPattern = tokens(0)
       forwardingPort = tokens(2)
     } yield (
@@ -80,7 +80,8 @@ object OptimizedRouter {
             (l,u)
           }
         },
-        forwardingPort
+        if (!prependFileName) forwardingPort
+        else file.getName.split("\\.")(0) + "-" + forwardingPort
         )).toSeq.sortBy(i => i._1._2 - i._1._1)
   }
 
@@ -233,7 +234,7 @@ object OptimizedRouter {
     }
   }
 
-  def makeNaiveRouter(f: File): OptimizedRouter = {
+  def makeNaiveRouter(f: File, prefix: String = ""): OptimizedRouter = {
     val table = getRoutingEntries(f)
 
     var conflictCount = 0L
@@ -262,7 +263,7 @@ object OptimizedRouter {
           else Nil
         }))
     }).groupBy(_._1).foldRight(Fail("No route"): Instruction)( (kv, a) =>
-      If(ConstrainRaw(IPDst, OR(kv._2.map(_._2).toList)), Forward(kv._1), a)
+      If(ConstrainRaw(IPDst, OR(kv._2.map(_._2).toList)), Forward(prefix+kv._1), a)
     )
 
     println("Routing table size " + table.length)
@@ -270,9 +271,9 @@ object OptimizedRouter {
 
     new OptimizedRouter("NAIVE","Router", Nil, Nil, Nil) {
       override def instructions: Map[LocationId, Instruction] = {
-        table.map(i => i._2 -> Forward(i._2+"_EXIT").asInstanceOf[Instruction]).toMap ++
-        table.map(i => i._2+"_EXIT" -> NoOp.asInstanceOf[Instruction]).toMap +
-        ("0" -> i)
+        table.map(i => prefix+i._2 -> Forward(prefix+i._2+"_EXIT").asInstanceOf[Instruction]).toMap ++
+        table.map(i => prefix+i._2+"_EXIT" -> NoOp.asInstanceOf[Instruction]).toMap +
+        (prefix+"0" -> i)
       }
     }
   }

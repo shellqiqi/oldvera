@@ -148,6 +148,18 @@ class RouterTests extends FunSuite {
   }
 
   test("Parse and run router") {
-    buildAndRun(Seq.empty)
+    // read input file
+    // parse to a sequence of (lower, and upper values)  corresponding to the various network prefixes
+    /// call build and run
+
+    val result = buildAndRun(Seq.empty)
+    println(result)
+    // analyze result
+  }
+
+  test("Can parse Cisco fibs") {
+    import org.change.v2.runners.experiments.routerexperiments._
+    val r  = ciscoFibsToSEFL(new File("/home/radu/ip_cef"))
+    println(r._1.size)
   }
 }

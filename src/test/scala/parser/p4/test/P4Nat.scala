@@ -31,7 +31,7 @@ class P4Nat extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         res.allParserStatesInstruction()
       ), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
@@ -50,7 +50,7 @@ class P4Nat extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         res.allParserStatesInstruction()
       ), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
@@ -87,7 +87,7 @@ class P4Nat extends FunSuite {
     import org.change.v2.analysis.memory.TagExp.IntImprovements
     val newinstrs = (codeAwareInstructionExecutor.program + ("router.control.ingress" -> newparserout)) + ("router.control.ingress.new" -> parserout)
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         InstructionBlock(
           CreateTag("START", 0),
           Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
@@ -118,7 +118,7 @@ class P4Nat extends FunSuite {
       Constrain("ipv4.srcAddr", :~:(:==:(:@("ipv4.dstAddr")))),
       Assign("tmp", :@("ipv4.dstAddr"))), codeAwareInstructionExecutor.program, "router")
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         InstructionBlock(
           CreateTag("START", 0),
           Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
@@ -176,7 +176,7 @@ class P4Nat extends FunSuite {
       Constrain("ipv4.IsValid", :==:(ConstantValue(1))),
       Constrain("tcp.IsValid", :==:(ConstantValue(1))),
       Constrain("ipv4.srcAddr", :~:(:==:(:@("ipv4.dstAddr"))))), codeAwareInstructionExecutor.program, "router")
-    val (initial, _) = codeAwareInstructionExecutor.execute(
+    val (initial, _) = codeAwareInstructionExecutor.runToCompletion(
       InstructionBlock(
         CreateTag("START", 0),
         Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
@@ -255,7 +255,7 @@ class P4Nat extends FunSuite {
       ),
       codeAwareInstructionExecutor.program, "router")
     val (initial, _) = codeAwareInstructionExecutor.
-      execute(InstructionBlock(
+      runToCompletion(InstructionBlock(
         InstructionBlock(
           CreateTag("START", 0),
           Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
@@ -265,14 +265,12 @@ class P4Nat extends FunSuite {
       CodeAwareInstructionExecutor(newinstrs, Map.empty, solver = new Z3BVSolver))
     printResults(dir, port, ok, failed, "reverse")
     // ok should output the reversed packet
-    assert(ok.nonEmpty &&
-      ok.forall(_.history.head == "router.output.1") &&
-      ok.forall(s =>
-        codeAwareInstructionExecutor.execute(Constrain("tmp111", :==:(:@("ethernet.srcAddr"))), s, true)._1.nonEmpty
-      ) &&
-      ok.forall(s =>
-        codeAwareInstructionExecutor.execute(Constrain("tmp111", :~:(:==:(:@("ethernet.srcAddr")))), s, true)._1.isEmpty
-      )
-    )
+    val nondropped = ok.filter(!_.dropped())
+    assert(nondropped.nonEmpty && nondropped.forall(_.history.head == "router.output.1"))
+    nondropped.foreach(s => {
+      val check1 = codeAwareInstructionExecutor.runToCompletion(Constrain("tmp111", :==:(:@("ethernet.srcAddr"))), s, true)
+      val check2 = codeAwareInstructionExecutor.runToCompletion(Constrain("tmp111", :~:(:==:(:@("ethernet.srcAddr")))), s, true)
+      assert(check1._1.nonEmpty && check2._1.isEmpty)
+    })
   }
 }

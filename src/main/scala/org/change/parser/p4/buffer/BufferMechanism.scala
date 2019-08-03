@@ -1,7 +1,11 @@
 package org.change.parser.p4.buffer
 
+import java.util.UUID
+
+import org.change.parser.p4.InitializeCode
 import org.change.parser.p4.parser.{DFSState, Graph}
-import org.change.v2.analysis.expression.concrete.ConstantValue
+import org.change.v2.analysis.expression.abst.FloatingExpression
+import org.change.v2.analysis.expression.concrete.{ConstantStringValue, ConstantValue}
 import org.change.v2.analysis.expression.concrete.nonprimitive.:@
 import org.change.v2.analysis.memory.{State, Tag}
 import org.change.v2.analysis.processingmodels.Instruction
@@ -15,22 +19,37 @@ import scala.collection.immutable.Stack
 /**
   * Created by dragos on 15.09.2017.
   */
-class BufferMechanism(switchInstance: ISwitchInstance) {
+class BufferMechanism(switch: Switch, switchInstance: ISwitchInstance) {
+  private val forwardingHelper = new ForwardingHelper(switch)
 
-  def cloneCase() = InstructionBlock(
-    switchInstance.getCloneSpec2EgressSpec.
-      foldRight(Fail("No clone mapping found. Resolve to drop") : Instruction)((x, acc) => {
-      If (Constrain(s"${switchInstance.getName}.CloneCookie", :==:(ConstantValue(x._1.longValue()))),
-        Assign("standard_metadata.egress_port", ConstantValue(x._2.longValue())),
-        acc
-      )
-    })
-  )
+  def clone(v : String, fllist : FieldList) : Instruction = {
+    val initcode = new InitializeCode[ISwitchInstance](switchInstance, switch)
+    val defaultFields = List("standard_metadata.ingres_port")
+    InstructionBlock(
+      initcode.initializeFields(),
+      initcode.initializeMetadata((if (fllist == null) Nil else fllist.getFields.toList) ++ defaultFields)
+    )
+  }
+
+  def cloneCase(instanceType : InstanceType): InstructionBlock = {
+    InstructionBlock(
+      switchInstance.getCloneSpec2EgressSpec.
+        foldRight(Fail("No clone mapping found. Resolve to drop") : Instruction)((x, acc) => {
+          If (Constrain(s"${switchInstance.getName}.clone_session", :==:(ConstantValue(x._1.longValue()))),
+            Assign("standard_metadata.egress_port", ConstantValue(x._2.longValue())),
+            acc
+          )
+        }),
+      forwardingHelper.handleFieldList("standard_metadata.clone_spec", allowEmpty = false, clone),
+      Assign("standard_metadata.instance_type", ConstantValue(instanceType.value)),
+      Forward(s"${switchInstance.getName}.control.egress")
+    )
+  }
 
   def normalCase(): Instruction = switchInstance.getIfaceSpec.keySet().
     foldRight(
       If (Constrain("standard_metadata.egress_spec", :==:(ConstantValue(511l))),
-        Fail("Egress spec set to 511 <=> dropping packet post ingress"),
+        Drop("Egress spec set to 511 <=> dropping packet post ingress"),
         Fail("Egress spec not set. Resolve to drop")
       ) : Instruction)((x, acc) => {
     If (Constrain("standard_metadata.egress_spec", :==:(ConstantValue(x.longValue()))),
@@ -39,34 +58,93 @@ class BufferMechanism(switchInstance: ISwitchInstance) {
     )
   })
 
-  def symnetCode() : Instruction = InstructionBlock(
-      If(Constrain("standard_metadata.instance_type", :|:(
-        :|:(
-          :==:(ConstantValue(InstanceType.PKT_INSTANCE_TYPE_NORMAL.value)),
-          :==:(ConstantValue(InstanceType.PKT_INSTANCE_TYPE_RESUBMIT.value))
-        ),
-        :==:(ConstantValue(InstanceType.PKT_INSTANCE_TYPE_RESUBMIT.value)))
-      ),
-        normalCase(),
-        cloneCase()
-      ),
-      out()
+  def resub(v : String, fllist : FieldList) : Instruction = {
+    val initcode = new InitializeCode[ISwitchInstance](switchInstance, switch)
+    val defaultFields = List("standard_metadata.ingres_port")
+    InstructionBlock(
+      initcode.initializeFields(),
+      initcode.initializeMetadata((if (fllist == null) Nil else fllist.getFields.toList) ++ defaultFields)
     )
+  }
+  def zeroizeFwMetas() = InstructionBlock(
+    Assign("standard_metadata.egress_spec", ConstantValue(0)),
+    Assign("standard_metadata.clone_spec", ConstantValue(0)),
+    Assign("standard_metadata.clone_session", ConstantValue(0)),
+    Assign("standard_metadata.resubmit_flag", ConstantValue(0)),
+    Assign("standard_metadata.recirculate_flag", ConstantValue(0))
+  )
 
+  def symnetCode() : Instruction = InstructionBlock(
+    If (Constrain("standard_metadata.clone_session", :~:(:==:(ConstantValue(0)))),
+      Fork(NoOp, cloneCase(InstanceType.PKT_INSTANCE_TYPE_INGRESS_CLONE))
+    ),
+    If (Constrain("standard_metadata.resubmit_flag", :~:(:==:(ConstantValue(0)))),
+      InstructionBlock(
+        forwardingHelper.handleFieldList("standard_metadata.resubmit_flag", allowEmpty = true, resub),
+        Assign("standard_metada.instance_type", ConstantValue(InstanceType.PKT_INSTANCE_TYPE_RESUBMIT.value)),
+        Forward(switchInstance.getName + ".parser")
+      ),
+      InstructionBlock(
+        normalCase(),
+        out()
+      )
+    ),
+    zeroizeFwMetas()
+  )
   def out() = Forward(outName())
 
   def outName() = s"${switchInstance.getName}.buffer.out"
+
+  def outputCode() : Instruction = {
+    InstructionBlock(
+      If (Constrain("standard_metadata.clone_session", :~:(:==:(ConstantValue(0)))),
+        Fork(NoOp,
+          cloneCase(InstanceType.PKT_INSTANCE_TYPE_EGRESS_CLONE)
+        )
+      ),
+      If (Constrain("standard_metadata.recirculate_flag", :~:(:==:(ConstantValue(0)))),
+        InstructionBlock(
+          forwardingHelper.handleFieldList("standard_metadata.recirculate_flag", allowEmpty = true, resub),
+          Assign("standard_metada.instance_type", ConstantValue(InstanceType.PKT_INSTANCE_TYPE_RECIRC.value)),
+          Forward(switchInstance.getName + ".parser")
+        ),
+        If (Constrain("standard_metadata.egress_spec", :==:(ConstantValue(511))),
+          Drop("standard metadata set to 511 at the end of egress"),
+          InstructionBlock(
+            switchInstance.getIfaceSpec.foldRight(
+              Fail("Cannot find egress_port match for current interfaces") : Instruction)((x, acc) => {
+              If (Constrain("standard_metadata.egress_port", :==:(ConstantValue(x._1.longValue()))),
+                Forward(s"${switchInstance.getName}.output.${x._1}"),
+                acc
+              )
+            })
+          )
+        )
+      ),
+      zeroizeFwMetas()
+    )
+  }
+
 }
 
-
-class OutputMechanism(switchInstance: ISwitchInstance) {
-  def symnetCode() : Instruction = {
-    switchInstance.getIfaceSpec.foldRight(Fail("Cannot find egress_port match for current interfaces") : Instruction)((x, acc) => {
-      If (Constrain("standard_metadata.egress_port", :==:(ConstantValue(x._1.longValue()))),
-        Forward(s"${switchInstance.getName}.output.${x._1}"),
-        acc
-      )
-    })
+class ForwardingHelper(switch: Switch) {
+  def handleFieldList(fieldName : String,
+                      allowEmpty : Boolean,
+                      f : Function2[String, FieldList, Instruction]) : Instruction = {
+    val actualList = if (!allowEmpty) switch.getFieldListMap.toIterable
+    else (switch.getFieldListMap + ("" -> null))
+    val justBefore = Assign("tmp", :@(fieldName))
+    val rn = s"tmp${UUID.randomUUID()}"
+    InstructionBlock(
+      Allocate(rn),
+      justBefore,
+      actualList.foldRight(Fail("field list not found") : Instruction)((x, acc) => {
+        If (Constrain(rn, :==:(ConstantStringValue(x._1))),
+          f(x._1, x._2),
+          acc
+        )
+      })
+    )
   }
 }
 
