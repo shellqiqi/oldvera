@@ -138,4 +138,27 @@ class AliTests extends FunSuite {
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "netcache")
   }
+
+  test("Flowlet") {
+    val dir = "ali_inputs/flowlet/"
+    val p4 = s"$dir/flowlet_switching-ppc.p4"
+    val dataplane = s"$dir/commands.txt"
+    val res = ControlFlowInterpreter(
+      p4,
+      dataplane,
+      Map[Int, String](1 -> "veth0", 2 -> "veth1"),
+      "router",
+      optAdditionalInitCode = Some((x, y) => {
+        new SymbolicRegistersInitFactory(x).initCode()
+      }))
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    printResults(dir, port, ok, failed, "flowlet")
+  }
 }
