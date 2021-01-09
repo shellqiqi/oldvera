@@ -79,7 +79,7 @@ class CodeAwareInstructionExecutor(val program : Map[String, Instruction],
         crt = x
         first = y
         if (CodeAwareInstructionExecutor.DEBUG)
-          System.out.println("now running " + crt.history.head)
+          System.out.println("[STAGE] " + crt.history.head)
       }
     }
     (o, f)

@@ -23,7 +23,11 @@ abstract class Executor[T] extends IExecutor[T] {
       !instruction.isInstanceOf[InstructionBlock] &&
       !instruction.isTool &&
       !instruction.isInstanceOf[Translatable])
-      state.addInstructionToHistory(instruction)
+      {
+        if (CodeAwareInstructionExecutor.DEBUG)
+          println("\t" + instruction)
+        state.addInstructionToHistory(instruction)
+      }
     else
       state
     val as = instruction match {
@@ -50,12 +54,18 @@ abstract class Executor[T] extends IExecutor[T] {
         executeDestroyTag(v, s, verbose)
       case v: Fail =>
         executeFail(v, s, verbose)
-      case v: Fork =>
+      case v: Fork => {
+        if (CodeAwareInstructionExecutor.DEBUG)
+          println("\t[FORK] ...")
         executeFork(v, s, verbose)
+      }
       case v: Forward =>
         executeForward(v, s, verbose)
-      case v: If =>
+      case v: If => {
+        if (CodeAwareInstructionExecutor.DEBUG)
+          println("\t[IF] ...")
         executeIf(v, s, verbose)
+      }
       case v: InstructionBlock =>
         executeInstructionBlock(v, s, verbose)
       case _ =>

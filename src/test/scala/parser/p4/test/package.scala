@@ -22,13 +22,13 @@ package object test {
 
  def executeAndPrintStats(ib: Instruction, initial: List[State], codeAwareInstructionExecutor : CodeAwareInstructionExecutor): (List[State], List[State]) = {
     val init = System.currentTimeMillis()
-    println("program size " + codeAwareInstructionExecutor.program.size + " ports")
+    println("[VERA] Start timing. Program size " + codeAwareInstructionExecutor.program.size + " ports.")
     val (ok, failed) = initial.foldLeft((Nil, Nil): (List[State], List[State]))((acc, init) => {
       val (o, f) = codeAwareInstructionExecutor.runToCompletion(ib, init, true)
       (acc._1 ++ o, acc._2 ++ f)
     })
-    println(s"Failed # ${failed.size}, Ok # ${ok.size}")
-    println(s"Time is ${System.currentTimeMillis() - init}ms")
+    println(s"[VERA] Failed # ${failed.size}, Ok # ${ok.size}")
+    println(s"[VERA] Time is ${System.currentTimeMillis() - init}ms")
     (ok, failed)
   }
 

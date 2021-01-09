@@ -47,7 +47,7 @@ class AliTests extends FunSuite {
     printResults(dir, port, ok, failed, "ndp")
   }
 
-  test("NetPaxos-acceptor") {
+  test("NetPaxos-acceptor") { // ERROR: Stack overflow
     val dir = "ali_inputs/netpaxos/"
     val p4 = s"$dir/acceptor-ppc.p4"
     val dataplane = s"$dir/acceptor-commands.txt"
@@ -66,6 +66,30 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    printResults(dir, port, ok, failed, "acceptor")
+  }
+
+  test("NetPaxos-acceptor-debug") {
+    val dir = "ali_inputs/netpaxos/"
+    val p4 = s"$dir/acceptor-ppc-cyq.p4" // Modified P4 file
+    val dataplane = s"$dir/acceptor-commands.txt"
+    val res = ControlFlowInterpreter(
+      p4,
+      dataplane,
+      Map[Int, String](1 -> "veth0", 2 -> "veth1"),
+      "router",
+      optAdditionalInitCode = Some((x, y) => {
+        new SymbolicRegistersInitFactory(x).initCode()
+      }))
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "acceptor")
   }
