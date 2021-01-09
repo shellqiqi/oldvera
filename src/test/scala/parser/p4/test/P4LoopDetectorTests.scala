@@ -5,7 +5,7 @@ import java.io.{BufferedOutputStream, FileOutputStream, PrintStream}
 import org.change.parser.p4.tables.SymbolicSwitchInstance
 import org.change.parser.p4.{ControlFlowInterpreter, P4ExecutionContext}
 import org.change.utils.prettifier.JsonUtil
-import org.change.v2.analysis.executor.OVSExecutor
+import org.change.v2.analysis.executor.{CodeAwareInstructionExecutor, OVSExecutor}
 import org.change.v2.analysis.executor.loopdetection.BVLoopDetectingExecutor
 import org.change.v2.analysis.executor.solvers.Z3BVSolver
 import org.change.v2.analysis.expression.concrete.ConstantValue

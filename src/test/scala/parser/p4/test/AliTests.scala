@@ -1,9 +1,9 @@
 package parser.p4.test
 
 import com.sun.org.apache.xml.internal.utils.StringToIntTable
-
 import java.io.{BufferedInputStream, BufferedOutputStream, FileOutputStream, PrintStream}
 import java.util
+
 import org.change.parser.p4._
 import org.change.parser.p4.parser.{DFSState, StateExpander}
 import org.change.utils.prettifier.JsonUtil
@@ -22,6 +22,7 @@ import org.change.parser.p4.P4PrettyPrinter._
 import org.change.parser.p4.tables._
 import org.change.parser.p4
 import org.change.parser.p4.factories.{FullTableFactory, SymbolicRegistersInitFactory}
+import org.change.v2.analysis.executor.loopdetection.BVLoopDetectingExecutor
 
 class AliTests extends FunSuite {
   test("NDP") {
@@ -136,6 +137,30 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    printResults(dir, port, ok, failed, "netchain")
+  }
+
+  test("NetChain-debug") {
+    val dir = "ali_inputs/netchain/"
+    val p4 = s"$dir/netchain-ppc-cyq.p4"
+    val dataplane = s"$dir/commands_3.txt"
+    val res = ControlFlowInterpreter(
+      p4,
+      dataplane,
+      Map[Int, String](1 -> "veth0", 2 -> "veth1"),
+      "router",
+      optAdditionalInitCode = Some((x, y) => {
+        new SymbolicRegistersInitFactory(x).initCode()
+      }))
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     printResults(dir, port, ok, failed, "netchain")
   }
