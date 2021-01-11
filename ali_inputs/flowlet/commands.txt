@@ -4,7 +4,7 @@ table_set_default ecmp_group _drop
 table_set_default ecmp_nhop _drop
 table_set_default forward _drop
 table_set_default send_frame _drop
-table_add ecmp_group set_ecmp_select 10.0.0.1 => 1 2
+table_add ecmp_group set_ecmp_select 10.0.0.1/8 => 1 2
 table_add ecmp_nhop set_nhop 1 => 10.0.0.2 2
 table_add forward set_dmac 10.0.0.2 => 11:22:33:44:55:66
 table_add send_frame rewrite_mac 2 => 11:22:33:44:55:66
