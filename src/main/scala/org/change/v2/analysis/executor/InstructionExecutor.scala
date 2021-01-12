@@ -53,7 +53,8 @@ abstract class Executor[T] extends IExecutor[T] {
       case v: DestroyTag =>
         executeDestroyTag(v, s, verbose)
       case v: Fail =>
-        println("\t[FAIL] " + instruction)
+        if (CodeAwareInstructionExecutor.DEBUG)
+          println("\t[FAIL] " + instruction)
         executeFail(v, s, verbose)
       case v: Fork =>
         if (CodeAwareInstructionExecutor.DEBUG)
