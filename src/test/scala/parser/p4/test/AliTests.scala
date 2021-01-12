@@ -1,28 +1,16 @@
 package parser.p4.test
 
-import com.sun.org.apache.xml.internal.utils.StringToIntTable
-import java.io.{BufferedInputStream, BufferedOutputStream, FileOutputStream, PrintStream}
-import java.util
-
-import org.change.parser.p4._
-import org.change.parser.p4.parser.{DFSState, StateExpander}
-import org.change.utils.prettifier.JsonUtil
-import org.change.v2.analysis.executor.{CodeAwareInstructionExecutor, DecoratedInstructionExecutor, OVSExecutor}
+import org.change.parser.p4.ControlFlowInterpreter
+import org.change.parser.p4.factories.SymbolicRegistersInitFactory
+import org.change.parser.p4.parser.SwitchBasedParserGenerator
+import org.change.parser.p4.tables.SymbolicSwitchInstance
+import org.change.v2.analysis.executor.CodeAwareInstructionExecutor
 import org.change.v2.analysis.executor.solvers.Z3BVSolver
-import org.change.v2.analysis.expression.concrete.ConstantValue
-import org.change.v2.analysis.memory.{State, Tag}
+import org.change.v2.analysis.memory.State
+import org.change.v2.analysis.memory.TagExp.IntImprovements
 import org.change.v2.analysis.processingmodels.instructions._
-import org.change.v2.executor.clickabstractnetwork.ClickExecutionContext
-import org.change.v2.p4.model.updated.instance.MetadataInstance
-import org.change.v2.p4.model.{Switch, SwitchInstance}
+import org.change.v2.p4.model.Switch
 import org.scalatest.FunSuite
-
-import scala.collection.JavaConversions._
-import org.change.parser.p4.P4PrettyPrinter._
-import org.change.parser.p4.tables._
-import org.change.parser.p4
-import org.change.parser.p4.factories.{FullTableFactory, SymbolicRegistersInitFactory}
-import org.change.v2.analysis.executor.loopdetection.BVLoopDetectingExecutor
 
 class AliTests extends FunSuite {
   test("NDP") {
@@ -45,7 +33,7 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "ndp")
+    // printResults(dir, port, ok, failed, "ndp")
   }
 
   test("NetPaxos-acceptor") { // ERROR: Stack overflow
@@ -68,7 +56,7 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "acceptor")
+    // printResults(dir, port, ok, failed, "acceptor")
   }
 
   test("NetPaxos-acceptor-debug") {
@@ -90,9 +78,9 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
-    CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
+    // CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "acceptor")
+    // printResults(dir, port, ok, failed, "acceptor")
   }
 
   test("NetPaxos-coordinator") {
@@ -115,7 +103,7 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "coordinator")
+    // printResults(dir, port, ok, failed, "coordinator")
   }
 
   test("NetChain") {
@@ -138,7 +126,7 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "netchain")
+    // printResults(dir, port, ok, failed, "netchain")
   }
 
   test("NetChain-debug") {
@@ -160,9 +148,9 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
-    CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
+    // CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "netchain")
+    // printResults(dir, port, ok, failed, "netchain-debug")
   }
 
   test("NetCache") {
@@ -185,7 +173,7 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "netcache")
+    // printResults(dir, port, ok, failed, "netcache")
   }
 
   test("NetCache-nohash") {
@@ -208,7 +196,7 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    // printResults(dir, port, ok, failed, "netcache")
+    // printResults(dir, port, ok, failed, "netcache-nohash")
   }
 
   test("Flowlet") { // Failed because hash field not supported
@@ -231,7 +219,7 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "flowlet")
+    // printResults(dir, port, ok, failed, "flowlet")
   }
 
   test("Flowlet-nohash") {
@@ -254,10 +242,10 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "flowlet")
+    // printResults(dir, port, ok, failed, "flowlet-nohash")
   }
 
-  test("Switch") {
+  test("Switch-w-reg") { // too slow with registers
     val dir = "inputs/big-switch/"
     val p4 = s"$dir/switch-ppc-orig.p4"
     val dataplane = s"$dir/pd-L2Test.txt"
@@ -284,6 +272,114 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
-    printResults(dir, port, ok, failed, "switch")
+    // printResults(dir, port, ok, failed, "switch")
+  }
+
+  test("Switch-wo-reg") { // too slow without registers
+    val dir = "inputs/big-switch/"
+    val p4 = s"$dir/switch-ppc-orig.p4"
+    val dataplane = s"$dir/pd-L2Test.txt"
+    val ifaces = Map[Int, String](
+      0 -> "veth0", 1 -> "veth2",
+      2 -> "veth4", 3 -> "veth6",
+      4 -> "veth8", 5 -> "veth10",
+      6 -> "veth12", 7 -> "veth14",
+      8 -> "veth16", 64 -> "veth250"
+    )
+    val res = ControlFlowInterpreter(
+      p4,
+      dataplane,
+      ifaces,
+      "router")
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    // printResults(dir, port, ok, failed, "switch")
+  }
+
+  test("Switch-parser-sefl") { // without registers, with deterministic SEFL parser code
+    val dir = "inputs/big-switch/"
+    val p4 = s"$dir/switch-ppc-orig.p4"
+    val dataplane = s"$dir/pd-L2Test.txt"
+    val ifaces = Map[Int, String](
+      0 -> "veth0", 1 -> "veth2",
+      2 -> "veth4", 3 -> "veth6",
+      4 -> "veth8", 5 -> "veth10",
+      6 -> "veth12", 7 -> "veth14",
+      8 -> "veth16", 64 -> "veth250"
+    )
+    val sw = Switch.fromFile(p4)
+    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("router",
+      ifaces,
+      Map.empty,
+      sw,
+      dataplane)
+    val port = 1
+    val res = new ControlFlowInterpreter(switchInstance, switch = sw,
+      optParserGenerator = Some(
+        new SwitchBasedParserGenerator(switch = sw,
+          switchInstance = switchInstance, codeFilter = Some((x : String) => {
+            x.contains("parse_ethernet") &&
+              x.contains("parse_ipv4") &&
+              x.contains("parse_tcp")
+          }))
+      )
+    )
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(
+        res.allParserStatesInstruction()
+      ), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    // printResults(dir, port, ok, failed, "switch")
+  }
+
+  test("Switch-parser-gen") { // without registers, with deterministic SEFL parser code and packet types
+    val dir = "inputs/big-switch/"
+    val p4 = s"$dir/switch-ppc-orig.p4"
+    val dataplane = s"$dir/pd-L2Test.txt"
+    val ifaces = Map[Int, String](
+      0 -> "veth0", 1 -> "veth2",
+      2 -> "veth4", 3 -> "veth6",
+      4 -> "veth8", 5 -> "veth10",
+      6 -> "veth12", 7 -> "veth14",
+      8 -> "veth16", 64 -> "veth250"
+    )
+    val sw = Switch.fromFile(p4)
+    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("router",
+      ifaces,
+      Map.empty,
+      sw,
+      dataplane)
+    val port = 1
+    val res = new ControlFlowInterpreter(switchInstance, switch = sw,
+      optParserGenerator = Some(
+        new SwitchBasedParserGenerator(switch = sw,
+          switchInstance = switchInstance, codeFilter = Some((x : String) => {
+            x.contains("parse_ethernet") &&
+              x.contains("parse_ipv4") &&
+              x.contains("parse_tcp")
+          }))
+      )
+    )
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(
+        CreateTag("START", 0),
+        Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
+      ), State.clean, verbose = true)
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    // printResults(dir, port, ok, failed, "switch")
   }
 }
