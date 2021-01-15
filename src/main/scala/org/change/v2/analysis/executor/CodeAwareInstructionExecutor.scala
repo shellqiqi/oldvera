@@ -69,12 +69,12 @@ class CodeAwareInstructionExecutor(val program : Map[String, Instruction],
     var continue = true
     var o = List.empty[State]
     var f = List.empty[State]
-    while (continue) {
+    while (continue && !(FAILED && FAIL_STOP)) {
       val (o1, f1, c) = run(first, crt, verbose = true)
       o = o1 ++ o
       f = f1 ++ f
       continue = c
-      if (continue) {
+      if (continue && !(FAILED && FAIL_STOP)) {
         val (x, y) = pop().get
         crt = x
         first = y

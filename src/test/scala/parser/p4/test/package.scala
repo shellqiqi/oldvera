@@ -22,6 +22,7 @@ package object test {
 
  def executeAndPrintStats(ib: Instruction, initial: List[State], codeAwareInstructionExecutor : CodeAwareInstructionExecutor): (List[State], List[State]) = {
     val init = System.currentTimeMillis()
+    codeAwareInstructionExecutor.START_TIME = init
     println("[VERA] Start timing. Program size " + codeAwareInstructionExecutor.program.size + " ports.")
     val (ok, failed) = initial.foldLeft((Nil, Nil): (List[State], List[State]))((acc, init) => {
       val (o, f) = codeAwareInstructionExecutor.runToCompletion(ib, init, true)

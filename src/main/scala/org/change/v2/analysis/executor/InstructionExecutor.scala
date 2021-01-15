@@ -8,6 +8,8 @@ import org.change.v2.analysis.memory.{Intable, MemorySpace, State, TagExp}
 import org.change.v2.analysis.processingmodels.Instruction
 import org.change.v2.analysis.processingmodels.instructions._
 
+import scala.util.matching.Regex
+
 trait IExecutor[T] {
   def execute(instruction: Instruction,
               state: State, verbose: Boolean): T
@@ -15,6 +17,11 @@ trait IExecutor[T] {
 
 
 abstract class Executor[T] extends IExecutor[T] {
+  var START_TIME: Long = 0L
+  var FAILED = false // whether hit failed
+  var FAIL_STOP = false // whether stop when failed
+  var FAIL_FILTER: Regex = ".*".r // Fail instructions filter
+
   override def execute(instruction: Instruction,
                        state: State, verbose: Boolean): T = {
     val s = if (verbose &&
@@ -54,7 +61,10 @@ abstract class Executor[T] extends IExecutor[T] {
         executeDestroyTag(v, s, verbose)
       case v: Fail =>
         if (CodeAwareInstructionExecutor.DEBUG)
-          println("\t[FAIL] " + instruction)
+          println(s"\t[FAIL] ${System.currentTimeMillis() - START_TIME}ms " + instruction)
+        if (FAIL_FILTER.findFirstMatchIn(instruction.toString).isDefined) {
+          FAILED = true
+        }
         executeFail(v, s, verbose)
       case v: Fork =>
         if (CodeAwareInstructionExecutor.DEBUG)

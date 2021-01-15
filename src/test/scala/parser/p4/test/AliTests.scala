@@ -30,6 +30,9 @@ class AliTests extends FunSuite {
       Forward(s"router.input.$port")
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    // CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
