@@ -420,4 +420,42 @@ class AliTests extends FunSuite {
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     // printResults(dir, port, ok, failed, "switch")
   }
+
+  test("Switch-sefl-timing") {
+    var startTime = System.currentTimeMillis()
+    val dir = "inputs/big-switch/"
+    val p4 = s"$dir/switch-ppc-orig.p4"
+    val dataplane = s"$dir/pd-L2Test.txt"
+    val ifaces = Map[Int, String](
+      0 -> "veth0", 1 -> "veth2",
+      2 -> "veth4", 3 -> "veth6",
+      4 -> "veth8", 5 -> "veth10",
+      6 -> "veth12", 7 -> "veth14",
+      8 -> "veth16", 64 -> "veth250"
+    )
+    val res = ControlFlowInterpreter(
+      p4,
+      dataplane,
+      ifaces,
+      "router")
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    println(s"SEFL generation time: ${System.currentTimeMillis() - startTime}ms")
+    println("Program size: " + codeAwareInstructionExecutor.program.size)
+    startTime = System.currentTimeMillis()
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(
+        res.allParserStatesInstruction()
+      ), State.clean, verbose = true)
+    println(s"Parser states generation time: ${System.currentTimeMillis() - startTime}ms")
+    println(s"Initial states gathered ${initial.size}")
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
+    startTime = System.currentTimeMillis()
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    println(s"First invalid access error time: ${System.currentTimeMillis() - startTime}ms")
+  }
 }
