@@ -31,10 +31,10 @@ class AliTests extends FunSuite {
     )
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     // CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
-    codeAwareInstructionExecutor.FAIL_STOP = true
-    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     // printResults(dir, port, ok, failed, "ndp")
   }
@@ -58,6 +58,8 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     // printResults(dir, port, ok, failed, "ndp")
   }
@@ -105,6 +107,8 @@ class AliTests extends FunSuite {
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
     // CodeAwareInstructionExecutor.DEBUG = true // Set DEBUG to true to print SEFL instructions
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     // printResults(dir, port, ok, failed, "acceptor")
   }
@@ -128,11 +132,13 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     // printResults(dir, port, ok, failed, "coordinator")
   }
 
-  test("NetChain") {
+  test("NetChain") { // Failed
     val dir = "ali_inputs/netchain/"
     val p4 = s"$dir/netchain-ppc.p4"
     val dataplane = s"$dir/commands_3.txt"
@@ -155,7 +161,7 @@ class AliTests extends FunSuite {
     // printResults(dir, port, ok, failed, "netchain")
   }
 
-  test("NetChain-debug") {
+  test("NetChain-debug") { // Deparser loop
     val dir = "ali_inputs/netchain/"
     val p4 = s"$dir/netchain-ppc-cyq.p4"
     val dataplane = s"$dir/commands_3.txt"
@@ -179,7 +185,7 @@ class AliTests extends FunSuite {
     // printResults(dir, port, ok, failed, "netchain-debug")
   }
 
-  test("NetCache") {
+  test("NetCache") { // Failed because hash fields
     val dir = "ali_inputs/netcache/"
     val p4 = s"$dir/netcache-ppc.p4"
     val dataplane = s"$dir/commands.txt"
@@ -221,6 +227,8 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     // printResults(dir, port, ok, failed, "netcache-nohash")
   }
@@ -267,6 +275,8 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     // printResults(dir, port, ok, failed, "flowlet-nohash")
   }
@@ -405,6 +415,8 @@ class AliTests extends FunSuite {
         CreateTag("START", 0),
         Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
       ), State.clean, verbose = true)
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
     // printResults(dir, port, ok, failed, "switch")
   }
