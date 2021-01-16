@@ -19,8 +19,16 @@ package object test {
 
   val PRINTER_OUTPUT_TO_FILE = true
 
+  def executeSilently(ib: Instruction,
+                      initial: List[State],
+                      exe: CodeAwareInstructionExecutor): (List[State], List[State]) = {
+    initial.foldLeft((Nil, Nil): (List[State], List[State]))((acc, init) => {
+      val (o, f) = exe.runToCompletion(ib, init, verbose = true)
+      (acc._1 ++ o, acc._2 ++ f)
+    })
+  }
 
- def executeAndPrintStats(ib: Instruction, initial: List[State], codeAwareInstructionExecutor : CodeAwareInstructionExecutor): (List[State], List[State]) = {
+  def executeAndPrintStats(ib: Instruction, initial: List[State], codeAwareInstructionExecutor: CodeAwareInstructionExecutor): (List[State], List[State]) = {
     val init = System.currentTimeMillis()
     codeAwareInstructionExecutor.START_TIME = init
     println("[VERA] Start timing. Program size " + codeAwareInstructionExecutor.program.size + " ports.")
@@ -29,11 +37,11 @@ package object test {
       (acc._1 ++ o, acc._2 ++ f)
     })
     println(s"[VERA] Failed # ${failed.size}, Ok # ${ok.size}")
-    println(s"[VERA] Time is ${System.currentTimeMillis() - init}ms")
+    println(s"[VERA] Time is ${System.currentTimeMillis() - init} ms")
     (ok, failed)
   }
 
-  def createReverse(withName : String): Map[String, Instruction] = {
+  def createReverse(withName: String): Map[String, Instruction] = {
     val dir = "inputs/reverse-p4/"
     val p4 = s"$dir/reverse.p4"
     val dataplane = s"$dir/commands-rev.txt"
@@ -41,7 +49,7 @@ package object test {
     CodeAwareInstructionExecutor.flattenProgram(res.instructions(), res.links())
   }
 
-  def postParserInject(parserout : Instruction, program : Map[String, Instruction], name : String = "router"): Map[String, Instruction] = {
+  def postParserInject(parserout: Instruction, program: Map[String, Instruction], name: String = "router"): Map[String, Instruction] = {
     val newparserout = InstructionBlock(
       parserout,
       Forward(s"$name.control.ingress.new")
@@ -49,7 +57,8 @@ package object test {
     val oldone = program(s"$name.control.ingress")
     (program + (s"$name.control.ingress" -> newparserout)) + (s"$name.control.ingress.new" -> oldone)
   }
-  def postParserInjectCaie(parserout : Instruction, program : Map[String, Instruction], name : String = "router"): CodeAwareInstructionExecutor = {
+
+  def postParserInjectCaie(parserout: Instruction, program: Map[String, Instruction], name: String = "router"): CodeAwareInstructionExecutor = {
     CodeAwareInstructionExecutor(postParserInject(parserout, program, name), Map.empty, new Z3BVSolver)
   }
 
@@ -83,6 +92,7 @@ package object test {
     val funres = function0()
     (funres, System.currentTimeMillis() - init)
   }
+
   def createConsumer(dir: String): (PrintStream, PrintStream, State => Unit) = {
     val failIndex = new PrintStream(s"$dir/index-fail.html")
     val successIndex = new PrintStream(s"$dir/index-success.html")
@@ -119,13 +129,13 @@ package object test {
   }
 
   def setupAndRun(dir: String, p4: String, dataplane: String,
-              postParserInjection: Instruction,
-              ifaces: Map[Int, String],
-              outputDir: String,
-              packetLayout : String,
-              port: Int, genFactory: (Switch, ISwitchInstance) => ParserGenerator,
-              useSyms : Boolean  = false,
-              forceSyms : Boolean = false): Unit = {
+                  postParserInjection: Instruction,
+                  ifaces: Map[Int, String],
+                  outputDir: String,
+                  packetLayout: String,
+                  port: Int, genFactory: (Switch, ISwitchInstance) => ParserGenerator,
+                  useSyms: Boolean = false,
+                  forceSyms: Boolean = false): Unit = {
     assert(!forceSyms || useSyms)
     val sw = Switch.fromFile(p4)
     val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("switch",

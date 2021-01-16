@@ -61,7 +61,7 @@ abstract class Executor[T] extends IExecutor[T] {
         executeDestroyTag(v, s, verbose)
       case v: Fail =>
         if (CodeAwareInstructionExecutor.DEBUG)
-          println(s"\t[FAIL] ${System.currentTimeMillis() - START_TIME}ms " + instruction)
+          println(s"\t[FAIL] ${System.currentTimeMillis() - START_TIME} ms " + instruction)
         if (FAIL_FILTER.findFirstMatchIn(instruction.toString).isDefined) {
           FAILED = true
         }
