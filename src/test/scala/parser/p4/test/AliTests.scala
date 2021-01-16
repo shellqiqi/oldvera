@@ -421,11 +421,92 @@ class AliTests extends FunSuite {
     // printResults(dir, port, ok, failed, "switch")
   }
 
+  test("Switch-noint-parser-gen") { // without registers, with deterministic SEFL parser code and packet types
+    val dir = "inputs/big-switch/"
+    val p4 = s"$dir/switch-noint.p4"
+    val dataplane = s"$dir/pd-L2Test.txt"
+    val ifaces = Map[Int, String](
+      0 -> "veth0", 1 -> "veth2",
+      2 -> "veth4", 3 -> "veth6",
+      4 -> "veth8", 5 -> "veth10",
+      6 -> "veth12", 7 -> "veth14",
+      8 -> "veth16", 64 -> "veth250"
+    )
+    val sw = Switch.fromFile(p4)
+    val switchInstance = SymbolicSwitchInstance.fromFileWithSyms("router",
+      ifaces,
+      Map.empty,
+      sw,
+      dataplane)
+    val port = 1
+    val res = new ControlFlowInterpreter(switchInstance, switch = sw,
+      optParserGenerator = Some(
+        new SwitchBasedParserGenerator(switch = sw,
+          switchInstance = switchInstance, codeFilter = Some((x : String) => {
+            x.contains("parse_ethernet") &&
+              x.contains("parse_ipv4") &&
+              x.contains("parse_tcp")
+          }))
+      )
+    )
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(
+        CreateTag("START", 0),
+        Call("router.generator.parse_ethernet.parse_ipv4.parse_tcp")
+      ), State.clean, verbose = true)
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    // printResults(dir, port, ok, failed, "switch")
+  }
+
   test("Switch-sefl-timing") {
     var startTime = System.currentTimeMillis()
     val dir = "inputs/big-switch/"
     val p4 = s"$dir/switch-ppc-orig.p4"
     val dataplane = s"$dir/pd-L2Test.txt"
+    val ifaces = Map[Int, String](
+      0 -> "veth0", 1 -> "veth2",
+      2 -> "veth4", 3 -> "veth6",
+      4 -> "veth8", 5 -> "veth10",
+      6 -> "veth12", 7 -> "veth14",
+      8 -> "veth16", 64 -> "veth250"
+    )
+    val res = ControlFlowInterpreter(
+      p4,
+      dataplane,
+      ifaces,
+      "router")
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    println(s"SEFL generation time: ${System.currentTimeMillis() - startTime}ms")
+    println("Program size: " + codeAwareInstructionExecutor.program.size)
+    startTime = System.currentTimeMillis()
+    val (initial, _) = codeAwareInstructionExecutor.
+      runToCompletion(InstructionBlock(
+        res.allParserStatesInstruction()
+      ), State.clean, verbose = true)
+    println(s"Parser states generation time: ${System.currentTimeMillis() - startTime}ms")
+    println(s"Initial states gathered ${initial.size}")
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
+    startTime = System.currentTimeMillis()
+    val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    println(s"First invalid access error time: ${System.currentTimeMillis() - startTime}ms")
+  }
+
+  test("Switch-noint-sefl-timing") {
+    var startTime = System.currentTimeMillis()
+    val dir = "inputs/big-switch/"
+    val p4 = s"$dir/switch-noint.p4"
+    val dataplane = s"$dir/pd-L2VxlanTunnelTest.txt"
     val ifaces = Map[Int, String](
       0 -> "veth0", 1 -> "veth2",
       2 -> "veth4", 3 -> "veth6",

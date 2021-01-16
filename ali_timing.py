@@ -8,6 +8,7 @@ tests = [
   "NetPaxosCoordinator",
   "NetCache",
   "Flowlet",
+  "SwitchNoINT",
   "SwitchINT"
 ]
 

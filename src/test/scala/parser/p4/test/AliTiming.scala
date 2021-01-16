@@ -175,6 +175,37 @@ class AliTiming extends FunSuite {
     println(s"${System.currentTimeMillis() - startTime}")
   }
 
+  test("SwitchNoINT") {
+    val startTime = System.currentTimeMillis()
+    val dir = "inputs/big-switch/"
+    val p4 = s"$dir/switch-noint.p4"
+    val dataplane = s"$dir/pd-L2Test.txt"
+    val ifaces = Map[Int, String](
+      0 -> "veth0", 1 -> "veth2",
+      2 -> "veth4", 3 -> "veth6",
+      4 -> "veth8", 5 -> "veth10",
+      6 -> "veth12", 7 -> "veth14",
+      8 -> "veth16", 64 -> "veth250"
+    )
+    val res = ControlFlowInterpreter(
+      p4,
+      dataplane,
+      ifaces,
+      "router")
+    val port = 1
+    val ib = InstructionBlock(
+      Forward(s"router.input.$port")
+    )
+    val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
+    val (initial, _) = codeAwareInstructionExecutor.runToCompletion(InstructionBlock(
+      res.allParserStatesInstruction()
+    ), State.clean, verbose = true)
+    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
+    executeSilently(ib, initial, codeAwareInstructionExecutor)
+    println(s"${System.currentTimeMillis() - startTime}")
+  }
+
   test("SwitchINT") {
     val startTime = System.currentTimeMillis()
     val dir = "inputs/big-switch/"
