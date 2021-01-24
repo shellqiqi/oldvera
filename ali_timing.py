@@ -7,9 +7,7 @@ tests = [
   "NetPaxosAcceptor",
   "NetPaxosCoordinator",
   "NetCache",
-  "Flowlet",
-  "SwitchNoINT",
-  "SwitchINT"
+  "Flowlet"
 ]
 
 for t in tests:
