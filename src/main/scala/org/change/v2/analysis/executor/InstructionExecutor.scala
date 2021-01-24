@@ -21,6 +21,7 @@ abstract class Executor[T] extends IExecutor[T] {
   var FAILED = false // whether hit failed
   var FAIL_STOP = false // whether stop when failed
   var FAIL_FILTER: Regex = ".*".r // Fail instructions filter
+  var FAIL_COUNTER = 0
 
   override def execute(instruction: Instruction,
                        state: State, verbose: Boolean): T = {
@@ -64,6 +65,7 @@ abstract class Executor[T] extends IExecutor[T] {
           println(s"\t[FAIL] ${System.currentTimeMillis() - START_TIME} ms " + instruction)
         if (FAIL_FILTER.findFirstMatchIn(instruction.toString).isDefined) {
           FAILED = true
+          FAIL_COUNTER = FAIL_COUNTER + 1
         }
         executeFail(v, s, verbose)
       case v: Fork =>

@@ -227,9 +227,10 @@ class AliTests extends FunSuite {
     val codeAwareInstructionExecutor = CodeAwareInstructionExecutor(res.instructions(), res.links(), solver = new Z3BVSolver)
     val (initial, _) = codeAwareInstructionExecutor.
       runToCompletion(InstructionBlock(res.allParserStatesInstruction()), State.clean, verbose = true)
-    codeAwareInstructionExecutor.FAIL_STOP = true
+    codeAwareInstructionExecutor.FAIL_STOP = false
     codeAwareInstructionExecutor.FAIL_FILTER = "Cannot resolve reference".r
     val (ok: List[State], failed: List[State]) = executeAndPrintStats(ib, initial, codeAwareInstructionExecutor)
+    println(s"Triggered ${codeAwareInstructionExecutor.FAIL_COUNTER}")
     // printResults(dir, port, ok, failed, "netcache-nohash")
   }
 
